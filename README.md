@@ -24,6 +24,7 @@
 
 - Emotional check-in: 1/10 or weather check
 - What I did yesterday / what I'm doing today / any blockers 
+- [XP Values](http://www.extremeprogramming.org/values.html)
 
 ### Product build & retrospective: :raised_hands:
 
@@ -138,9 +139,15 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
+## Testing
+- [ ] 95% or greater test coverage.
+- [ ] Unit tests:
+  - [ ] test one piece of your own logic.
+  - [ ] fail if that logic breaks.
+  - [ ] pass if it that logic produces the expected result.
+- [ ] You can articulate why any test exists (or does not exist).
+- [ ] Every feature is tested from the user's perspective.
 
-Explain how to run the automated tests for this system
 
 ### Break down into end to end tests
 
@@ -172,9 +179,6 @@ Heroku (Add additional notes about how to deploy this on a live system)
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors :trophy:
 
