@@ -188,4 +188,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 # Thursday (12.09.19)
 -
 # Friday (13.09.19)
-- **DEMO DAY
+- **DEMO DAY**
