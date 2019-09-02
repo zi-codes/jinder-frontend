@@ -6,12 +6,13 @@ Makers Academy Final Project. For this project, we designed a web application us
 Product & Teamwork
 
 ## Process/Project Governance
-Pairing/solo when required
+   - Pairing/solo when required
 ### StandUP 9:30am
-    - Emotional checkin
+    - Emotional check-in: 1/10 or weather check
     - What I did yesterday / what I'm doing today / any blockers 
 ### Kanban & Given / When / Then
-### Product build & retrospective: Every 2days (inc. standup)
+### Product build & retrospective: 
+    - Every 2 days (inc. standup)
 ### Product Process & code quality:
     - No pushes to master unless peer reviewed 
     - Pushes frequent & often
