@@ -173,7 +173,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 # Tuesday (03.09.19)
 -
 # Wednesday (04.09.19)
--
+- MVP done
 # Thursday (05.09.19)
 -
 # Friday (06.09.19)
@@ -184,8 +184,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 # Tuesday (10.09.19)
 -
 # Wednesday (11.09.19)
--
+- Feauture Freeze
 # Thursday (12.09.19)
 -
 # Friday (13.09.19)
--
+- **DEMO DAY
