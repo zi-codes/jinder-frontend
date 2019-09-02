@@ -3,21 +3,29 @@
 Makers Academy Final Project. For this project, we designed a web application using Ruby on Rails, React, RSpec and Jest, PostgreSQL and Active Record. Deployment - Heroku.
 
 ## Goals
+
 Product & Teamwork
 
 ## Process/Project Governance
-   - Pairing/solo when required
+
+- Pairing/solo when required
+
 ### StandUP 9:30am
+
     - Emotional check-in: 1/10 or weather check
-    - What I did yesterday / what I'm doing today / any blockers 
+    - What I did yesterday / what I'm doing today / any blockers
+
 ### Kanban & Given / When / Then
-### Product build & retrospective: 
+
+### Product build & retrospective:
+
     - Every 2 days (inc. standup)
+
 ### Product Process & code quality:
-    - No pushes to master unless peer reviewed 
+
+    - No pushes to master unless peer reviewed
     - Pushes frequent & often
     - > 95% test coverage required
-
 
 ## Getting Started
 
@@ -32,6 +40,7 @@ Give examples
 ```
 
 ### User Story
+
 ```
 Given I am a job hunter,
 When I sign up,
@@ -46,15 +55,15 @@ When I am signed up,
 I can log in
 
 Given I am an employer,
-When I visit the website without logging in, 
+When I visit the website without logging in,
 I can see a wall of jobhuters with an email address to contact
 
-Given I am an employer, 
-when I sign up, 
+Given I am an employer,
+when I sign up,
 I can search for profiles with keywords
 
-Given I am an employer, 
-When I am logged in, 
+Given I am an employer,
+When I am logged in,
 I can upload jobs
 
 Given I am a jobhunter,
@@ -63,39 +72,41 @@ I can log out.
 ```
 
 ### MVP (Wednesday 4.09)
+
 ```
 * Job hunter can sign up
 * Job hunter can sign in
 * Job hunter can upload profile inc. bio, skills & personality
 * There is a wall of job hunters
 ```
+
 #### Further Requirements
+
 ```
 * Employers can sign up
 * Employers can only see job hunters
 * Employers can search profiles
 * Employers can upload jobs
 * Job hunters can add what type of job they want
-* There is a matching algorithm based on Employer & JH 
+* There is a matching algorithm based on Employer & JH
 ```
 
 ### Tools
-* CircleCI & Firebase
-* Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos 
-* Slack
-* [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
+
+- CircleCI & Firebase
+- Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos
+- Slack
+- [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
 
 ### Tech Stack:
-* Ruby on Rails backend
+
+- Ruby on Rails backend
   - Devise
-* React frontend
+- React frontend
   - Material UI / Bootstrap ?
-* Rspec & Jest
-* PostgreSQL
-* Active Record
-
-
-
+- Rspec & Jest
+- PostgreSQL
+- Active Record
 
 ### Installing
 
@@ -141,9 +152,9 @@ Heroku (Add additional notes about how to deploy this on a live system)
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+- [Maven](https://maven.apache.org/) - Dependency Management
+- [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Contributing
 
@@ -151,11 +162,11 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
-* **John Doe** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+- **John Doe** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
