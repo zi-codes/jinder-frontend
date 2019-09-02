@@ -156,12 +156,11 @@ I can log out.
 # Authors :trophy:
 
 - [**Anastasiia Blaha**](https://github.com/AnastasiiaBlaha)
+- [**Zi Deng**](https://github.com/zi-codes)
 - [**Josh Hemsley**](https://github.com/hemser1)
 - [**Harry Riley**](https://github.com/hjdr)
-- [**Zi Deng**](https://github.com/zi-codes) 
-
 
 # Acknowledgments :clap:
 
-* Thank to ......................
+* Thanks to ......................
 * Inspiration ........................
