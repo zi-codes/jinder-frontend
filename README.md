@@ -122,9 +122,9 @@ I can log out.
 * There is a matching algorithm based on Employer & JH
 ```
 
-## Day-to-Day Progress :bar_chart:
+# Day-to-Day Progress :bar_chart:
 
-# Monday (02.09.19) :chart_with_upwards_trend:
+## Monday (02.09.19) :chart_with_upwards_trend:
 - User Stories ✅ 
 - MVP features ✅
 - Schedule ✅
@@ -133,27 +133,27 @@ I can log out.
 - FE Framework Setup (React & Node) ✅
 - Trello ✅
 
-# Tuesday (03.09.19) :chart_with_upwards_trend:
+## Tuesday (03.09.19) :chart_with_upwards_trend:
 -
-# Wednesday (04.09.19) :chart_with_upwards_trend:
+## Wednesday (04.09.19) :chart_with_upwards_trend:
 - MVP done
-# Thursday (05.09.19) :chart_with_upwards_trend:
+## Thursday (05.09.19) :chart_with_upwards_trend:
 -
-# Friday (06.09.19) :chart_with_upwards_trend:
+## Friday (06.09.19) :chart_with_upwards_trend:
 -
 
-# Monday (09.09.19) :chart_with_upwards_trend:
+## Monday (09.09.19) :chart_with_upwards_trend:
  - 
-# Tuesday (10.09.19) :chart_with_upwards_trend:
+## Tuesday (10.09.19) :chart_with_upwards_trend:
 -
-# Wednesday (11.09.19) :chart_with_upwards_trend:
+## Wednesday (11.09.19) :chart_with_upwards_trend:
 - Feauture Freeze :snowflake:
-# Thursday (12.09.19) :chart_with_upwards_trend:
+## Thursday (12.09.19) :chart_with_upwards_trend:
 -
-# Friday (13.09.19) :chart_with_upwards_trend:
+## Friday (13.09.19) :chart_with_upwards_trend:
 - **DEMO DAY**
 
-## Authors :trophy:
+# Authors :trophy:
 
 - [**Anastasiia Blaha**](https://github.com/AnastasiiaBlaha)
 - [**Josh Hemsley**](https://github.com/hemser1)
@@ -161,7 +161,7 @@ I can log out.
 - [**Zi Deng**](https://github.com/zi-codes) 
 
 
-## Acknowledgments
+# Acknowledgments
 
 * Hat tip to anyone whose code was used
 * Inspiration
