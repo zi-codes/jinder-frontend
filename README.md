@@ -35,7 +35,14 @@
  - No pushes to master unless peer reviewed
  - Pushes frequent & often with
  - Clear commits
- - > 95% test coverage required
+ - Testing Approach:
+    - [ ] 95% or greater test coverage.
+    - [ ] Unit tests:
+       - [ ] test one piece of your own logic.
+       - [ ] fail if that logic breaks.
+       - [ ] pass if it that logic produces the expected result.
+    - [ ] You can articulate why any test exists (or does not exist).
+    - [ ] Every feature is tested from the user's perspective.
  
  ### Kanban & Given / When / Then . ????????????????????????
 
@@ -113,15 +120,6 @@ I can log out.
 - RSpec & Jest
 - PostgreSQL
 - Active Record
-
-### Testing Approach:
-- [ ] 95% or greater test coverage.
-- [ ] Unit tests:
-  - [ ] test one piece of your own logic.
-  - [ ] fail if that logic breaks.
-  - [ ] pass if it that logic produces the expected result.
-- [ ] You can articulate why any test exists (or does not exist).
-- [ ] Every feature is tested from the user's perspective.
 
 ## Deployment
 
