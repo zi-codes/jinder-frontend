@@ -13,7 +13,7 @@
 
 **_Learn From Each Other_**
 
-**_Build Something Cool :cool:_**
+**_Build Something Cool :sunglasses:_**
 
 ## Process/Project Governance :hourglass_flowing_sand:
 
