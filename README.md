@@ -24,13 +24,13 @@ These instructions will get you a copy of the project up and running on your loc
 - Pairing
 - Solo (when required)
 
-### 9:30am StandUP :coffee:
+### 9:30am StandUp :coffee:
 
 - Emotional check-in: 1/10 or weather check
 - What I did yesterday / what I'm doing today / any blockers 
 - [XP Values](http://www.extremeprogramming.org/values.html)
 
-### Product build & retrospective: :raised_hands:
+### Product Build & Retrospective: :raised_hands:
 
  - Every 2 days (inc. standup)
 
