@@ -30,11 +30,11 @@ These instructions will get you a copy of the project up and running on your loc
 - What I did yesterday / what I'm doing today / any blockers 
 - [XP Values](http://www.extremeprogramming.org/values.html)
 
-### Product Build & Retrospective: :raised_hands:
+### Product Build & Retrospective :raised_hands:
 
  - Every 2 days (inc. standup)
 
-### Product Process & Code Quality: :100:
+### Product Process & Code Quality :100:
 
  - No pushes to master unless peer reviewed
  - Pushes frequent & often
@@ -50,7 +50,7 @@ These instructions will get you a copy of the project up and running on your loc
  
 ### Kanban & Given / When / Then . ????????????????????????
 
-### Tools: :hammer:
+### Tools :hammer:
 
 - CircleCI & Firebase
 - Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos
@@ -58,7 +58,7 @@ These instructions will get you a copy of the project up and running on your loc
 - [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
 - Instagram
 
-### Tech Stack: :computer:
+### Tech Stack :computer:
 
 - Ruby on Rails (Backend)
   - Devise
