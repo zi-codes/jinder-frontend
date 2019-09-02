@@ -15,6 +15,10 @@
 
 **_Build Something Cool :sunglasses:_**
 
+## Getting Started :runner:
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
 ## Process/Project Governance :hourglass_flowing_sand:
 
 - Pairing
@@ -33,7 +37,7 @@
 ### Product Process & Code Quality: :100:
 
  - No pushes to master unless peer reviewed
- - Pushes frequent & often with
+ - Pushes frequent & often
  - Clear commits
  - Testing Approach:
     - [ ] 95% or greater test coverage.
@@ -44,12 +48,7 @@
     - [ ] Can articulate why any test exists (or does not exist).
     - [ ] Every feature is tested from the user's perspective.
  
- ### Kanban & Given / When / Then . ????????????????????????
-
-## Getting Started :runner:
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
+### Kanban & Given / When / Then . ????????????????????????
 
 ### User Stories :notebook_with_decorative_cover:
 
