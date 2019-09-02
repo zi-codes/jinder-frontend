@@ -1,6 +1,6 @@
 # Final Project 'Jinder'
 
-One Paragraph of project description goes here
+Makers Academy Final Project. For this project, we designed a web application using Ruby on Rails, React, RSpec and Jest, PostgreSQL and Active Record. Deployment - Heroku.
 
 ## Getting Started
 
@@ -62,6 +62,14 @@ I can log out.
 * There is a matching algorithm based on Employer & JH 
 ```
 
+### Tools
+* CircleCI & Firebase
+* Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend)repos 
+* Slack
+* [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
+
+
+
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
@@ -102,7 +110,7 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Heroku (Add additional notes about how to deploy this on a live system)
 
 ## Built With
 
