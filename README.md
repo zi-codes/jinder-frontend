@@ -6,10 +6,14 @@
 ## Goals :star2:
 
 **_Product & Teamwork_**
+
 **_Have Fun_**
-**_Learn Something New (e.g. new tech, project maangement, teamworking)_**
+
+**_Learn Something New (e.g. new tech, project management, teamworking)_**
+
 **_Learn From Each Other_**
-**_Built Something_**
+
+**_Build Something_**
 
 ## Process/Project Governance :hourglass_flowing_sand:
 
