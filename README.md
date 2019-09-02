@@ -50,7 +50,7 @@ These instructions will get you a copy of the project up and running on your loc
  
 ### Kanban & Given / When / Then . ????????????????????????
 
-### Tools:
+### Tools: :hammer:
 
 - CircleCI & Firebase
 - Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos
@@ -58,7 +58,7 @@ These instructions will get you a copy of the project up and running on your loc
 - [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
 - Instagram
 
-### Tech Stack:
+### Tech Stack: :computer:
 
 - Ruby on Rails (Backend)
   - Devise
@@ -102,7 +102,7 @@ When I finish with the search,
 I can log out.
 ```
 
-### MVP (Deadline: Wednesday 4.09) 
+### MVP (Deadline: Wednesday 4.09) :squirrel:
 
 ```
 * Job hunter can sign up
@@ -111,7 +111,7 @@ I can log out.
 * There is a wall of job hunters
 ```
 
-#### Further Requirements
+#### Further Requirements :octocat:
 
 ```
 * Employers can sign up
@@ -161,7 +161,7 @@ I can log out.
 - [**Zi Deng**](https://github.com/zi-codes) 
 
 
-# Acknowledgments
+# Acknowledgments :innocent:
 
 * Thank to ......................
 * Inspiration ........................
