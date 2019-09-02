@@ -2,6 +2,22 @@
 
 Makers Academy Final Project. For this project, we designed a web application using Ruby on Rails, React, RSpec and Jest, PostgreSQL and Active Record. Deployment - Heroku.
 
+## Goals
+Product & Teamwork
+
+## Process/Project Governance
+Pairing/solo when required
+### StandUP 9:30am
+    - Emotional checkin
+    - What I did yesterday / what I'm doing today / any blockers 
+### Kanban & Given / When / Then
+### Product build & retrospective: Every 2days (inc. standup)
+### Product Process & code quality:
+    - No pushes to master unless peer reviewed 
+    - Pushes frequent & often
+    - > 95% test coverage required
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -64,9 +80,19 @@ I can log out.
 
 ### Tools
 * CircleCI & Firebase
-* Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend)repos 
+* Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos 
 * Slack
 * [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
+
+### Tech Stack:
+* Ruby on Rails backend
+  - Devise
+* React frontend
+  - Material UI / Bootstrap ?
+* Rspec & Jest
+* PostgreSQL
+* Active Record
+
 
 
 
