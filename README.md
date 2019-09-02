@@ -75,29 +75,29 @@ These instructions will get you a copy of the project up and running on your loc
 ```
 Given I am a job hunter,
 When I sign up,
-Then I can create a profile
+Then I can create a profile.
 
-Given I am a signed-up jobhunter,
+Given I am a signed-up job hunter,
 When I sign up,
-Then I have access to my account
+Then I have access to my account.
 
-Given I am a jobhunter,
+Given I am a job hunter,
 When I am signed up,
-I can log in
+I can log in.
 
 Given I am an employer,
 When I visit the website without logging in,
-I can see a wall of jobhuters with an email address to contact
+I can see a wall of job huters with contact details (e.g. email).
 
 Given I am an employer,
-when I sign up,
-I can search for profiles with keywords
+When I sign up,
+I can search for profiles with keywords.
 
 Given I am an employer,
 When I am logged in,
-I can upload jobs
+I can upload jobs.
 
-Given I am a jobhunter,
+Given I am a job hunter,
 When I finish with the search,
 I can log out.
 ```
@@ -118,7 +118,7 @@ I can log out.
 * Employers can only see job hunters
 * Employers can search profiles
 * Employers can upload jobs
-* Job hunters can add what type of job they want
+* Job hunters can add what type of jobs they want
 * There is a matching algorithm based on Employer & JH
 ```
 
@@ -151,7 +151,7 @@ I can log out.
 ## Thursday (12.09.19) :chart_with_upwards_trend:
 -
 ## Friday (13.09.19) :chart_with_upwards_trend:
-- **DEMO DAY**
+- **DEMO DAY** :mega:
 
 # Authors :trophy:
 
@@ -163,5 +163,5 @@ I can log out.
 
 # Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
+* Thank to ......................
+* Inspiration ........................
