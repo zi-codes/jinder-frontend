@@ -1,11 +1,11 @@
 # Final Project Jinder:tm:
 ![Jinder2](https://user-images.githubusercontent.com/42152431/64133475-22a97a00-cdce-11e9-812b-f6a4924d397f.png)
 
-**__Makers Academy Final Project by June2019 Cohort. For this project, we designed a web application using Ruby on Rails, React, RSpec and Jest, PostgreSQL and Active Record. Deployment - Heroku.__**
+**_Makers Academy Final Project by June2019 Cohort. For this project, we designed a web application using Ruby on Rails, React, RSpec and Jest, PostgreSQL and Active Record. Deployment - Heroku._**
 
 ## Goals :star2:
 
-**__Product & Teamwork__**
+**_Product & Teamwork_**
 
 ## Process/Project Governance :hourglass_flowing_sand:
 
