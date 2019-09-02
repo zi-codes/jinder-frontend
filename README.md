@@ -180,7 +180,14 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Inspiration
 
 # Monday (02.09.19)
-- 
+- User Stories ✅ 
+- MVP features ✅
+- Schedule ✅
+- BE Framework Setup (Ruby on Rails) ✅
+- Deployment (Heroku & CircleCI) ✅
+- FE Framework Setup (React & Node) ✅
+- Trello ✅
+
 # Tuesday (03.09.19)
 -
 # Wednesday (04.09.19)
