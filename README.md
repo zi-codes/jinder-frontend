@@ -1,1 +1,1 @@
-# jinder-backend
+# jinder-frontend
