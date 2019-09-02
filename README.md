@@ -19,7 +19,7 @@
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-## Process/Project Governance :hourglass_flowing_sand:
+## Project Governance :hourglass_flowing_sand:
 
 - Pairing
 - Solo (when required)
@@ -50,7 +50,27 @@ These instructions will get you a copy of the project up and running on your loc
  
 ### Kanban & Given / When / Then . ????????????????????????
 
-### User Stories :notebook_with_decorative_cover:
+### Tools:
+
+- CircleCI & Firebase
+- Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos
+- Slack
+- [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
+- Instagram
+
+### Tech Stack:
+
+- Ruby on Rails (Backend)
+  - Devise
+- React (Frontend)
+  - Material UI / Bootstrap
+- RSpec & Jest
+- PostgreSQL
+- Active Record
+- Heroku
+- CircleCI
+
+## User Stories :notebook_with_decorative_cover:
 
 ```
 Given I am a job hunter,
@@ -101,26 +121,6 @@ I can log out.
 * Job hunters can add what type of job they want
 * There is a matching algorithm based on Employer & JH
 ```
-
-### Tools:
-
-- CircleCI & Firebase
-- Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos
-- Slack
-- [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
-- Instagram
-
-### Tech Stack:
-
-- Ruby on Rails (Backend)
-  - Devise
-- React (Frontend)
-  - Material UI / Bootstrap
-- RSpec & Jest
-- PostgreSQL
-- Active Record
-- Heroku
-- CircleCI
 
 ## Day-to-Day Progress :bar_chart:
 
