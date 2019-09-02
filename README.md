@@ -1,9 +1,9 @@
-# Final Project 'Jinder':tm:
+# Final Project Jinder:tm:
 ![Jinder2](https://user-images.githubusercontent.com/42152431/64133475-22a97a00-cdce-11e9-812b-f6a4924d397f.png)
 
 Makers Academy Final Project by June2019 Cohort. For this project, we designed a web application using Ruby on Rails, React, RSpec and Jest, PostgreSQL and Active Record. Deployment - Heroku.
 
-## Goals
+## Goals :star2:
 
 **__Product & Teamwork__**
 
@@ -30,7 +30,7 @@ Makers Academy Final Project by June2019 Cohort. For this project, we designed a
  
  ### Kanban & Given / When / Then . ????????????????????????
 
-## Getting Started
+## Getting Started :runner:
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
@@ -42,7 +42,7 @@ What things you need to install the software and how to install them
 Give examples
 ```
 
-### User Stories
+### User Stories :notebook_with_decorative_cover:
 
 ```
 Given I am a job hunter,
@@ -74,7 +74,7 @@ When I finish with the search,
 I can log out.
 ```
 
-### MVP (Wednesday 4.09)
+### MVP (Deadline: Wednesday 4.09) 
 
 ```
 * Job hunter can sign up
@@ -167,7 +167,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
-## Authors
+## Authors :trophy:
 
 - **John Doe** - 
 
@@ -178,9 +178,9 @@ See also the list of [contributors](https://github.com/your/project/contributors
 * Hat tip to anyone whose code was used
 * Inspiration
 
-## Day-to-Day Progress
+## Day-to-Day Progress :bar_chart:
 
-# Monday (02.09.19)
+# Monday (02.09.19) :chart_with_upwards_trend:
 - User Stories ✅ 
 - MVP features ✅
 - Schedule ✅
@@ -189,22 +189,22 @@ See also the list of [contributors](https://github.com/your/project/contributors
 - FE Framework Setup (React & Node) ✅
 - Trello ✅
 
-# Tuesday (03.09.19)
+# Tuesday (03.09.19) :chart_with_upwards_trend:
 -
-# Wednesday (04.09.19)
+# Wednesday (04.09.19) :chart_with_upwards_trend:
 - MVP done
-# Thursday (05.09.19)
+# Thursday (05.09.19) :chart_with_upwards_trend:
 -
-# Friday (06.09.19)
+# Friday (06.09.19) :chart_with_upwards_trend:
 -
 
-# Monday (09.09.19)
+# Monday (09.09.19) :chart_with_upwards_trend:
  - 
-# Tuesday (10.09.19)
+# Tuesday (10.09.19) :chart_with_upwards_trend:
 -
-# Wednesday (11.09.19)
-- Feauture Freeze
-# Thursday (12.09.19)
+# Wednesday (11.09.19) :chart_with_upwards_trend:
+- Feauture Freeze :snowflake:
+# Thursday (12.09.19) :chart_with_upwards_trend:
 -
-# Friday (13.09.19)
+# Friday (13.09.19) :chart_with_upwards_trend:
 - **DEMO DAY**
