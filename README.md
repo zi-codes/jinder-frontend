@@ -102,20 +102,21 @@ I can log out.
 * There is a matching algorithm based on Employer & JH
 ```
 
-### Tools
+### Tools:
 
 - CircleCI & Firebase
 - Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos
 - Slack
 - [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
+- Instagram
 
 ### Tech Stack:
 
-- Ruby on Rails backend
+- Ruby on Rails (Backend)
   - Devise
-- React frontend
-  - Material UI / Bootstrap ?
-- Rspec & Jest
+- React (Frontend)
+  - Material UI / Bootstrap
+- RSpec & Jest
 - PostgreSQL
 - Active Record
 
@@ -181,10 +182,6 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
 
 ## Day-to-Day Progress :bar_chart:
 
@@ -216,3 +213,16 @@ See also the list of [contributors](https://github.com/your/project/contributors
 -
 # Friday (13.09.19) :chart_with_upwards_trend:
 - **DEMO DAY**
+
+## Authors :trophy:
+
+- [**Anastasiia Blaha**](https://github.com/AnastasiiaBlaha)
+- [**Josh Hemsley**](https://github.com/hemser1)
+- [**Harry Riley**](https://github.com/hjdr)
+- [**Zi Deng**](https://github.com/zi-codes) 
+
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
