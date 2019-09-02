@@ -38,10 +38,10 @@
  - Testing Approach:
     - [ ] 95% or greater test coverage.
     - [ ] Unit tests:
-       - [ ] test one piece of your own logic.
-       - [ ] fail if that logic breaks.
-       - [ ] pass if it that logic produces the expected result.
-    - [ ] You can articulate why any test exists (or does not exist).
+       - [ ] test one piece of logic.
+       - [ ] __fail__ if that logic breaks.
+       - [ ] __pass__ if it that logic produces the expected result.
+    - [ ] Can articulate why any test exists (or does not exist).
     - [ ] Every feature is tested from the user's perspective.
  
  ### Kanban & Given / When / Then . ????????????????????????
@@ -120,17 +120,8 @@ I can log out.
 - RSpec & Jest
 - PostgreSQL
 - Active Record
-
-## Deployment
-
-Heroku (Add additional notes about how to deploy this on a live system)
-
-## Authors :trophy:
-
-- **John Doe** - 
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
+- Heroku
+- CircleCI
 
 ## Day-to-Day Progress :bar_chart:
 
