@@ -176,5 +176,27 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
+* Hat tip to anyone whose code was used
+* Inspiration
+
+# Monday (02.09.19)
+- 
+# Tuesday (03.09.19)
+-
+# Wednesday (04.09.19)
+- MVP done
+# Thursday (05.09.19)
+-
+# Friday (06.09.19)
+-
+
+# Monday (09.09.19)
+ - 
+# Tuesday (10.09.19)
+-
+# Wednesday (11.09.19)
+- Feauture Freeze
+# Thursday (12.09.19)
+-
+# Friday (13.09.19)
+- **DEMO DAY**
