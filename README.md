@@ -1,31 +1,34 @@
-# Final Project 'Jinder'
+# Final Project 'Jinder':tm:
+![Jinder2](https://user-images.githubusercontent.com/42152431/64133475-22a97a00-cdce-11e9-812b-f6a4924d397f.png)
 
-Makers Academy Final Project. For this project, we designed a web application using Ruby on Rails, React, RSpec and Jest, PostgreSQL and Active Record. Deployment - Heroku.
+Makers Academy Final Project by June2019 Cohort. For this project, we designed a web application using Ruby on Rails, React, RSpec and Jest, PostgreSQL and Active Record. Deployment - Heroku.
 
 ## Goals
 
-Product & Teamwork
+**__Product & Teamwork__**
 
-## Process/Project Governance
+## Process/Project Governance :hourglass_flowing_sand:
 
-- Pairing/solo when required
+- Pairing
+- Solo (when required)
 
-### StandUP 9:30am
+### 9:30am StandUP :coffee:
 
-    - Emotional check-in: 1/10 or weather check
-    - What I did yesterday / what I'm doing today / any blockers
+- Emotional check-in: 1/10 or weather check
+- What I did yesterday / what I'm doing today / any blockers 
 
-### Kanban & Given / When / Then
+### Product build & retrospective: :raised_hands:
 
-### Product build & retrospective:
+ - Every 2 days (inc. standup)
 
-    - Every 2 days (inc. standup)
+### Product Process & Code Quality: :100:
 
-### Product Process & code quality:
-
-    - No pushes to master unless peer reviewed
-    - Pushes frequent & often
-    - > 95% test coverage required
+ - No pushes to master unless peer reviewed
+ - Pushes frequent & often with
+ - Clear commits
+ - > 95% test coverage required
+ 
+ ### Kanban & Given / When / Then . ????????????????????????
 
 ## Getting Started
 
@@ -39,7 +42,7 @@ What things you need to install the software and how to install them
 Give examples
 ```
 
-### User Story
+### User Stories
 
 ```
 Given I am a job hunter,
@@ -166,18 +169,16 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-- **John Doe** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
+- **John Doe** - 
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
 * Hat tip to anyone whose code was used
 * Inspiration
+
+## Day-to-Day Progress
 
 # Monday (02.09.19)
 - User Stories ✅ 
