@@ -129,12 +129,14 @@ I can log out.
 - MVP features ✅
 - Schedule ✅
 - BE Framework Setup (Ruby on Rails) ✅
-- Deployment (Heroku & CircleCI) ✅
-- FE Framework Setup (React & Node) ✅
+- Deployment on Heroku ✅
+- CircleCI ✅
+- FE Framework Setup (React & Bootstrap) ✅
 - Trello ✅
 
 ## Tuesday (03.09.19) :chart_with_upwards_trend:
--
+- clear cache in console (Zi)
+- 
 ## Wednesday (04.09.19) :chart_with_upwards_trend:
 - MVP done
 ## Thursday (05.09.19) :chart_with_upwards_trend:
