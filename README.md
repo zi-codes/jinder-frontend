@@ -162,5 +162,5 @@ I can log out.
 
 # Acknowledgments :clap:
 
-* Thanks to ......................
+* Thanks to :coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee:
 * Inspiration ........................
