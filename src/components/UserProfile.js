@@ -32,24 +32,33 @@ class UserProfile extends React.Component {
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+          <Form.Group controlId="formUserEmail">
+            <Form.Label>User Email address</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Enter email"
-              onChange={this.handleEmailChange}
+              placeholder="Enter you personal email"
+              onChange={this.handleUserEmailChange}
             />
             <Form.Text className="text-muted">
-              We'll never share your email with anyone else ;)
+              Employers can use this email to contact you.
             </Form.Text>
           </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+          <Form.Group controlId="formUserIndustry">
+            <Form.Label>User Industry</Form.Label>
             <Form.Control
-              type="password"
-              placeholder="Password"
-              onChange={this.handlePasswordChange}
+              type="text"
+              placeholder="Enter you preferred industry here"
+              onChange={this.handleUserIndustryChange}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formUserSkills">
+            <Form.Label>User Skills</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Select your skills"
+              onChange={this.handleUserSkillsChange}
             />
           </Form.Group>
 
