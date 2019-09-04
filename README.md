@@ -1,77 +1,108 @@
-# Final Project 'Jinder'
+# Jinder:tm:
+![Jinder2](https://user-images.githubusercontent.com/42152431/64133475-22a97a00-cdce-11e9-812b-f6a4924d397f.png)
 
-Makers Academy Final Project. For this project, we designed a web application using Ruby on Rails, React, RSpec and Jest, PostgreSQL and Active Record. Deployment - Heroku.
+**_Makers Academy Final Project by June2019 Cohort. For this project, we designed a web application using Ruby on Rails, React, RSpec and Jest, PostgreSQL and Active Record. Deployment - Heroku._**
 
-## Goals
+## Goals :star2:
 
-Product & Teamwork
+**_Product & Teamwork_**
 
-## Process/Project Governance
+**_Have Fun_**
 
-- Pairing/solo when required
+**_Learn Something New (e.g. new tech, project management, teamworking)_**
 
-### StandUP 9:30am
+**_Learn From Each Other_**
 
-    - Emotional check-in: 1/10 or weather check
-    - What I did yesterday / what I'm doing today / any blockers
+**_Build Something Cool :sunglasses:_**
 
-### Kanban & Given / When / Then
-
-### Product build & retrospective:
-
-    - Every 2 days (inc. standup)
-
-### Product Process & code quality:
-
-    - No pushes to master unless peer reviewed
-    - Pushes frequent & often
-    - > 95% test coverage required
-
-## Getting Started
+## Getting Started :runner:
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+## Project Governance :hourglass_flowing_sand:
 
-What things you need to install the software and how to install them
+- Pairing
+- Solo (when required)
 
-```
-Give examples
-```
+### 9:30am StandUp :coffee:
 
-### User Story
+- Emotional check-in: 1/10 or weather check
+- What I did yesterday / what I'm doing today / any blockers 
+- [XP Values](http://www.extremeprogramming.org/values.html)
+
+### Product Build & Retrospective :raised_hands:
+
+ - Every 2 days (inc. standup)
+
+### Product Process & Code Quality :100:
+
+ - No pushes to master unless peer reviewed
+ - Pushes frequent & often
+ - Clear commits
+ - Testing Approach:
+    - [ ] 95% or greater test coverage.
+    - [ ] Unit tests:
+       - [ ] test one piece of logic.
+       - [ ] __fail__ if that logic breaks.
+       - [ ] __pass__ if it that logic produces the expected result.
+    - [ ] Can articulate why any test exists (or does not exist).
+    - [ ] Every feature is tested from the user's perspective.
+ 
+### Kanban & Given / When / Then . ????????????????????????
+
+### Tools :hammer:
+
+- CircleCI & Firebase
+- Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos
+- Slack
+- [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
+- Instagram
+
+### Tech Stack :computer:
+
+- Ruby on Rails (Backend)
+  - Devise
+- React (Frontend)
+  - Material UI / Bootstrap
+- RSpec & Jest
+- PostgreSQL
+- Active Record
+- Heroku
+- CircleCI
+
+## User Stories :notebook_with_decorative_cover:
 
 ```
 Given I am a job hunter,
 When I sign up,
-Then I can create a profile
+Then I can create a profile.
 
-Given I am a signed-up jobhunter,
+Given I am a signed-up job hunter,
 When I sign up,
-Then I have access to my account
+Then I have access to my account.
 
-Given I am a jobhunter,
+Given I am a job hunter,
 When I am signed up,
-I can log in
+I can log in.
 
 Given I am an employer,
 When I visit the website without logging in,
-I can see a wall of jobhuters with an email address to contact
+I can see a wall of job huters with contact details (e.g. email).
 
 Given I am an employer,
-when I sign up,
-I can search for profiles with keywords
+When I sign up,
+I can search for profiles with keywords.
 
 Given I am an employer,
 When I am logged in,
-I can upload jobs
+I can upload jobs.
 
-Given I am a jobhunter,
+Given I am a job hunter,
 When I finish with the search,
 I can log out.
 ```
 
-### MVP (Wednesday 4.09)
+### MVP (Deadline: Wednesday 4.09) :squirrel:
 
 ```
 * Job hunter can sign up
@@ -80,123 +111,63 @@ I can log out.
 * There is a wall of job hunters
 ```
 
-#### Further Requirements
+#### Further Requirements :octocat:
 
 ```
 * Employers can sign up
 * Employers can only see job hunters
 * Employers can search profiles
 * Employers can upload jobs
-* Job hunters can add what type of job they want
+* Job hunters can add what type of jobs they want
 * There is a matching algorithm based on Employer & JH
 ```
 
-### Tools
+# Day-to-Day Progress :bar_chart:
 
-- CircleCI & Firebase
-- Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos
-- Slack
-- [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
+## Monday (02.09.19) :chart_with_upwards_trend:
+- User Stories ✅ 
+- MVP features ✅
+- Schedule ✅
+- BE Framework Setup (Ruby on Rails) ✅
+- Deployment on Heroku ✅
+- CircleCI ✅
+- FE Framework Setup (React & Bootstrap) ✅
+- Trello ✅
 
-### Tech Stack:
-
-- Ruby on Rails backend
-  - Devise
-- React frontend
-  - Material UI / Bootstrap ?
-- Rspec & Jest
-- PostgreSQL
-- Active Record
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Heroku (Add additional notes about how to deploy this on a live system)
-
-## Built With
-
-- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-- [Maven](https://maven.apache.org/) - Dependency Management
-- [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
-## Authors
-
-- **John Doe** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-
-# Monday (02.09.19)
-- 
-# Tuesday (03.09.19)
--
-# Wednesday (04.09.19)
+## Tuesday (03.09.19) :chart_with_upwards_trend:
+- BE sign in ✅
+- FE sing in page ✅
+- FE sign up page ✅
+- FE profiles: created forms and will finish on on Wednesday ✅
+## Wednesday (04.09.19) :chart_with_upwards_trend:
+- FE profiles
+- FE contact us / about us page
 - MVP done
-# Thursday (05.09.19)
+## Thursday (05.09.19) :chart_with_upwards_trend:
 -
-# Friday (06.09.19)
+## Friday (06.09.19) :chart_with_upwards_trend:
 -
 
-# Monday (09.09.19)
+## Monday (09.09.19) :chart_with_upwards_trend:
  - 
-# Tuesday (10.09.19)
+## Tuesday (10.09.19) :chart_with_upwards_trend:
+- 
 -
-# Wednesday (11.09.19)
-- Feauture Freeze
-# Thursday (12.09.19)
+## Wednesday (11.09.19) :chart_with_upwards_trend:
+- Feauture Freeze :snowflake:
+## Thursday (12.09.19) :chart_with_upwards_trend:
 -
-# Friday (13.09.19)
-- **DEMO DAY**
+## Friday (13.09.19) :chart_with_upwards_trend:
+- **DEMO DAY** :mega:
+
+# Authors :trophy:
+
+- [**Anastasiia Blaha**](https://github.com/AnastasiiaBlaha)
+- [**Zi Deng**](https://github.com/zi-codes)
+- [**Josh Hemsley**](https://github.com/hemser1)
+- [**Harry Riley**](https://github.com/hjdr)
+
+# Acknowledgments :clap:
+
+* Thanks to :coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee::coffee:
+* Inspiration ........................
