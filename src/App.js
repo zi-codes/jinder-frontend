@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route } from 'react-router-dom';
+import SignUp from "./components/SignUp";
+import LogIn from "./components/LogIn";
+import UserProfile from "./components/UserProfile";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {};
+
+  createUser = state => {
+    console.log("now about to post the thing");
+
+    fetch("https://jinder-backend.herokuapp.com/users", {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body:  JSON.stringify({"user":
+        {
+          "email": state.email,
+          "password": state.password
+        }
+      })
+    });
+  };
+
+  createSession = state => {
+    console.log("now about to post the thing");
+
+    fetch("https://jinder-backend.herokuapp.com/api/sessions", {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body:  JSON.stringify({"user":
+        {
+          "email": state.email,
+          "password": state.password
+        }
+      })
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+          <BrowserRouter>
+            <Route exact path= "/" render={(props) => <SignUp {...props} createUser={this.createUser} />} />
+            <Route exact path= "/login" render={(props) => <LogIn {...props} createSession={this.createSession} />} />
+          </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;
