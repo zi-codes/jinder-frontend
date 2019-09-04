@@ -60,10 +60,16 @@ class DisplayProfiles extends React.Component {
                 )}
                 onAfterSwipe={this.remove}
               >
-                <Card>{profiles[0].first_name}</Card>
+                <Card>
+                  {profiles[0].first_name}
+                  {profiles[0].last_name}
+                </Card>
               </Swipeable>
               {profiles.length > 1 && (
-                <Card zIndex={-1}>{profiles[1].first_name}</Card>
+                <Card zIndex={-1}>
+                  {profiles[1].first_name}
+                  {profiles[1].last_name}
+                </Card>
               )}
             </div>
           )}
