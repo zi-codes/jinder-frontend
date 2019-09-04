@@ -135,9 +135,13 @@ I can log out.
 - Trello ✅
 
 ## Tuesday (03.09.19) :chart_with_upwards_trend:
-- clear cache in console (Zi)
-- 
+- BE sign in ✅
+- FE sing in page ✅
+- FE sign up page ✅
+- FE profiles: created forms and will finish on on Wednesday ✅
 ## Wednesday (04.09.19) :chart_with_upwards_trend:
+- FE profiles
+- FE contact us / about us page
 - MVP done
 ## Thursday (05.09.19) :chart_with_upwards_trend:
 -
@@ -147,6 +151,7 @@ I can log out.
 ## Monday (09.09.19) :chart_with_upwards_trend:
  - 
 ## Tuesday (10.09.19) :chart_with_upwards_trend:
+- 
 -
 ## Wednesday (11.09.19) :chart_with_upwards_trend:
 - Feauture Freeze :snowflake:
