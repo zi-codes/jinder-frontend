@@ -4,6 +4,8 @@ import Card from "./Card";
 import Button from "./Button";
 import { render } from "react-dom";
 import Swipeable from "react-swipy";
+import DefaultPicture from "./default.jpeg";
+import Filter from "./Filter";
 
 const appStyles = {
   height: "100%",
@@ -47,33 +49,42 @@ class DisplayProfiles extends React.Component {
   render() {
     const { profiles } = this.state;
     return (
-      <div style={appStyles}>
-        <div style={wrapperStyles}>
-          {profiles.length > 0 && (
-            <div style={wrapperStyles}>
-              <Swipeable
-                buttons={({ right, left }) => (
-                  <div style={actionsStyles}>
-                    <Button onClick={left}>Reject</Button>
-                    <Button onClick={right}>Accept</Button>
-                  </div>
+      <div>
+        <Filter></Filter>
+        <div style={appStyles}>
+          <div style={wrapperStyles}>
+            {profiles.length > 0 && (
+              <div style={wrapperStyles}>
+                <Swipeable
+                  buttons={({ right, left }) => (
+                    <div style={actionsStyles}>
+                      <Button onClick={left}>Reject</Button>
+                      <Button onClick={right}>Accept</Button>
+                    </div>
+                  )}
+                  onAfterSwipe={this.remove}
+                >
+                  <Card>
+                    {profiles[0].first_name} {profiles[0].last_name}
+                    <br />
+                    Industry: {profiles[0].industry}
+                    <br />
+                    Skills: {profiles[0].skills}
+                  </Card>
+                </Swipeable>
+                {profiles.length > 1 && (
+                  <Card zIndex={-1}>
+                    {profiles[1].first_name} {profiles[1].last_name}
+                    <br />
+                    Industry: {profiles[1].industry}
+                    <br />
+                    Skills: {profiles[1].skills}
+                  </Card>
                 )}
-                onAfterSwipe={this.remove}
-              >
-                <Card>
-                  {profiles[0].first_name}
-                  {profiles[0].last_name}
-                </Card>
-              </Swipeable>
-              {profiles.length > 1 && (
-                <Card zIndex={-1}>
-                  {profiles[1].first_name}
-                  {profiles[1].last_name}
-                </Card>
-              )}
-            </div>
-          )}
-          {profiles.length <= 1 && <Card zIndex={-2}>No more profiles</Card>}
+              </div>
+            )}
+            {profiles.length <= 1 && <Card zIndex={-2}>No more profiles</Card>}
+          </div>
         </div>
       </div>
     );
