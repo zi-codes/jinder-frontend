@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import logo from "../Jinder2.png";
 
 class SignUp extends React.Component {
   state = {
@@ -33,6 +34,9 @@ class SignUp extends React.Component {
   render() {
     return (
       <div>
+        <header className="App-header">
+          <img src={logo} width='500' height='250' className="App-logo" alt="logo" />                
+        </header>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>

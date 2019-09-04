@@ -5,6 +5,7 @@ import LogIn from "./components/LogIn";
 import UserProfile from "./components/UserProfile";
 import AboutUs from "./components/AboutUs";
 
+
 class App extends React.Component {
   state = {};
 
@@ -51,8 +52,13 @@ class App extends React.Component {
             exact
             path="/login"
             render={props => (
-              <LogIn {...props} createSession={this.createSession} />
-            )}
+            <LogIn {...props} createSession={this.createSession} />)}
+          />
+          <Route
+            exact
+            path="/aboutus"
+            render={props => (
+            <AboutUs />)}
           />
         </BrowserRouter>
       </div>
