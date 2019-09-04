@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import UserProfile from "./components/UserProfile";
@@ -10,14 +10,14 @@ class App extends React.Component {
   createUser = state => {
 
     fetch("https://jinder-backend.herokuapp.com/users", {
-      method: 'post',
+      method: "post",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
-      body:  JSON.stringify({"user":
-        {
-          "email": state.email,
-          "password": state.password
+      body: JSON.stringify({
+        user: {
+          email: state.email,
+          password: state.password
         }
       })
     });
@@ -26,14 +26,14 @@ class App extends React.Component {
   createSession = state => {
 
     fetch("https://jinder-backend.herokuapp.com/api/sessions", {
-      method: 'post',
+      method: "post",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
-      body:  JSON.stringify({"user":
-        {
-          "email": state.email,
-          "password": state.password
+      body: JSON.stringify({
+        user: {
+          email: state.email,
+          password: state.password
         }
       })
     });
