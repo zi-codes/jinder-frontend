@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import UserProfile from "./components/UserProfile";
+import AboutUs from "./components/AboutUs";
 
 class App extends React.Component {
   state = {};
