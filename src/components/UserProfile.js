@@ -46,6 +46,7 @@ class UserProfile extends React.Component {
     this.setState({ surname: null });
     this.setState({ industry: null });
     this.setState({ skills: null });
+    this.setState({ images: [] });
     this.setState({ fireRedirect: true });
   };
 
@@ -123,6 +124,7 @@ class UserProfile extends React.Component {
 
     this.setState({ images: images });
   }
+
   render() {
     const { fireRedirect } = this.state;
 
