@@ -15,7 +15,7 @@
 
 **_Build Something Cool :sunglasses:_**
 
-**_[PLEASE VISIT OUR BACKEND README FOR MORE INFORMATION ABOUT TECH PROCESS](https://github.com/hemser1/jinder-backend)_**
+**_[PLEASE VISIT OUR BACKEND README FOR MORE INFORMATION ABOUT TECH PROCESS, DATABASE SETUP AND INSTALLATION](https://github.com/hemser1/jinder-backend)_**
 
 ## Getting Started :runner:
 
