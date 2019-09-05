@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Select from "react-select";
+import Img from "react-fix-image-orientation";
 import { industryOptions } from "../data/IndustryData";
 import { skillsOptions } from "../data/SkillsData";
 import { Redirect } from "react-router-dom";
-import "./UserProfile.css";
 
 // const Checkbox = props => <input type="checkbox" {...props} />;
 
@@ -100,7 +100,7 @@ class UserProfile extends React.Component {
       return (
         <li key={index}>
           <div className="photo">
-            <img
+            <Img
               width={150}
               src={el.id ? el.url : URL.createObjectURL(el)}
               style={{ alignSelf: "center" }}
