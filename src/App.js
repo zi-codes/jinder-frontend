@@ -67,15 +67,15 @@ class App extends React.Component {
     formData.append("profile[industry]", state.industry);
     formData.append("profile[skills]", state.skills);
 
-    // let images = state.images;
-    // for (let i = 0; i < images.length; i++) {
-    //   let file = images[i];
-    //   formData.append(
-    //     `profile[images_attributes][${i}][photo]`,
-    //     file,
-    //     file.name
-    //   );
-    // }
+    let images = state.images;
+    for (let i = 0; i < images.length; i++) {
+      let file = images[i];
+      formData.append(
+        `profile[images_attributes][${i}][photo]`,
+        file,
+        file.name
+      );
+    }
 
     return formData;
   };
