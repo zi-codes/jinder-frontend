@@ -15,6 +15,8 @@
 
 **_Build Something Cool :sunglasses:_**
 
+**_[PLEASE VISIT OUR BACKEND README FOR MORE INFORMATION ABOUT TECH PROCESS](https://github.com/hemser1/jinder-backend)_**
+
 ## Getting Started :runner:
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
