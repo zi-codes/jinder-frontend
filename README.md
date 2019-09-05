@@ -148,8 +148,8 @@ I can log out.
 ## Thursday (05.09.19) :chart_with_upwards_trend:
 StandUp::coffee:
 - **Zi - sunny :sunny:**
-  -Blockers - swipey swipe (will get rid of ‘transparency feature’)
-  -Worries: image upload (will pair on this with AB)
+  - Blockers - swipey swipe (will get rid of ‘transparency feature’)
+  - Worries: image upload (will pair on this with AB)
   
 - **Harry - sunny:sunny:**
   - Finished upload profile form - input name, email, industry, skills
