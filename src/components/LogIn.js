@@ -29,9 +29,6 @@ class LogIn extends React.Component {
     render() {
         return (
             <div>
-                <header className="App-header">
-                    <img src={logo} width='500' height='250' className="App-logo" alt="logo" />
-                </header>
              <Form onSubmit={this.handleSubmit}>
              <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
