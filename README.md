@@ -144,6 +144,26 @@ I can log out.
 - FE contact us / about us page
 - MVP done
 ## Thursday (05.09.19) :chart_with_upwards_trend:
+StandUp::coffee:
+- **Zi - sunny :sunny:**
+  -Blockers - swipey swipe (will get rid of ‘transparency feature’)
+  -Worries: image upload (will pair on this with AB)
+  
+- **Harry - sunny:sunny:**
+  - Finished upload profile form - input name, email, industry, skills
+  - Navigation bar
+  - FE Tests
+  - Routes
+
+- **Josh - very sunny :sunny::sunny::sunny:**
+  - Auth. token, set up profile link to user id, started employers BE
+  - Blockers - devise (but figured it out yay). Possibly will have an issue with devise later on.
+  - BE README (will pair with AB)
+
+- **Anastasiia - sunny/stormy :sunny:/:tornado:**
+  - Blockers: learning React and Bootstrap frustratingly takes too long
+  - Added logo to ‘/’, ‘/login’, ‘/aboutus’
+  - AboutUs, image upload, README
 -
 ## Friday (06.09.19) :chart_with_upwards_trend:
 -
