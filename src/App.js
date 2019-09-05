@@ -4,6 +4,8 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import UserProfile from "./components/UserProfile";
 import DisplayProfiles from "./components/DisplayProfiles";
+import Header from "./components/Header"
+
 
 class App extends React.Component {
   state = {};
@@ -65,6 +67,7 @@ class App extends React.Component {
     return (
       <div className="App">
           <BrowserRouter>
+          <Header />
             <Route exact path="/profiles" component={DisplayProfiles} />
             <Route exact path= "/" render={(props) => <SignUp {...props} createUser={this.createUser} />} />
             <Route exact path= "/login" render={(props) => <LogIn {...props} createSession={this.createSession} />} />
