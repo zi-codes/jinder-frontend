@@ -169,12 +169,14 @@ StandUp:coffee:
 ## Friday (06.09.19) :chart_with_upwards_trend:
 StandUp:coffee: **_What car are you today?_**
 - **Harry**
-![ferrari_sf90_stradale_assetto_fiorano_0,50%](https://user-images.githubusercontent.com/42152431/64420483-4eab5080-d097-11e9-9ab1-7f6737c2b7de.jpg){:height="50%" width="50%"}
+![ferrari_sf90_stradale_assetto_fiorano_0,50%](https://user-images.githubusercontent.com/42152431/64420483-4eab5080-d097-11e9-9ab1-7f6737c2b7de.jpg)
   - Nav bar, set up cypress, 3 tests
   - Blocker - one fails on the profile
   - Today - merge to master, employer sigh up and sign in, routing.
 - **Zi**
 ![d37dcfb7e4ad9dfe45ad9e2cf3cec2a2,50%](https://user-images.githubusercontent.com/42152431/64420561-76021d80-d097-11e9-8c74-8f093835dc94.jpg)
+![d37dcfb7e4ad9dfe45ad9e2cf3cec2a2](https://user-images.githubusercontent.com/42152431/64421633-ed38b100-d099-11e9-90e6-d14aaf090bf9.jpg)
+
   - Image uploads 
   - Concern: deployment
   - Today: finishing off the image uploads
