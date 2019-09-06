@@ -7,6 +7,7 @@ import { render } from "react-dom";
 import Swipeable from "react-swipy";
 import DefaultPicture from "./default.jpeg";
 import Filter from "./Filter";
+import globalUrl from "../globalUrl";
 
 const appStyles = {
   height: "100%",
@@ -39,7 +40,7 @@ class DisplayProfiles extends React.Component {
   componentDidMount = () => {
     axiosClient
       .get("/api/profiles")
-      .then(response => this.setState({ profiles: response.data }));
+      .then(response => this.setState({ profiles: response.data.reverse() }));
   };
 
   remove = () =>
@@ -49,9 +50,7 @@ class DisplayProfiles extends React.Component {
 
   showImg = (profileIndex, profiles) => {
     if (profiles[profileIndex].image_photos[0]) {
-      return (
-        "http://localhost:3000" + profiles[profileIndex].image_photos[0].url
-      );
+      return globalUrl + profiles[profileIndex].image_photos[0].url;
     } else {
       return DefaultPicture;
     }

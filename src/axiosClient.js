@@ -1,7 +1,9 @@
+import globalUrl from "./globalUrl";
+
 let axios = require("axios");
 
 let axiosClient = axios.create({
-  baseURL: "http://localhost:3000"
+  baseURL: globalUrl
 });
 
 export default axiosClient;

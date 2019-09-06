@@ -1,18 +1,22 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import axios from "axios";
+import axiosClient from "./axiosClient";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import UserProfile from "./components/UserProfile";
 import DisplayProfiles from "./components/DisplayProfiles";
-import Header from "./components/Header"
-
+import Header from "./components/Header";
+import globalUrl from "./globalUrl";
 
 class App extends React.Component {
   state = {};
 
+  componentDidMount() {
+    console.log(globalUrl);
+  }
+
   createUser = state => {
-    fetch("https://jinder-backend.herokuapp.com/users", {
+    fetch(`${globalUrl}/users`, {
       method: "post",
       headers: {
         "Content-Type": "application/json"
@@ -27,7 +31,7 @@ class App extends React.Component {
   };
 
   createSession = state => {
-    fetch("https://jinder-backend.herokuapp.com/api/sessions", {
+    fetch(`${globalUrl}/api/sessions`, {
       method: "post",
       headers: {
         "Content-Type": "application/json"
@@ -63,28 +67,40 @@ class App extends React.Component {
   };
 
   createProfile = state => {
-    axios.post(
-      "http://localhost:3000/api/profiles",
-      this.buildUserProfileFormData(state),
-      {
-        headers: {
-          "X-User-Token": "uBEf4-XyHQmyGRkK3hyu",
-          "X-User-Email": "123456@123456"
-        }
+    axiosClient.post("/api/profiles", this.buildUserProfileFormData(state), {
+      headers: {
+        "X-User-Token": "uBEf4-XyHQmyGRkK3hyu",
+        "X-User-Email": "123456@123456"
       }
-    );
+    });
   };
 
   render() {
     return (
       <div className="App">
-          <BrowserRouter>
+        <BrowserRouter>
           <Header />
-            <Route exact path="/profiles" component={DisplayProfiles} />
-            <Route exact path= "/" render={(props) => <SignUp {...props} createUser={this.createUser} />} />
-            <Route exact path= "/login" render={(props) => <LogIn {...props} createSession={this.createSession} />} />
-            <Route exact path= "/profile" render={(props) => <UserProfile {...props} createProfile={this.createProfile} />} />
-          </BrowserRouter>
+          <Route exact path="/profiles" component={DisplayProfiles} />
+          <Route
+            exact
+            path="/"
+            render={props => <SignUp {...props} createUser={this.createUser} />}
+          />
+          <Route
+            exact
+            path="/login"
+            render={props => (
+              <LogIn {...props} createSession={this.createSession} />
+            )}
+          />
+          <Route
+            exact
+            path="/profile"
+            render={props => (
+              <UserProfile {...props} createProfile={this.createProfile} />
+            )}
+          />
+        </BrowserRouter>
       </div>
     );
   }
