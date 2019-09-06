@@ -5,6 +5,8 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import UserProfile from "./components/UserProfile";
 import DisplayProfiles from "./components/DisplayProfiles";
+import Header from "./components/Header"
+
 
 class App extends React.Component {
   state = {};
@@ -76,28 +78,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <BrowserRouter>
-          <Route exact path="/profiles" component={DisplayProfiles} />
-          <Route
-            exact
-            path="/"
-            render={props => <SignUp {...props} createUser={this.createUser} />}
-          />
-          <Route
-            exact
-            path="/login"
-            render={props => (
-              <LogIn {...props} createSession={this.createSession} />
-            )}
-          />
-          <Route
-            exact
-            path="/profile"
-            render={props => (
-              <UserProfile {...props} createProfile={this.createProfile} />
-            )}
-          />
-        </BrowserRouter>
+          <BrowserRouter>
+          <Header />
+            <Route exact path="/profiles" component={DisplayProfiles} />
+            <Route exact path= "/" render={(props) => <SignUp {...props} createUser={this.createUser} />} />
+            <Route exact path= "/login" render={(props) => <LogIn {...props} createSession={this.createSession} />} />
+            <Route exact path= "/profile" render={(props) => <UserProfile {...props} createProfile={this.createProfile} />} />
+          </BrowserRouter>
       </div>
     );
   }

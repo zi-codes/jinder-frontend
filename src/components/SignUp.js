@@ -2,9 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Redirect } from 'react-router-dom';
 
 class SignUp extends React.Component {
   state = {
+    fireRedirect: false,
     email: null,
     password: null,
     passwordConfirmation: null
@@ -16,21 +18,17 @@ class SignUp extends React.Component {
     this.setState({ email: null });
     this.setState({ password: null });
     this.setState({ passwordConfirmation: null });
+    this.setState({ fireRedirect: true })
   };
 
-  handleEmailChange = event => {
-    this.setState({ email: event.target.value });
-  };
-
-  handlePasswordChange = event => {
-    this.setState({ password: event.target.value });
-  };
-
-  handlePasswordConfirmationChange = event => {
-    this.setState({ passwordConfirmation: event.target.value });
-  };
-
+  handleChange = ({ target }) => {
+    this.setState({ [target.name]: target.value })
+  }
+  
   render() {
+
+    const { fireRedirect } = this.state;
+
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
@@ -38,8 +36,9 @@ class SignUp extends React.Component {
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
+              name="email"
               placeholder="Enter email"
-              onChange={this.handleEmailChange}
+              onChange={this.handleChange}
             />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else ;)
@@ -49,18 +48,20 @@ class SignUp extends React.Component {
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
+              name="password"
               type="password"
               placeholder="Password"
-              onChange={this.handlePasswordChange}
+              onChange={this.handleChange}
             />
           </Form.Group>
 
           <Form.Group controlId="formBasicPasswordConfirmation">
             <Form.Label>Password Confirmation</Form.Label>
             <Form.Control
+              name="passwordConfirmation"
               type="password"
               placeholder="Password"
-              onChange={this.handlePasswordConfirmationChange}
+              onChange={this.handleChange}
             />
           </Form.Group>
 
@@ -68,6 +69,7 @@ class SignUp extends React.Component {
             Submit
           </Button>
         </Form>
+        {fireRedirect && ( <Redirect to='/profile'/> )} 
       </div>
     );
   }

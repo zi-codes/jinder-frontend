@@ -10,14 +10,6 @@ import { Redirect } from "react-router-dom";
 
 // const Checkbox = props => <input type="checkbox" {...props} />;
 
-//   state = {
-//   isClearable: boolean,
-//   isDisabled: boolean,
-//   isLoading: boolean,
-//   isRtl: boolean,
-//   isSearchable: boolean,
-// };
-
 class UserProfile extends React.Component {
   state = {
     // for routing
@@ -32,11 +24,8 @@ class UserProfile extends React.Component {
     // for image upload
 
     images: []
-    // isClearable: true,
-    // isDisabled: false,
-    // isLoading: false,
-    // isRtl: false,
-    // isSearchable: true,
+ 
+
   };
 
   handleSubmit = event => {
@@ -66,15 +55,16 @@ class UserProfile extends React.Component {
     this.setState({ skills: skills.join() });
   };
 
-  toggleClearable = () =>
-    this.setState(state => ({ isClearable: !state.isClearable }));
-  toggleDisabled = () =>
-    this.setState(state => ({ isDisabled: !state.isDisabled }));
-  toggleLoading = () =>
-    this.setState(state => ({ isLoading: !state.isLoading }));
-  toggleRtl = () => this.setState(state => ({ isRtl: !state.isRtl }));
-  toggleSearchable = () =>
-    this.setState(state => ({ isSearchable: !state.isSearchable }));
+
+//   toggleClearable = () =>
+//     this.setState(state => ({ isClearable: !state.isClearable }));
+//   toggleDisabled = () =>
+//     this.setState(state => ({ isDisabled: !state.isDisabled }));
+//   toggleLoading = () =>
+//     this.setState(state => ({ isLoading: !state.isLoading }));
+//   toggleRtl = () => this.setState(state => ({ isRtl: !state.isRtl }));
+//   toggleSearchable = () =>
+//     this.setState(state => ({ isSearchable: !state.isSearchable }));
 
   // Image Upload functions
 
@@ -128,16 +118,11 @@ class UserProfile extends React.Component {
   render() {
     const { fireRedirect } = this.state;
 
-    // const {
-    //   isClearable,
-    //   isSearchable,
-    //   isDisabled,
-    //   isLoading,
-    //   isRtl,
-    // } = this.state;
-
     return (
       <div>
+
+      <p style={welcomeMessage}>Hey hot stuff. Start courting the market right away by filling in your details below...</p>
+
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="formBasicFirstName">
             <Form.Label>First Name:</Form.Label>
@@ -197,7 +182,9 @@ class UserProfile extends React.Component {
             Submit
           </Button>
         </Form>
-        {fireRedirect && <Redirect to="/" />}
+
+        {fireRedirect && ( <Redirect to='/profiles'/> )} 
+
       </div>
     );
   }
@@ -206,5 +193,13 @@ class UserProfile extends React.Component {
 UserProfile.propTypes = {
   createProfile: PropTypes.func.isRequired
 };
+
+
+const welcomeMessage = {
+  color: '#FF5903',
+  textAlign: 'center',
+  padding: '10px'
+}
+
 
 export default UserProfile;
