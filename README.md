@@ -168,11 +168,27 @@ StandUp:coffee:
   - AboutUs, image upload, README
 ## Friday (06.09.19) :chart_with_upwards_trend:
 StandUp:coffee:
-- **Zi**![d37dcfb7e4ad9dfe45ad9e2cf3cec2a2](https://user-images.githubusercontent.com/42152431/64420561-76021d80-d097-11e9-8c74-8f093835dc94.jpg)
-- **Harry** ![ferrari_sf90_stradale_assetto_fiorano_0](https://user-images.githubusercontent.com/42152431/64420483-4eab5080-d097-11e9-9ab1-7f6737c2b7de.jpg)
-- **Anastasiia**![gle-coupe-zw-11_720x540](https://user-images.githubusercontent.com/42152431/64420482-4eab5080-d097-11e9-808b-13bdbfb3f846.jpg)
-- **Josh**![The-all-electric-version-of-the-iconic-double-decker-London-red-bus-crosses-Westminster-bridge-as-a-part-of-the-vehicles-lauch-event-image-courtesy-of-BYD](https://user-images.githubusercontent.com/42152431/64420484-4f43e700-d097-11e9-835d-fe2de64b707e.jpg)
-
+- **Harry**
+![ferrari_sf90_stradale_assetto_fiorano_0, 50%](https://user-images.githubusercontent.com/42152431/64420483-4eab5080-d097-11e9-9ab1-7f6737c2b7de.jpg)
+  - Nav bar, set up cypress, 3 tests
+  - Blocker - one fails on the profile
+  - Today - merge to master, employer sigh up and sign in, routing.
+- **Zi**
+![d37dcfb7e4ad9dfe45ad9e2cf3cec2a2, 50%](https://user-images.githubusercontent.com/42152431/64420561-76021d80-d097-11e9-8c74-8f093835dc94.jpg)
+  - Image uploads 
+  - Concern: deployment
+  - Today: finishing off the image uploads
+- **Anastasiia**
+![gle-coupe-zw-11_720x540, 50%](https://user-images.githubusercontent.com/42152431/64420482-4eab5080-d097-11e9-808b-13bdbfb3f846.jpg)
+   - About page: created the layout ![IMG_C9559B25FA72-1, 60%](https://user-images.githubusercontent.com/42152431/64421035-8961b880-d098-11e9-88c3-188b0ef69b6b.jpeg)
+   - Blockers: takes a long time to get everything to look cool and work properly.
+   - Issue: after mergening Nav Bar branch - loooots of debuging was required for About Us branch. It's all ok now. Yay!
+   - Today: Finish off about us - add some animation hopefully, update READMEs (FE and BE), 
+- **Josh**
+![The-all-electric-version-of-the-iconic-double-decker-London-red-bus-crosses-Westminster-bridge-as-a-part-of-the-vehicles-lauch-event-image-courtesy-of-BYD, 50%](https://user-images.githubusercontent.com/42152431/64420484-4f43e700-d097-11e9-835d-fe2de64b707e.jpg)
+   - Employers images
+   - Started testing - blocker
+   - Today - finish the BE, matching logic
 
 ## Monday (09.09.19) :chart_with_upwards_trend:
  - 
