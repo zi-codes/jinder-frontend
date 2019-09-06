@@ -146,7 +146,8 @@ I can log out.
 - FE contact us / about us page
 - MVP done
 ## Thursday (05.09.19) :chart_with_upwards_trend:
-StandUp:coffee:
+StandUp:coffee:![Image from iOS](https://user-images.githubusercontent.com/42152431/64423325-26732000-d09e-11e9-80cf-d1a6eef383f5.jpg)
+
 - **Zi - sunny :sunny:**
   - Blockers - swipey swipe (will get rid of ‘transparency feature’)
   - Worries: image upload (will pair on this with AB)
