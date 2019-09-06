@@ -181,7 +181,7 @@ StandUp:coffee: **_What car are you today?_**
 - **Anastasiia**
   - ![gle-coupe-zw-11_720x540](https://user-images.githubusercontent.com/42152431/64422896-1444b200-d09d-11e9-89a6-833ab8e8d76b.jpg)
    - About page: created the layout 
-     - ![IMG_C9559B25FA72-1](https://user-images.githubusercontent.com/42152431/64423128-a6e55100-d09d-11e9-9d96-ddd10b56c365.jpeg)
+     - ![IMG_C9559B25FA72-1](https://user-images.githubusercontent.com/42152431/64423230-e7dd6580-d09d-11e9-8c9d-375a2fc11e3d.jpeg)
    - Blockers: takes a long time to get everything to look cool and work properly.
    - Issue: after mergening Nav Bar branch - loooots of debuging was required for About Us branch. It's all ok now. Yay!
    - Today: Finish off about us - add some animation hopefully, update READMEs (FE and BE), 
