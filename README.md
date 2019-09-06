@@ -169,7 +169,7 @@ StandUp:coffee:
 ## Friday (06.09.19) :chart_with_upwards_trend:
 StandUp:coffee: **_What car are you today?_**
 - **Harry**
-![ferrari_sf90_stradale_assetto_fiorano_0,50%](https://user-images.githubusercontent.com/42152431/64420483-4eab5080-d097-11e9-9ab1-7f6737c2b7de.jpg)
+![ferrari_sf90_stradale_assetto_fiorano_0,50%]{:height="50%" width="50%"}(https://user-images.githubusercontent.com/42152431/64420483-4eab5080-d097-11e9-9ab1-7f6737c2b7de.jpg)
   - Nav bar, set up cypress, 3 tests
   - Blocker - one fails on the profile
   - Today - merge to master, employer sigh up and sign in, routing.
