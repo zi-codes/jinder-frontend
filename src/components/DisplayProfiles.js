@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import axiosClient from "../axiosClient";
 import Card from "./Card";
 import Button from "./Button";
 import { render } from "react-dom";
@@ -18,7 +19,12 @@ const appStyles = {
   overflow: "hidden"
 };
 
-const wrapperStyles = { position: "relative", width: "250px", height: "250px" };
+const imgStyle = {
+  width: "250px",
+  height: "200px"
+};
+
+const wrapperStyles = { position: "relative", width: "250px", height: "350px" };
 const actionsStyles = {
   display: "flex",
   justifyContent: "space-between",
@@ -31,20 +37,25 @@ class DisplayProfiles extends React.Component {
   };
 
   componentDidMount = () => {
-    const that = this;
-    fetch("https://jinder-backend.herokuapp.com/api/profiles")
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(json) {
-        that.setState({ profiles: json });
-      });
+    axiosClient
+      .get("/api/profiles")
+      .then(response => this.setState({ profiles: response.data }));
   };
 
   remove = () =>
     this.setState(({ profiles }) => ({
       profiles: profiles.slice(1, profiles.length)
     }));
+
+  showImg = (profileIndex, profiles) => {
+    if (profiles[profileIndex].image_photos[0]) {
+      return (
+        "http://localhost:3000" + profiles[profileIndex].image_photos[0].url
+      );
+    } else {
+      return DefaultPicture;
+    }
+  };
 
   render() {
     const { profiles } = this.state;
@@ -65,20 +76,34 @@ class DisplayProfiles extends React.Component {
                   onAfterSwipe={this.remove}
                 >
                   <Card>
-                    {profiles[0].first_name} {profiles[0].last_name}
-                    <br />
-                    Industry: {profiles[0].industry}
-                    <br />
-                    Skills: {profiles[0].skills}
+                    <table>
+                      <tr>
+                        <img style={imgStyle} src={this.showImg(0, profiles)} />
+                      </tr>
+                      <tr>
+                        {profiles[0].first_name} {profiles[0].last_name}
+                        <br />
+                        Industry: {profiles[0].industry}
+                        <br />
+                        Skills: {profiles[0].skills}
+                      </tr>
+                    </table>
                   </Card>
                 </Swipeable>
                 {profiles.length > 1 && (
                   <Card zIndex={-1}>
-                    {profiles[1].first_name} {profiles[1].last_name}
-                    <br />
-                    Industry: {profiles[1].industry}
-                    <br />
-                    Skills: {profiles[1].skills}
+                    <table>
+                      <tr>
+                        <img style={imgStyle} src={this.showImg(1, profiles)} />
+                      </tr>
+                      <tr>
+                        {profiles[1].first_name} {profiles[1].last_name}
+                        <br />
+                        Industry: {profiles[1].industry}
+                        <br />
+                        Skills: {profiles[1].skills}
+                      </tr>
+                    </table>
                   </Card>
                 )}
               </div>
