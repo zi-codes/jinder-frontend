@@ -146,7 +146,7 @@ I can log out.
 - FE contact us / about us page
 - MVP done
 ## Thursday (05.09.19) :chart_with_upwards_trend:
-StandUp::coffee:
+StandUp:coffee:
 - **Zi - sunny :sunny:**
   - Blockers - swipey swipe (will get rid of ‘transparency feature’)
   - Worries: image upload (will pair on this with AB)
@@ -166,9 +166,13 @@ StandUp::coffee:
   - Blockers: learning React and Bootstrap frustratingly takes too long
   - Added logo to ‘/’, ‘/login’, ‘/aboutus’
   - AboutUs, image upload, README
--
 ## Friday (06.09.19) :chart_with_upwards_trend:
--
+StandUp:coffee:
+- **Zi**![d37dcfb7e4ad9dfe45ad9e2cf3cec2a2](https://user-images.githubusercontent.com/42152431/64420561-76021d80-d097-11e9-8c74-8f093835dc94.jpg)
+- **Harry** ![ferrari_sf90_stradale_assetto_fiorano_0](https://user-images.githubusercontent.com/42152431/64420483-4eab5080-d097-11e9-9ab1-7f6737c2b7de.jpg)
+- **Anastasiia**![gle-coupe-zw-11_720x540](https://user-images.githubusercontent.com/42152431/64420482-4eab5080-d097-11e9-808b-13bdbfb3f846.jpg)
+- **Josh**![The-all-electric-version-of-the-iconic-double-decker-London-red-bus-crosses-Westminster-bridge-as-a-part-of-the-vehicles-lauch-event-image-courtesy-of-BYD](https://user-images.githubusercontent.com/42152431/64420484-4f43e700-d097-11e9-835d-fe2de64b707e.jpg)
+
 
 ## Monday (09.09.19) :chart_with_upwards_trend:
  - 
