@@ -39,26 +39,6 @@ class App extends React.Component {
     });
   };
 
-  // createProfile = state => {
-  //   fetch("https://jinder-backend.herokuapp.com/api/profiles", {
-  //     method: "post",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //       // 'X-User-Email': '',
-  //       // 'X-User-Token': ''
-  //     },
-  //     body: JSON.stringify({
-  //       profile: {
-  //         user_id: 1,
-  //         first_name: state.firstName,
-  //         last_name: state.surname,
-  //         industry: state.industry,
-  //         skills: state.skills
-  //       }
-  //     })
-  //   });
-  // };
-
   buildUserProfileFormData = state => {
     let formData = new FormData();
     formData.append("profile[first_name]", state.firstName);
@@ -67,15 +47,15 @@ class App extends React.Component {
     formData.append("profile[industry]", state.industry);
     formData.append("profile[skills]", state.skills);
 
-    // let images = state.images;
-    // for (let i = 0; i < images.length; i++) {
-    //   let file = images[i];
-    //   formData.append(
-    //     `profile[images_attributes][${i}][photo]`,
-    //     file,
-    //     file.name
-    //   );
-    // }
+    let images = state.images;
+    for (let i = 0; i < images.length; i++) {
+      let file = images[i];
+      formData.append(
+        `profile[images_attributes][${i}][photo]`,
+        file,
+        file.name
+      );
+    }
 
     return formData;
   };
