@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Button, Navbar, Nav, NavDropdown, Form, FormControl  } from 'react-bootstrap';
 import logo from '../style/images/jinder-flame-white.png'
 
@@ -32,7 +31,7 @@ export default class Header extends React.Component {
               </NavDropdown>
               <Nav.Link style={linkStyle} href="/about">About Us</Nav.Link>
             </Nav>
-            <Nav.Link style={linkStyle} href="#link">Sign Up</Nav.Link>
+            <Nav.Link style={linkStyle} href="/">Sign Up</Nav.Link>
             <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2" />
               <Button style={buttonStyle} variant="outline-success">Search</Button>
