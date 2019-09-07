@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-class LogIn extends React.Component {
+class EmployerLogIn extends React.Component {
     state = {
         email: null,
         password: null
@@ -11,7 +11,7 @@ class LogIn extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.createSession(this.state);
+        this.props.createEmployerSession(this.state);
         this.setState({ email: null });
         this.setState({ password: null });
       };
@@ -19,7 +19,6 @@ class LogIn extends React.Component {
       handleChange = ({ target }) => {
         this.setState({ [target.name]: target.value });
       };
-    
 
     render() {
         return (
@@ -28,6 +27,7 @@ class LogIn extends React.Component {
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
+              name="email"
               type="email"
               placeholder="Enter email"
               onChange={this.handleChange}
@@ -40,6 +40,7 @@ class LogIn extends React.Component {
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
+              name="password"
               type="password"
               placeholder="Password"
               onChange={this.handleChange}
@@ -56,8 +57,8 @@ class LogIn extends React.Component {
     }
 }
 
-LogIn.propTypes = {
-    createSession: PropTypes.func.isRequired
+EmployerLogIn.propTypes = {
+  createEmployerSession: PropTypes.func.isRequired
   };
 
-export default LogIn;
+export default EmployerLogIn;
