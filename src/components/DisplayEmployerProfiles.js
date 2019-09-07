@@ -1,7 +1,7 @@
 import React from "react";
 import axiosClient from "../axiosClient";
 import Img from "react-fix-image-orientation";
-import Card from "./Card";
+import SwipeCard from "./SwipeCard";
 import Button from "./Button";
 import Swipeable from "react-swipy";
 import DefaultPicture from "./default.jpeg";
@@ -86,7 +86,7 @@ class DisplayEmployerProfiles extends React.Component {
                   onSwipe={dir => this.handleSwipe(dir)}
                   onAfterSwipe={this.remove}
                 >
-                  <Card>
+                  <SwipeCard>
                     <div>
                       <Img style={imgStyle} src={this.showImg(0, profiles)} />
                     </div>
@@ -97,10 +97,10 @@ class DisplayEmployerProfiles extends React.Component {
                       <br />
                       Website: {profiles[0].company_url}
                     </div>
-                  </Card>
+                  </SwipeCard>
                 </Swipeable>
                 {profiles.length > 1 && (
-                  <Card zIndex={-1}>
+                  <SwipeCard zIndex={-1}>
                     <div>
                       <Img style={imgStyle} src={this.showImg(1, profiles)} />
                     </div>
@@ -111,11 +111,13 @@ class DisplayEmployerProfiles extends React.Component {
                       <br />
                       Website: {profiles[1].company_url}
                     </div>
-                  </Card>
+                  </SwipeCard>
                 )}
               </div>
             )}
-            {profiles.length <= 1 && <Card zIndex={-2}>No more profiles</Card>}
+            {profiles.length <= 1 && (
+              <SwipeCard zIndex={-2}>No more profiles</SwipeCard>
+            )}
           </div>
         </div>
       </div>

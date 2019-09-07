@@ -1,5 +1,4 @@
 import React from "react";
-import { Card } from "react-bootstrap";
 
 const cardStyles = {
   background: "whitesmoke",
@@ -14,8 +13,8 @@ const cardStyles = {
   top: 0
 };
 
-const Card = ({ zIndex = 0, children }) => (
+const SwipeCard = ({ zIndex = 0, children }) => (
   <div style={{ ...cardStyles, zIndex }}>{children}</div>
 );
 
-export default Card;
+export default SwipeCard;

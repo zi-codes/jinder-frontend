@@ -1,7 +1,8 @@
 import React from "react";
 import axiosClient from "../axiosClient";
 import Img from "react-fix-image-orientation";
-import Card from "./Card";
+import SwipeCard from "./SwipeCard";
+import { Card, Container, Row } from "react-bootstrap";
 import Button from "./Button";
 import Swipeable from "react-swipy";
 import DefaultPicture from "./default.jpeg";
@@ -92,8 +93,10 @@ class DisplayCandidateProfiles extends React.Component {
   render() {
     const { profiles } = this.state;
     return (
-      <div>
-        <Filter filterCards={this.filterCards}></Filter>
+      <Container>
+        <Row className="justify-content-md-center">
+          <Filter filterCards={this.filterCards}></Filter>
+        </Row>
         <div style={appStyles}>
           <div style={wrapperStyles}>
             {profiles.length > 0 && (
@@ -108,21 +111,23 @@ class DisplayCandidateProfiles extends React.Component {
                   onSwipe={dir => this.handleSwipe(dir)}
                   onAfterSwipe={this.remove}
                 >
-                  <Card>
-                    <div>
-                      <Img style={imgStyle} src={this.showImg(0, profiles)} />
-                    </div>
-                    <div>
-                      {profiles[0].first_name} {profiles[0].last_name}
-                      <br />
-                      Industry: {profiles[0].industry}
-                      <br />
-                      Skills: {profiles[0].skills}
-                    </div>
-                  </Card>
+                  <SwipeCard>
+                    <Card>
+                      <div>
+                        <Img style={imgStyle} src={this.showImg(0, profiles)} />
+                      </div>
+                      <div>
+                        {profiles[0].first_name} {profiles[0].last_name}
+                        <br />
+                        Industry: {profiles[0].industry}
+                        <br />
+                        Skills: {profiles[0].skills}
+                      </div>
+                    </Card>
+                  </SwipeCard>
                 </Swipeable>
                 {profiles.length > 1 && (
-                  <Card zIndex={-1}>
+                  <SwipeCard zIndex={-1}>
                     <div>
                       <Img style={imgStyle} src={this.showImg(1, profiles)} />
                     </div>
@@ -133,14 +138,16 @@ class DisplayCandidateProfiles extends React.Component {
                       <br />
                       Skills: {profiles[1].skills}
                     </div>
-                  </Card>
+                  </SwipeCard>
                 )}
               </div>
             )}
-            {profiles.length <= 1 && <Card zIndex={-2}>No more profiles</Card>}
+            {profiles.length <= 1 && (
+              <SwipeCard zIndex={-2}>No more profiles</SwipeCard>
+            )}
           </div>
         </div>
-      </div>
+      </Container>
     );
   }
 }
