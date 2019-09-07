@@ -8,13 +8,16 @@ import axiosClient from "./axiosClient";
 
 // User (candidate) components
 import SignUp from "./components/SignUp";
+import EmployerSignUp from "./components/EmployerSignUp";
 import LogIn from "./components/LogIn";
+import EmployerLogIn from "./components/EmployerLogin";
 import UserProfile from "./components/UserProfile";
 
 // Employer components
 import EmployerProfile from "./components/EmployerProfile";
 import DisplayProfiles from "./components/DisplayProfiles";
 
+import HomePage from "./components/HomePage";
 import Header from "./components/Header";
 import globalUrl from "./globalUrl";
 
@@ -31,6 +34,21 @@ class App extends React.Component {
       },
       body: JSON.stringify({
         user: {
+          email: state.email,
+          password: state.password
+        }
+      })
+    });
+  };
+
+  createEmployer = state => {
+    fetch("https://jinder-backend.herokuapp.com/employers", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        employer: {
           email: state.email,
           password: state.password
         }
@@ -120,12 +138,24 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
           <Header />
+          <Route exact path="/" component={HomePage} />
+
           <Route exact path="/profiles" component={DisplayProfiles} />
+
           <Route
             exact
-            path="/"
+            path="/candidate-sign-up"
             render={props => <SignUp {...props} createUser={this.createUser} />}
           />
+
+          <Route
+            exact
+            path="/employer-sign-up"
+            render={props => (
+              <EmployerSignUp {...props} createEmployer={this.createEmployer} />
+            )}
+          />
+
           <Route
             exact
             path="/login"
@@ -133,6 +163,18 @@ class App extends React.Component {
               <LogIn {...props} createSession={this.createSession} />
             )}
           />
+
+          <Route
+            exact
+            path="/employer-login"
+            render={props => (
+              <EmployerLogIn
+                {...props}
+                createEmployerSession={this.createEmployerSession}
+              />
+            )}
+          />
+
           <Route
             exact
             path="/profile"

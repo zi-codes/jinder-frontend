@@ -23,11 +23,11 @@ export default class Header extends React.Component {
               <Nav.Link style={linkStyle} href="/">Sign In</Nav.Link>
               <Nav.Link style={linkStyle} href="/profiles">View Profiles</Nav.Link>
               <NavDropdown title={<span style={linkStyle}>Your Profile</span>}>
-                <NavDropdown.Item style={dropdownLinkStyle} href="/profile">View</NavDropdown.Item>
+                <NavDropdown.Item style={dropdownLinkStyle} href="/profile">Create Profile</NavDropdown.Item>
                 <NavDropdown.Item style={dropdownLinkStyle}  href="/profile">Edit</NavDropdown.Item>
-                <NavDropdown.Item style={dropdownLinkStyle}  href="#action/3.3">Something</NavDropdown.Item>
+                {/* <NavDropdown.Item style={dropdownLinkStyle}  href="#action/3.3">Something</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
               </NavDropdown>
               <Nav.Link style={linkStyle} href="/about">About Us</Nav.Link>
             </Nav>
