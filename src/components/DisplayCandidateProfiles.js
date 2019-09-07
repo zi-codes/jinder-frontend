@@ -1,9 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import axiosClient from "../axiosClient";
+import Img from "react-fix-image-orientation";
 import Card from "./Card";
 import Button from "./Button";
-import { render } from "react-dom";
 import Swipeable from "react-swipy";
 import DefaultPicture from "./default.jpeg";
 import Filter from "./Filter";
@@ -40,8 +39,9 @@ class DisplayCandidateProfiles extends React.Component {
 
   handleRight = () => {
     let swipedProfile = this.state.profiles[0];
+    console.log(swipedProfile);
     let data = {
-      accepted_profiles: swipedProfile.id,
+      accepted_profiles: swipedProfile.user_id,
       id: sessionStorage.getItem("employer_id")
     };
     axiosClient.patch("/employers/update_matches", data);
@@ -49,8 +49,9 @@ class DisplayCandidateProfiles extends React.Component {
 
   handleLeft = () => {
     let swipedProfile = this.state.profiles[0];
+    console.log(swipedProfile);
     let data = {
-      rejected_profiles: swipedProfile.id,
+      rejected_profiles: swipedProfile.user_id,
       id: sessionStorage.getItem("employer_id")
     };
     axiosClient.patch("/employers/update_matches", data);
@@ -109,7 +110,7 @@ class DisplayCandidateProfiles extends React.Component {
                 >
                   <Card>
                     <div>
-                      <img style={imgStyle} src={this.showImg(0, profiles)} />
+                      <Img style={imgStyle} src={this.showImg(0, profiles)} />
                     </div>
                     <div>
                       {profiles[0].first_name} {profiles[0].last_name}
@@ -123,7 +124,7 @@ class DisplayCandidateProfiles extends React.Component {
                 {profiles.length > 1 && (
                   <Card zIndex={-1}>
                     <div>
-                      <img style={imgStyle} src={this.showImg(1, profiles)} />
+                      <Img style={imgStyle} src={this.showImg(1, profiles)} />
                     </div>
                     <div>
                       {profiles[1].first_name} {profiles[1].last_name}

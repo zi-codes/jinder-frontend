@@ -1,11 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Select from "react-select";
-import { industryOptions } from "../data/IndustryData";
-import { skillsOptions } from "../data/SkillsData";
 import { Button, Form, FormControl } from "react-bootstrap";
-
-// wait to integrate with harry ;)
 
 class Filter extends React.Component {
   state = {

@@ -17,6 +17,7 @@ import EmployerSignUp from "./components/EmployerSignUp";
 import EmployerLogIn from "./components/EmployerLogin";
 import EmployerProfile from "./components/EmployerProfile";
 import DisplayCandidateProfiles from "./components/DisplayCandidateProfiles";
+import EmployerMatches from "./components/EmployerMatches";
 
 import HomePage from "./components/HomePage";
 import Header from "./components/Header";
@@ -80,7 +81,7 @@ class App extends React.Component {
     let formData = new FormData();
     formData.append("profile[first_name]", state.firstName);
     formData.append("profile[last_name]", state.surname);
-    formData.append("profile[user_id]", this.state.userId);
+    formData.append("profile[user_id]", sessionStorage.getItem("user_id"));
     formData.append("profile[industry]", state.industry);
     formData.append("profile[skills]", state.skills);
 
@@ -213,6 +214,12 @@ class App extends React.Component {
                 createEmployerProfile={this.createEmployerProfile}
               />
             )}
+          />
+
+          <Route
+            exact
+            path="/employer-matches"
+            render={props => <EmployerMatches {...props} />}
           />
         </BrowserRouter>
       </div>

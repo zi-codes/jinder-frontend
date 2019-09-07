@@ -1,12 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 import axiosClient from "../axiosClient";
+import Img from "react-fix-image-orientation";
 import Card from "./Card";
 import Button from "./Button";
-import { render } from "react-dom";
 import Swipeable from "react-swipy";
 import DefaultPicture from "./default.jpeg";
-import Filter from "./Filter";
 import globalUrl from "../globalUrl";
 import {
   appStyles,
@@ -21,13 +19,39 @@ class DisplayEmployerProfiles extends React.Component {
   };
 
   componentDidMount = () => {
+    console.log("user id is " + sessionStorage.getItem("user_id"));
     axiosClient
       .get("/employers")
       .then(response => this.setState({ profiles: response.data.reverse() }));
   };
 
-  print = dir => {
+  handleSwipe = dir => {
     console.log(dir);
+    if (dir === "left") {
+      this.handleLeft();
+    } else {
+      this.handleRight();
+    }
+  };
+
+  handleRight = () => {
+    let swipedProfile = this.state.profiles[0];
+    console.log(swipedProfile);
+    let data = {
+      accepted_employers: swipedProfile.id,
+      id: sessionStorage.getItem("user_id")
+    };
+    axiosClient.patch("/users/update_matches", data);
+  };
+
+  handleLeft = () => {
+    let swipedProfile = this.state.profiles[0];
+    console.log(swipedProfile);
+    let data = {
+      rejected_employers: swipedProfile.id,
+      id: sessionStorage.getItem("user_id")
+    };
+    axiosClient.patch("/users/update_matches", data);
   };
 
   remove = () => {
@@ -59,12 +83,12 @@ class DisplayEmployerProfiles extends React.Component {
                       <Button onClick={right}>Accept</Button>
                     </div>
                   )}
-                  onSwipe={dir => this.print(dir)}
+                  onSwipe={dir => this.handleSwipe(dir)}
                   onAfterSwipe={this.remove}
                 >
                   <Card>
                     <div>
-                      <img style={imgStyle} src={this.showImg(0, profiles)} />
+                      <Img style={imgStyle} src={this.showImg(0, profiles)} />
                     </div>
                     <div>
                       {profiles[0].first_name} {profiles[0].last_name}
@@ -78,7 +102,7 @@ class DisplayEmployerProfiles extends React.Component {
                 {profiles.length > 1 && (
                   <Card zIndex={-1}>
                     <div>
-                      <img style={imgStyle} src={this.showImg(1, profiles)} />
+                      <Img style={imgStyle} src={this.showImg(1, profiles)} />
                     </div>
                     <div>
                       {profiles[1].first_name} {profiles[1].last_name}

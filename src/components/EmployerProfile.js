@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Select from "react-select";
 import Img from "react-fix-image-orientation";
 import { Redirect } from "react-router-dom";
 
