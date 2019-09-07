@@ -1,21 +1,27 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import axiosClient from "./axiosClient";
 import SignUp from "./components/SignUp";
 import EmployerSignUp from "./components/EmployerSignUp";
 import LogIn from "./components/LogIn";
 import EmployerLogIn from "./components/EmployerLogin";
 import UserProfile from "./components/UserProfile";
 import DisplayProfiles from "./components/DisplayProfiles";
+
 import Header from "./components/Header"
 import HomePage from "./components/HomePage"
 
+import globalUrl from "./globalUrl";
 
 class App extends React.Component {
   state = {};
 
-  createUser = state => {
+  componentDidMount() {
+    console.log(globalUrl);
+  }
 
-    fetch("https://jinder-backend.herokuapp.com/users", {
+  createUser = state => {
+    fetch(`${globalUrl}/users`, {
       method: "post",
       headers: {
         "Content-Type": "application/json"
@@ -46,8 +52,7 @@ class App extends React.Component {
   };
 
   createSession = state => {
-
-    fetch("https://jinder-backend.herokuapp.com/api/sessions", {
+    fetch(`${globalUrl}/api/sessions`, {
       method: "post",
       headers: {
         "Content-Type": "application/json"
@@ -60,6 +65,7 @@ class App extends React.Component {
       })
     });
   };
+
 
   createEmployerSession = state => {
 
@@ -77,31 +83,40 @@ class App extends React.Component {
     });
   };
 
-  createProfile = state => {
+  buildUserProfileFormData = state => {
+    let formData = new FormData();
+    formData.append("profile[first_name]", state.firstName);
+    formData.append("profile[last_name]", state.surname);
+    formData.append("profile[user_id]", 1);
+    formData.append("profile[industry]", state.industry);
+    formData.append("profile[skills]", state.skills);
 
-    fetch("https://jinder-backend.herokuapp.com/api/profiles", {
-      method: 'post',
+    let images = state.images;
+    for (let i = 0; i < images.length; i++) {
+      let file = images[i];
+      formData.append(
+        `profile[images_attributes][${i}][photo]`,
+        file,
+        file.name
+      );
+    }
+
+    return formData;
+  };
+
+  createProfile = state => {
+    axiosClient.post("/api/profiles", this.buildUserProfileFormData(state), {
       headers: {
-        'Content-Type': 'application/json',
-        // 'X-User-Email': '',
-        // 'X-User-Token': ''
-      },
-      body:  JSON.stringify({"profile":
-        {
-          "user_id": 1,
-          "first_name": state.firstName,
-          "last_name": state.surname,
-          "industry": state.industry,
-          "skills": state.skills
-        }
-      })
+        "X-User-Token": "uBEf4-XyHQmyGRkK3hyu",
+        "X-User-Email": "123456@123456"
+      }
     });
-  }
+  };
 
   render() {
     return (
       <div className="App">
-          <BrowserRouter>
+        <BrowserRouter>
           <Header />
             <Route exact path="/" component={HomePage} />
 
@@ -118,6 +133,7 @@ class App extends React.Component {
             <Route exact path= "/profile" render={(props) => <UserProfile {...props} createProfile={this.createProfile} />} />
 
           </BrowserRouter>
+
       </div>
     );
   }

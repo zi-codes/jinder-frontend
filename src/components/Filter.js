@@ -1,5 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Select from "react-select";
+import { industryOptions } from "../data/IndustryData";
+import { skillsOptions } from "../data/SkillsData";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
@@ -17,15 +20,18 @@ class Filter extends React.Component {
     return (
       <div>
         <Form>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Filter by skill</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter skill"
-              onChange={this.handleChange}
+          <Form.Group controlId="formBasicSkills">
+            <Form.Label>Job Skills:</Form.Label>
+            <Select
+              isMulti
+              name="skills"
+              options={skillsOptions}
+              className="basic-multi-select"
+              classNamePrefix="select"
+              onChange={this.handleSkillsChange}
+              placeholder="Enter your skills"
             />
           </Form.Group>
-
           <Button variant="primary" type="submit">
             Submit
           </Button>

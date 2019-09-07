@@ -4,7 +4,7 @@ const cardStyles = {
   background: "whitesmoke",
   borderRadius: 3,
   width: "250px",
-  height: "250px",
+  height: "350px",
   cursor: "pointer",
   userSelect: "none",
   position: "absolute",

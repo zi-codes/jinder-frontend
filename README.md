@@ -146,7 +146,8 @@ I can log out.
 - FE contact us / about us page
 - MVP done
 ## Thursday (05.09.19) :chart_with_upwards_trend:
-StandUp::coffee:
+StandUp:coffee:![Image from iOS](https://user-images.githubusercontent.com/42152431/64423325-26732000-d09e-11e9-80cf-d1a6eef383f5.jpg)
+
 - **Zi - sunny :sunny:**
   - Blockers - swipey swipe (will get rid of ‘transparency feature’)
   - Worries: image upload (will pair on this with AB)
@@ -166,9 +167,30 @@ StandUp::coffee:
   - Blockers: learning React and Bootstrap frustratingly takes too long
   - Added logo to ‘/’, ‘/login’, ‘/aboutus’
   - AboutUs, image upload, README
--
 ## Friday (06.09.19) :chart_with_upwards_trend:
--
+StandUp:coffee: **_What car are you today?_**
+- **Harry**
+  - ![ferrari_sf90_stradale_assetto_fiorano_0](https://user-images.githubusercontent.com/42152431/64422849-f5deb680-d09c-11e9-8e75-f7097fb76c4b.jpg)
+  - Nav bar, set up cypress, 3 tests
+  - Blocker - one fails on the profile
+  - Today - merge to master, employer sigh up and sign in, routing.
+- **Zi**
+  - ![d37dcfb7e4ad9dfe45ad9e2cf3cec2a2](https://user-images.githubusercontent.com/42152431/64422852-f6774d00-d09c-11e9-9c46-bce60cc09616.jpg)
+  - Image uploads 
+  - Concern: deployment
+  - Today: finishing off the image uploads
+- **Anastasiia**
+  - ![gle-coupe-zw-11_720x540](https://user-images.githubusercontent.com/42152431/64422896-1444b200-d09d-11e9-89a6-833ab8e8d76b.jpg)
+   - About page: created the layout 
+     - ![IMG_C9559B25FA72-1](https://user-images.githubusercontent.com/42152431/64423230-e7dd6580-d09d-11e9-8c9d-375a2fc11e3d.jpeg)
+   - Blockers: takes a long time to get everything to look cool and work properly.
+   - Issue: after mergening Nav Bar branch - loooots of debuging was required for About Us branch. It's all ok now. Yay!
+   - Today: Finish off about us - add some animation hopefully, update READMEs (FE and BE), 
+- **Josh**
+  - ![The-all-electric-version-of-the-iconic-double-decker-London-red-bus-crosses-Westminster-bridge-as-a-part-of-the-vehicles-lauch-event-image-courtesy-of-BYD (1)](https://user-images.githubusercontent.com/42152431/64422851-f6774d00-d09c-11e9-8cf0-3f9ea05c2d56.jpg)
+   - Employers images
+   - Started testing - blocker
+   - Today - finish the BE, matching logic
 
 ## Monday (09.09.19) :chart_with_upwards_trend:
  - 
