@@ -22,16 +22,45 @@ class DisplayCandidateProfiles extends React.Component {
   };
 
   componentDidMount = () => {
+    console.log("employer id is " + sessionStorage.getItem("employer_id"));
     axiosClient.get("/api/profiles").then(response => {
       this.setState({ profiles: response.data.reverse() });
       this.setState({ originalProfiles: response.data.reverse() });
     });
   };
 
-  remove = () =>
+  handleSwipe = dir => {
+    console.log(dir);
+    if (dir === "left") {
+      this.handleLeft();
+    } else {
+      this.handleRight();
+    }
+  };
+
+  handleRight = () => {
+    let swipedProfile = this.state.profiles[0];
+    let data = {
+      accepted_profiles: swipedProfile.id,
+      id: sessionStorage.getItem("employer_id")
+    };
+    axiosClient.patch("/employers/update_matches", data);
+  };
+
+  handleLeft = () => {
+    let swipedProfile = this.state.profiles[0];
+    let data = {
+      rejected_profiles: swipedProfile.id,
+      id: sessionStorage.getItem("employer_id")
+    };
+    axiosClient.patch("/employers/update_matches", data);
+  };
+
+  remove = () => {
     this.setState(({ profiles }) => ({
       profiles: profiles.slice(1, profiles.length)
     }));
+  };
 
   showImg = (profileIndex, profiles) => {
     if (profiles[profileIndex].image_photos[0]) {
@@ -75,37 +104,34 @@ class DisplayCandidateProfiles extends React.Component {
                       <Button onClick={right}>Accept</Button>
                     </div>
                   )}
+                  onSwipe={dir => this.handleSwipe(dir)}
                   onAfterSwipe={this.remove}
                 >
                   <Card>
-                    <table>
-                      <tr>
-                        <img style={imgStyle} src={this.showImg(0, profiles)} />
-                      </tr>
-                      <tr>
-                        {profiles[0].first_name} {profiles[0].last_name}
-                        <br />
-                        Industry: {profiles[0].industry}
-                        <br />
-                        Skills: {profiles[0].skills}
-                      </tr>
-                    </table>
+                    <div>
+                      <img style={imgStyle} src={this.showImg(0, profiles)} />
+                    </div>
+                    <div>
+                      {profiles[0].first_name} {profiles[0].last_name}
+                      <br />
+                      Industry: {profiles[0].industry}
+                      <br />
+                      Skills: {profiles[0].skills}
+                    </div>
                   </Card>
                 </Swipeable>
                 {profiles.length > 1 && (
                   <Card zIndex={-1}>
-                    <table>
-                      <tr>
-                        <img style={imgStyle} src={this.showImg(1, profiles)} />
-                      </tr>
-                      <tr>
-                        {profiles[1].first_name} {profiles[1].last_name}
-                        <br />
-                        Industry: {profiles[1].industry}
-                        <br />
-                        Skills: {profiles[1].skills}
-                      </tr>
-                    </table>
+                    <div>
+                      <img style={imgStyle} src={this.showImg(1, profiles)} />
+                    </div>
+                    <div>
+                      {profiles[1].first_name} {profiles[1].last_name}
+                      <br />
+                      Industry: {profiles[1].industry}
+                      <br />
+                      Skills: {profiles[1].skills}
+                    </div>
                   </Card>
                 )}
               </div>

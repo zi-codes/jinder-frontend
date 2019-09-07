@@ -8,7 +8,6 @@ const cardStyles = {
   cursor: "pointer",
   userSelect: "none",
   position: "absolute",
-  display: "flex",
   alignItems: "center",
   justifyContent: "center",
   top: 0

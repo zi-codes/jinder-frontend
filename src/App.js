@@ -28,9 +28,8 @@ class App extends React.Component {
     employerEmail: null,
     employerPassword: null,
 
-    // to store ID once logged in, set to null when logged out
-    userId: null,
-    employerId: null
+    userId: sessionStorage.getItem("user_id"),
+    employerId: sessionStorage.getItem("employer_id")
   };
 
   // ========================
@@ -56,7 +55,7 @@ class App extends React.Component {
   };
 
   saveUserId = data => {
-    this.setState({ userId: data.id });
+    sessionStorage.setItem("user_id", data.id);
   };
 
   createSession = state => {
@@ -143,7 +142,7 @@ class App extends React.Component {
   };
 
   saveEmployerId = response => {
-    this.setState({ employerId: response.data.id });
+    sessionStorage.setItem("employer_id", response.data.id);
   };
 
   render() {

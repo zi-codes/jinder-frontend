@@ -26,10 +26,15 @@ class DisplayEmployerProfiles extends React.Component {
       .then(response => this.setState({ profiles: response.data.reverse() }));
   };
 
-  remove = () =>
+  print = dir => {
+    console.log(dir);
+  };
+
+  remove = () => {
     this.setState(({ profiles }) => ({
       profiles: profiles.slice(1, profiles.length)
     }));
+  };
 
   showImg = (profileIndex, profiles) => {
     if (profiles[profileIndex].image_photos[0]) {
@@ -43,7 +48,6 @@ class DisplayEmployerProfiles extends React.Component {
     const { profiles } = this.state;
     return (
       <div>
-        <Filter></Filter>
         <div style={appStyles}>
           <div style={wrapperStyles}>
             {profiles.length > 0 && (
@@ -55,37 +59,34 @@ class DisplayEmployerProfiles extends React.Component {
                       <Button onClick={right}>Accept</Button>
                     </div>
                   )}
+                  onSwipe={dir => this.print(dir)}
                   onAfterSwipe={this.remove}
                 >
                   <Card>
-                    <table>
-                      <tr>
-                        <img style={imgStyle} src={this.showImg(0, profiles)} />
-                      </tr>
-                      <tr>
-                        {profiles[0].first_name} {profiles[0].last_name}
-                        <br />
-                        Bio: {profiles[0].bio}
-                        <br />
-                        Website: {profiles[0].company_url}
-                      </tr>
-                    </table>
+                    <div>
+                      <img style={imgStyle} src={this.showImg(0, profiles)} />
+                    </div>
+                    <div>
+                      {profiles[0].first_name} {profiles[0].last_name}
+                      <br />
+                      Bio: {profiles[0].bio}
+                      <br />
+                      Website: {profiles[0].company_url}
+                    </div>
                   </Card>
                 </Swipeable>
                 {profiles.length > 1 && (
                   <Card zIndex={-1}>
-                    <table>
-                      <tr>
-                        <img style={imgStyle} src={this.showImg(1, profiles)} />
-                      </tr>
-                      <tr>
-                        {profiles[1].first_name} {profiles[1].last_name}
-                        <br />
-                        Bio: {profiles[1].bio}
-                        <br />
-                        Website: {profiles[1].company_url}
-                      </tr>
-                    </table>
+                    <div>
+                      <img style={imgStyle} src={this.showImg(1, profiles)} />
+                    </div>
+                    <div>
+                      {profiles[1].first_name} {profiles[1].last_name}
+                      <br />
+                      Bio: {profiles[1].bio}
+                      <br />
+                      Website: {profiles[1].company_url}
+                    </div>
                   </Card>
                 )}
               </div>

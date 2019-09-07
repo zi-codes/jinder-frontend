@@ -9,7 +9,7 @@ import { Redirect } from "react-router-dom";
 class EmployerProfile extends React.Component {
   state = {
     // for routing
-    fireRedirect: false,
+    fireRedirect: this.props.redirect,
 
     //for profile details
     firstName: null,
