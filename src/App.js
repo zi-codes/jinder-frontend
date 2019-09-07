@@ -1,19 +1,27 @@
 import React from "react";
+
+// for routing
 import { BrowserRouter, Route } from "react-router-dom";
+
+// for API calls
 import axiosClient from "./axiosClient";
+
+// User (candidate) components
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import UserProfile from "./components/UserProfile";
+
+// Employer components
+import EmployerProfile from "./components/EmployerProfile";
 import DisplayProfiles from "./components/DisplayProfiles";
+
 import Header from "./components/Header";
 import globalUrl from "./globalUrl";
 
 class App extends React.Component {
   state = {};
 
-  componentDidMount() {
-    console.log(globalUrl);
-  }
+  // user (candidate) methods
 
   createUser = state => {
     fetch(`${globalUrl}/users`, {
@@ -67,12 +75,44 @@ class App extends React.Component {
   };
 
   createProfile = state => {
-    axiosClient.post("/api/profiles", this.buildUserProfileFormData(state), {
-      headers: {
-        "X-User-Token": "uBEf4-XyHQmyGRkK3hyu",
-        "X-User-Email": "123456@123456"
+    axiosClient.post("/api/profiles", this.buildUserProfileFormData(state));
+  };
+
+  // employer methods
+
+  buildEmployerProfileFormData = state => {
+    let formData = new FormData();
+    formData.append("employer[first_name]", state.firstName);
+    formData.append("employer[last_name]", state.surname);
+    formData.append("employer[user_id]", 1);
+    formData.append("employer[email]", state.email);
+    formData.append("employer[bio]", state.bio);
+    formData.append("employer[company_url]", state.companyUrl);
+
+    let images = state.images;
+    for (let i = 0; i < images.length; i++) {
+      let file = images[i];
+      formData.append(
+        `employer[images_attributes][${i}][photo]`,
+        file,
+        file.name
+      );
+    }
+
+    return formData;
+  };
+
+  createEmployerProfile = state => {
+    axiosClient.post(
+      "/api/employers",
+      this.buildEmployerProfileFormData(state),
+      {
+        headers: {
+          "X-User-Token": "uBEf4-XyHQmyGRkK3hyu",
+          "X-User-Email": "123456@123456"
+        }
       }
-    });
+    );
   };
 
   render() {
@@ -98,6 +138,16 @@ class App extends React.Component {
             path="/profile"
             render={props => (
               <UserProfile {...props} createProfile={this.createProfile} />
+            )}
+          />
+          <Route
+            exact
+            path="/employer_profile"
+            render={props => (
+              <EmployerProfile
+                {...props}
+                createProfile={this.createEmployerProfile}
+              />
             )}
           />
         </BrowserRouter>
