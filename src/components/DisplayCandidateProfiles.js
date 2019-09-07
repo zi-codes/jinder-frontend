@@ -8,39 +8,24 @@ import Swipeable from "react-swipy";
 import DefaultPicture from "./default.jpeg";
 import Filter from "./Filter";
 import globalUrl from "../globalUrl";
+import {
+  appStyles,
+  imgStyle,
+  wrapperStyles,
+  actionsStyles
+} from "./swipeStyling";
 
-const appStyles = {
-  height: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  width: "100%",
-  minHeight: "100vh",
-  fontFamily: "sans-serif",
-  overflow: "hidden"
-};
-
-const imgStyle = {
-  width: "250px",
-  height: "200px"
-};
-
-const wrapperStyles = { position: "relative", width: "250px", height: "350px" };
-const actionsStyles = {
-  display: "flex",
-  justifyContent: "space-between",
-  marginTop: 12
-};
-
-class DisplayProfiles extends React.Component {
+class DisplayCandidateProfiles extends React.Component {
   state = {
+    originalProfiles: [],
     profiles: []
   };
 
   componentDidMount = () => {
-    axiosClient
-      .get("/api/profiles")
-      .then(response => this.setState({ profiles: response.data.reverse() }));
+    axiosClient.get("/api/profiles").then(response => {
+      this.setState({ profiles: response.data.reverse() });
+      this.setState({ originalProfiles: response.data.reverse() });
+    });
   };
 
   remove = () =>
@@ -56,11 +41,29 @@ class DisplayProfiles extends React.Component {
     }
   };
 
+  filterCards = keywords => {
+    let profiles = this.state.originalProfiles;
+    keywords.forEach(keyword => {
+      profiles = this.filteredByKeyword(keyword, profiles);
+    });
+
+    this.setState({ profiles: profiles });
+  };
+
+  filteredByKeyword = (keyword, profiles) => {
+    let filteredProfiles = profiles.filter(
+      profile =>
+        profile.industry.toLowerCase().match(new RegExp(keyword)) ||
+        profile.skills.toLowerCase().match(new RegExp(keyword))
+    );
+    return filteredProfiles;
+  };
+
   render() {
     const { profiles } = this.state;
     return (
       <div>
-        <Filter></Filter>
+        <Filter filterCards={this.filterCards}></Filter>
         <div style={appStyles}>
           <div style={wrapperStyles}>
             {profiles.length > 0 && (
@@ -115,4 +118,4 @@ class DisplayProfiles extends React.Component {
   }
 }
 
-export default DisplayProfiles;
+export default DisplayCandidateProfiles;

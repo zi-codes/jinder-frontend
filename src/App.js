@@ -8,23 +8,34 @@ import axiosClient from "./axiosClient";
 
 // User (candidate) components
 import SignUp from "./components/SignUp";
-import EmployerSignUp from "./components/EmployerSignUp";
 import LogIn from "./components/LogIn";
-import EmployerLogIn from "./components/EmployerLogin";
 import UserProfile from "./components/UserProfile";
+import DisplayEmployerProfiles from "./components/DisplayEmployerProfiles";
 
 // Employer components
+import EmployerSignUp from "./components/EmployerSignUp";
+import EmployerLogIn from "./components/EmployerLogin";
 import EmployerProfile from "./components/EmployerProfile";
-import DisplayProfiles from "./components/DisplayProfiles";
+import DisplayCandidateProfiles from "./components/DisplayCandidateProfiles";
 
 import HomePage from "./components/HomePage";
 import Header from "./components/Header";
 import globalUrl from "./globalUrl";
 
 class App extends React.Component {
-  state = {};
+  state = {
+    // to store employer details from sign up page until profile is complete
+    employerEmail: null,
+    employerPassword: null,
 
+    // to store ID once logged in, set to null when logged out
+    userId: null,
+    employerId: null
+  };
+
+  // ========================
   // user (candidate) methods
+  // =======================
 
   createUser = state => {
     fetch(`${globalUrl}/users`, {
@@ -38,22 +49,14 @@ class App extends React.Component {
           password: state.password
         }
       })
-    });
+    })
+      .then(response => response.json())
+      .then(data => this.saveUserId(data))
+      .catch(error => console.error(error));
   };
 
-  createEmployer = state => {
-    fetch("https://jinder-backend.herokuapp.com/employers", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        employer: {
-          email: state.email,
-          password: state.password
-        }
-      })
-    });
+  saveUserId = data => {
+    this.setState({ userId: data.id });
   };
 
   createSession = state => {
@@ -68,14 +71,17 @@ class App extends React.Component {
           password: state.password
         }
       })
-    });
+    })
+      .then(response => response.json())
+      .then(data => this.saveUserId(data))
+      .catch(error => console.error(error));
   };
 
   buildUserProfileFormData = state => {
     let formData = new FormData();
     formData.append("profile[first_name]", state.firstName);
     formData.append("profile[last_name]", state.surname);
-    formData.append("profile[user_id]", 1);
+    formData.append("profile[user_id]", this.state.userId);
     formData.append("profile[industry]", state.industry);
     formData.append("profile[skills]", state.skills);
 
@@ -96,14 +102,22 @@ class App extends React.Component {
     axiosClient.post("/api/profiles", this.buildUserProfileFormData(state));
   };
 
+  // ========================
   // employer methods
+  // =======================
+
+  createEmployer = state => {
+    this.setState({ employerEmail: state.email });
+    this.setState({ employerPassword: state.password });
+  };
 
   buildEmployerProfileFormData = state => {
     let formData = new FormData();
+
     formData.append("employer[first_name]", state.firstName);
     formData.append("employer[last_name]", state.surname);
-    formData.append("employer[user_id]", 1);
-    formData.append("employer[email]", state.email);
+    formData.append("employer[email]", this.state.employerEmail);
+    formData.append("employer[password]", this.state.employerPassword);
     formData.append("employer[bio]", state.bio);
     formData.append("employer[company_url]", state.companyUrl);
 
@@ -111,7 +125,7 @@ class App extends React.Component {
     for (let i = 0; i < images.length; i++) {
       let file = images[i];
       formData.append(
-        `employer[images_attributes][${i}][photo]`,
+        `employer[employer_images_attributes][${i}][photo]`,
         file,
         file.name
       );
@@ -121,16 +135,15 @@ class App extends React.Component {
   };
 
   createEmployerProfile = state => {
-    axiosClient.post(
-      "/api/employers",
-      this.buildEmployerProfileFormData(state),
-      {
-        headers: {
-          "X-User-Token": "uBEf4-XyHQmyGRkK3hyu",
-          "X-User-Email": "123456@123456"
-        }
-      }
-    );
+    axiosClient
+      .post("/employers", this.buildEmployerProfileFormData(state))
+      .then(response => this.saveEmployerId(response));
+    this.setState({ employerEmail: null });
+    this.setState({ employerPassword: null });
+  };
+
+  saveEmployerId = response => {
+    this.setState({ employerId: response.data.id });
   };
 
   render() {
@@ -140,7 +153,17 @@ class App extends React.Component {
           <Header />
           <Route exact path="/" component={HomePage} />
 
-          <Route exact path="/profiles" component={DisplayProfiles} />
+          <Route
+            exact
+            path="/candidate-profiles"
+            component={DisplayCandidateProfiles}
+          />
+
+          <Route
+            exact
+            path="/employer-profiles"
+            component={DisplayEmployerProfiles}
+          />
 
           <Route
             exact
@@ -184,11 +207,11 @@ class App extends React.Component {
           />
           <Route
             exact
-            path="/employer_profile"
+            path="/employer-profile"
             render={props => (
               <EmployerProfile
                 {...props}
-                createProfile={this.createEmployerProfile}
+                createEmployerProfile={this.createEmployerProfile}
               />
             )}
           />

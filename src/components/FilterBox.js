@@ -1,24 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Select from "react-select";
 import { Button, Form, FormControl } from "react-bootstrap";
 
 // wait to integrate with harry ;)
 
-class Filter extends React.Component {
-  state = {
-    keywords: []
-  };
-
+class FilterBox extends React.Component {
   handleChange = event => {
     let value = event.target.value;
     let keyword = value.trim().toLowerCase();
-    this.setState({ keywords: [keyword, ...this.state.keywords] }, () => {
-      this.props.filterCards(this.state.keywords);
-    });
+    this.props.addKeyword(keyword);
   };
 
-  handleSubmit = event => {};
+  handleSubmit = event => {
+    this.props.addBox();
+  };
 
   render() {
     return (
@@ -37,8 +32,9 @@ class Filter extends React.Component {
   }
 }
 
-Filter.propTypes = {
-  filterCards: PropTypes.func.isRequired
+FilterBox.propTypes = {
+  addKeyword: PropTypes.func.isRequired,
+  addBox: PropTypes.func.isRequired
 };
 
-export default Filter;
+export default FilterBox;

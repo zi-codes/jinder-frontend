@@ -14,7 +14,6 @@ class EmployerProfile extends React.Component {
     //for profile details
     firstName: null,
     surname: null,
-    email: null,
     bio: null,
     companyUrl: null,
 
@@ -28,7 +27,6 @@ class EmployerProfile extends React.Component {
     this.props.createEmployerProfile(this.state);
     this.setState({ firstName: null });
     this.setState({ surname: null });
-    this.setState({ email: null });
     this.setState({ bio: null });
     this.setState({ companyUrl: null });
     this.setState({ images: [] });
@@ -119,12 +117,22 @@ class EmployerProfile extends React.Component {
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicSurname">
-            <Form.Label>Surname:</Form.Label>
+          <Form.Group controlId="formBasicBio">
+            <Form.Label>Company Bio:</Form.Label>
             <Form.Control
               type="text"
-              name="surname"
-              placeholder="Enter your surname"
+              name="bio"
+              placeholder="Enter your company bio"
+              onChange={this.handleFieldChange}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicCompanyUrl">
+            <Form.Label>Company Website:</Form.Label>
+            <Form.Control
+              type="text"
+              name="companyUrl"
+              placeholder="Enter your company website url"
               onChange={this.handleFieldChange}
             />
           </Form.Group>
@@ -140,14 +148,14 @@ class EmployerProfile extends React.Component {
           </Button>
         </Form>
 
-        {fireRedirect && <Redirect to="/profiles" />}
+        {fireRedirect && <Redirect to="/candidate-profiles" />}
       </div>
     );
   }
 }
 
-UserProfile.propTypes = {
-  createProfile: PropTypes.func.isRequired
+EmployerProfile.propTypes = {
+  createEmployerProfile: PropTypes.func.isRequired
 };
 
 const welcomeMessage = {
@@ -156,4 +164,4 @@ const welcomeMessage = {
   padding: "10px"
 };
 
-export default UserProfile;
+export default EmployerProfile;

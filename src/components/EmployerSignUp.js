@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 class EmployerSignUp extends React.Component {
   state = {
@@ -18,15 +18,14 @@ class EmployerSignUp extends React.Component {
     this.setState({ email: null });
     this.setState({ password: null });
     this.setState({ passwordConfirmation: null });
-    this.setState({ fireRedirect: true })
+    this.setState({ fireRedirect: true });
   };
 
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value })
-  }
-  
-  render() {
+    this.setState({ [target.name]: target.value });
+  };
 
+  render() {
     const { fireRedirect } = this.state;
 
     return (
@@ -69,7 +68,7 @@ class EmployerSignUp extends React.Component {
             Submit
           </Button>
         </Form>
-        {fireRedirect && ( <Redirect to='/profile'/> )} 
+        {fireRedirect && <Redirect to="/employer-profile" />}
       </div>
     );
   }
