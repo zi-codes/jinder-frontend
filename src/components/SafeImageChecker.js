@@ -39,7 +39,7 @@ const sendImgToGoogle = data => {
   };
   axios
     .post(
-      "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAvl1xGgq41d8PNDiu4eWcba3uUILyRJSc",
+      "https://vision.googleapis.com/v1/images:annotate?key=KEYTOGOHERE",
       body,
       headers
     )
