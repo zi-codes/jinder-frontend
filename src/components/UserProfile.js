@@ -128,7 +128,7 @@ class UserProfile extends React.Component {
 
           <ImageUpload
             updateImages={this.updateImages}
-            images={this.props.images}
+            images={this.state.images}
           ></ImageUpload>
 
           <Button variant="primary" type="submit">

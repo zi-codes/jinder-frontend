@@ -6,18 +6,19 @@ export const appStyles = {
 };
 
 export const imgStyle = {
-  width: "100%",
+  objectFit: "cover",
+  width: "280px",
   height: "200px"
 };
 
 export const wrapperStyles = {
   position: "relative",
   width: "280px",
-  height: "350px"
+  height: "400px"
 };
 
 export const actionsStyles = {
   display: "flex",
   justifyContent: "space-between",
-  margin: 5
+  margin: "40 px 5px 0px 5px"
 };

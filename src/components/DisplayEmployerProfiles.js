@@ -91,7 +91,11 @@ class DisplayEmployerProfiles extends React.Component {
                 >
                   <SwipeCard>
                     <Card>
-                      <Card.Img variant="top" src={this.showImg(0, profiles)} />
+                      <Card.Img
+                        style={imgStyle}
+                        variant="top"
+                        src={this.showImg(0, profiles)}
+                      />
 
                       <Card.Body>
                         <Card.Title>
@@ -106,7 +110,11 @@ class DisplayEmployerProfiles extends React.Component {
                 {profiles.length > 1 && (
                   <SwipeCard zIndex={-1}>
                     <Card>
-                      <Card.Img variant="top" src={this.showImg(1, profiles)} />
+                      <Card.Img
+                        style={imgStyle}
+                        variant="top"
+                        src={this.showImg(1, profiles)}
+                      />
 
                       <Card.Body>
                         <Card.Title>

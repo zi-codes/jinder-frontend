@@ -27,9 +27,8 @@ class ImageUpload extends React.Component {
         <li key={index} style={{ listStyle: "none", padding: "10px" }}>
           <div className="photo">
             <Img
-              width={250}
               src={el.id ? el.url : URL.createObjectURL(el)}
-              style={{ alignSelf: "center" }}
+              style={{ alignSelf: "center", height: "70px" }}
             />
           </div>
         </li>
