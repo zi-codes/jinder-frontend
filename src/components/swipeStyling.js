@@ -1,26 +1,23 @@
 export const appStyles = {
-  height: "100%",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  width: "100%",
-  minHeight: "100vh",
-  fontFamily: "sans-serif",
-  overflow: "hidden"
+  marginTop: "2em"
 };
 
 export const imgStyle = {
-  width: "250px",
+  width: "100%",
   height: "200px"
 };
 
 export const wrapperStyles = {
   position: "relative",
-  width: "250px",
+  width: "280px",
   height: "350px"
 };
+
 export const actionsStyles = {
   display: "flex",
   justifyContent: "space-between",
-  marginTop: 12
+  margin: 5
 };

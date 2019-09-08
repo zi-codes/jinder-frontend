@@ -1,9 +1,7 @@
 import React from "react";
 import axiosClient from "../axiosClient";
-import Img from "react-fix-image-orientation";
 import SwipeCard from "./SwipeCard";
-import { Card, Container, Row } from "react-bootstrap";
-import Button from "./Button";
+import { Card, Container, Row, Button } from "react-bootstrap";
 import Swipeable from "react-swipy";
 import DefaultPicture from "./default.jpeg";
 import Filter from "./Filter";
@@ -18,7 +16,7 @@ import {
 class DisplayCandidateProfiles extends React.Component {
   state = {
     originalProfiles: [],
-    profiles: []
+    profiles: [] //filtered profiles
   };
 
   componentDidMount = () => {
@@ -94,7 +92,7 @@ class DisplayCandidateProfiles extends React.Component {
     const { profiles } = this.state;
     return (
       <Container>
-        <Row className="justify-content-md-center">
+        <Row className="justify-content-center">
           <Filter filterCards={this.filterCards}></Filter>
         </Row>
         <div style={appStyles}>
@@ -104,8 +102,12 @@ class DisplayCandidateProfiles extends React.Component {
                 <Swipeable
                   buttons={({ right, left }) => (
                     <div style={actionsStyles}>
-                      <Button onClick={left}>Reject</Button>
-                      <Button onClick={right}>Accept</Button>
+                      <Button variant="danger" onClick={left}>
+                        Reject
+                      </Button>
+                      <Button variant="success" onClick={right}>
+                        Accept
+                      </Button>
                     </div>
                   )}
                   onSwipe={dir => this.handleSwipe(dir)}
@@ -113,31 +115,30 @@ class DisplayCandidateProfiles extends React.Component {
                 >
                   <SwipeCard>
                     <Card>
-                      <div>
-                        <Img style={imgStyle} src={this.showImg(0, profiles)} />
-                      </div>
-                      <div>
-                        {profiles[0].first_name} {profiles[0].last_name}
-                        <br />
-                        Industry: {profiles[0].industry}
-                        <br />
-                        Skills: {profiles[0].skills}
-                      </div>
+                      <Card.Img variant="top" src={this.showImg(0, profiles)} />
+                      <Card.Body>
+                        <Card.Title>
+                          {profiles[0].first_name} {profiles[0].last_name}
+                        </Card.Title>
+                        <p>Industry: {profiles[0].industry}</p>
+                        <p>Skills: {profiles[0].skills}</p>
+                      </Card.Body>
                     </Card>
                   </SwipeCard>
                 </Swipeable>
                 {profiles.length > 1 && (
                   <SwipeCard zIndex={-1}>
-                    <div>
-                      <Img style={imgStyle} src={this.showImg(1, profiles)} />
-                    </div>
-                    <div>
-                      {profiles[1].first_name} {profiles[1].last_name}
-                      <br />
-                      Industry: {profiles[1].industry}
-                      <br />
-                      Skills: {profiles[1].skills}
-                    </div>
+                    <Card>
+                      <Card.Img variant="top" src={this.showImg(1, profiles)} />
+
+                      <Card.Body>
+                        <Card.Title>
+                          {profiles[1].first_name} {profiles[1].last_name}
+                        </Card.Title>
+                        <p>Industry: {profiles[1].industry}</p>
+                        <p>Skills: {profiles[1].skills}</p>
+                      </Card.Body>
+                    </Card>
                   </SwipeCard>
                 )}
               </div>

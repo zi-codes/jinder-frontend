@@ -17,11 +17,11 @@ class Filter extends React.Component {
 
   render() {
     return (
-      <Card style={{ width: "26rem" }}>
+      <Card style={{ width: "26rem", marginTop: "2em" }}>
         <Card.Body>
           <Form inline>
             <FormControl
-              style={{ width: "18rem" }}
+              style={{ width: "70%" }}
               type="text"
               placeholder="Filter by industry or skill"
               className="mr-sm-2"
