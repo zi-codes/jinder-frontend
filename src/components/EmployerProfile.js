@@ -93,7 +93,10 @@ class EmployerProfile extends React.Component {
                   />
                 </Form.Group>
 
-                <ImageUpload updateImages={this.updateImages}></ImageUpload>
+                <ImageUpload
+                  updateImages={this.updateImages}
+                  images={this.state.images}
+                ></ImageUpload>
 
                 <Button variant="primary" type="submit">
                   Submit
