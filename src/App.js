@@ -11,6 +11,7 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import UserProfile from "./components/UserProfile";
 import DisplayEmployerProfiles from "./components/DisplayEmployerProfiles";
+import UserMatches from "./components/UserMatches";
 
 // Employer components
 import EmployerSignUp from "./components/EmployerSignUp";
@@ -220,6 +221,12 @@ class App extends React.Component {
             exact
             path="/employer-matches"
             render={props => <EmployerMatches {...props} />}
+          />
+
+          <Route
+            exact
+            path="/candidate-matches"
+            render={props => <UserMatches {...props} />}
           />
         </BrowserRouter>
       </div>

@@ -21,7 +21,6 @@ class EmployerSignUp extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const form = event.currentTarget;
 
     if (
       this.state.emailInvalid === false &&

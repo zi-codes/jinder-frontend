@@ -1,8 +1,7 @@
 import React from "react";
 import axiosClient from "../axiosClient";
-import Img from "react-fix-image-orientation";
 import SwipeCard from "./SwipeCard";
-import { Card, Container, Row, Button } from "react-bootstrap";
+import { Card, Container, Button } from "react-bootstrap";
 import Swipeable from "react-swipy";
 import DefaultPicture from "./default.jpeg";
 import globalUrl from "../globalUrl";

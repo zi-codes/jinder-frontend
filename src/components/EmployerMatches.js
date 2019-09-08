@@ -1,11 +1,12 @@
 import React from "react";
 import axiosClient from "../axiosClient";
+import { Card } from "react-bootstrap";
 
 class EmployerMatches extends React.Component {
   state = {
     matches: []
   };
-  componentWillMount() {
+  componentDidMount() {
     let current_employer_id = sessionStorage.getItem("employer_id");
     console.log("current employer id is " + current_employer_id);
     Promise.all([
@@ -35,10 +36,14 @@ class EmployerMatches extends React.Component {
 
   renderMatch = match => {
     return (
-      <div>
-        {match.first_name}
-        {match.user.email}
-      </div>
+      <Card key={match.id}>
+        <Card.Body>
+          <Card.Title>
+            {match.first_name} {match.last_name}
+          </Card.Title>
+          Contact them @ {match.user.email}
+        </Card.Body>
+      </Card>
     );
   };
   render() {
