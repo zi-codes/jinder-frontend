@@ -1,13 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Img from "react-fix-image-orientation";
+import { Button, Form, Card, Container, Row } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
-import safeImgCheck from "./SafeImageChecker";
+import ImageUpload from "./ImageUpload";
 
 class EmployerProfile extends React.Component {
   state = {
@@ -22,8 +17,7 @@ class EmployerProfile extends React.Component {
 
     // for image upload
 
-    images: [],
-    imageStatus: null
+    images: []
   };
 
   handleSubmit = event => {
@@ -41,57 +35,9 @@ class EmployerProfile extends React.Component {
     this.setState({ [target.name]: target.value });
   };
 
-  // Image Upload functions
-
-  renderUploadImagesButton = () => {
-    return (
-      <Form.Control
-        name="images"
-        type="file"
-        ref={field => (this.ImagesField = field)}
-        multiple={true}
-        accept="image/*"
-        onChange={e => this.handleImagesChange(e)}
-      ></Form.Control>
-    );
-  };
-
-  renderSelectedImagesFiles = () => {
-    let fileDOMs = this.state.images.map((el, index) => {
-      return (
-        <li key={index} style={{ listStyle: "none", padding: "10px" }}>
-          <div className="photo">
-            <Img
-              width={250}
-              src={el.id ? el.url : URL.createObjectURL(el)}
-              style={{ alignSelf: "center" }}
-            />
-          </div>
-        </li>
-      );
-    });
-
-    return <ul className="selected-images">{fileDOMs}</ul>;
-  };
-
-  renderLoadingStatus = () => {
-    if (this.state.imageStatus === "checking") {
-      return <div>Now checking your images</div>;
-    } else if (this.state.imageStatus === "checked") {
-      return <div>Your image has been checked</div>;
-    }
-  };
-
-  handleImagesChange(event) {
-    let files = this.ImagesField.files;
-    console.log(safeImgCheck(files[0]));
-    let { images } = this.state;
-    for (let i = 0; i < files.length; i++) {
-      images.push(files.item(i));
-    }
-    this.setState({ imageStatus: "checking" });
+  updateImages = images => {
     this.setState({ images: images });
-  }
+  };
 
   render() {
     const { fireRedirect } = this.state;
@@ -147,12 +93,7 @@ class EmployerProfile extends React.Component {
                   />
                 </Form.Group>
 
-                <Form.Group controlId="formImages">
-                  <Form.Label>Profile picture:</Form.Label>
-                  {this.renderUploadImagesButton()}
-                  {this.renderSelectedImagesFiles()}
-                  {this.renderLoadingStatus()}
-                </Form.Group>
+                <ImageUpload updateImages={this.updateImages}></ImageUpload>
 
                 <Button variant="primary" type="submit">
                   Submit
