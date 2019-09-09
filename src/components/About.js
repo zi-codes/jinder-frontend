@@ -10,7 +10,6 @@ import background from "../style/images/work-image.jpg";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 
-
 const containerPrimary = {
 backgroundImage: `url(${background})`,
 backgroundPosition: "center",
@@ -21,60 +20,93 @@ position: "center"
 }
 
 const cardStyleHeadingAbout = {
-width: "30rem",
+width: "40rem",
 textAlign: "center",
 border: "none",
-margin: "5rem",
-backgroundColor: "#FFFFFF99"
+margin: "auto",
+marginTop: "100px",
+backgroundColor: "#FFFFFF99",
+fontWeight: "bold",
+paddingTop: "20px",
+paddingBottom: "20px"
 }
 
 const cardStyleHeadingMission = {
-width: "30rem",
+width: "40rem",
 textAlign: "center",
 border: "none",
-margin: "5rem",
-backgroundColor: "#FFFFFF99"
+margin: "auto",
+marginTop: "100px",
+backgroundColor: "#FFFFFF99",
+fontWeight: "bold",
+paddingTop: "20px",
+paddingBottom: "20px"
 }
 
 const cardStyleHeadingWho = {
 width: "30rem",
 textAlign: "center",
 border: "none",
-margin: "5rem",
-backgroundColor: "#FFFFFF99"
+margin: "auto",
+marginTop: "100px",
+backgroundColor: "#FFFFFF99",
+fontWeight: "bold",
+paddingTop: "20px",
+paddingBottom: "20px"
 }
 
 const cardStyleHeadingContact = {
 width: "30rem",
 textAlign: "center",
 border: "none",
-margin: "5rem",
-backgroundColor: "#FFFFFF99"
+margin: "auto",
+marginTop: "100px",
+backgroundColor: "#FFFFFF99",
+fontWeight: "bold",
+paddingTop: "20px",
+paddingBottom: "20px"
 }
   
 const cardText = {
 textAlign: "center",
 fontSize: "25px",
-color: "#FF5903"
+color: "#000000",
 }
 
 const cardBody = {
 textAlign: "center",
-text: "bold"
+paddingTop: "20px",
+paddingBottom: "20px"
 }
 
 const cardTitle = {
-textAlign: "center"
+background: "#FF5903",
+color: "#fff",
+textAlign: "center",
+fontWeight: "bold",
+fontSize: "30px"
 }
 
 const emailButton = {
-background: "#FF5903"
+background: "#FF5903",
+marginTop: "10px",
+margin: "20px"
+}
+
+const welcomeContainer = {
+backgroundColor: "rgba(52, 52, 52, 0.7)"
+}
+
+const historyWelcome = {
+color: "#fff",
+textAlign: "center",
+paddingTop: "25px",
 }
 
 const CarouselStyle = styled(Carousel)`
 text-align: center;
-font-colour: black;
 `
+
 
 // const Body = styled.body`
 //     font-size: 16px;
@@ -100,22 +132,25 @@ class About extends React.Component {
     render() {
         return (  
             <div style={containerPrimary}>
+                <div style={welcomeContainer}>
+                    <h1 style={historyWelcome}>a brief history of jinder</h1>
+                </div>
                 <Container>
                     <Card style={cardStyleHeadingAbout}>
-                        <Card.Body style={cardBody}>
+                        <Card.Body>
                             <Card.Title style={cardTitle}>About Us</Card.Title>
                             <Card.Text style={cardText}>We created this web app to make a recruitment process fun, engaging and easy for both job hunter and employers.</Card.Text>
                         </Card.Body>
                     </Card>
                     <Card style={cardStyleHeadingMission}>
-                        <Card.Body style={cardBody}>
-                            <Card.Title>Our Mission and Vision</Card.Title>
+                        <Card.Body>
+                            <Card.Title style={cardTitle}>Our Mission and Vision</Card.Title>
                             <Card.Text style={cardText}>To make recruitment process fun, engaging and easy.</Card.Text>
                         </Card.Body>
                     </Card>
                     <Card style={cardStyleHeadingWho}>
-                        <Card.Body style={cardBody}>
-                            <Card.Title>Meet the Team</Card.Title>
+                        <Card.Body>
+                            <Card.Title style={cardTitle}>Meet the Team</Card.Title>
                                 <CarouselStyle>
                                     <Carousel> 
                                         <Carousel.Item>
@@ -144,7 +179,7 @@ class About extends React.Component {
                                         </Carousel.Item>
                                         <Carousel.Item>
                                             <img
-                                            className="w-10"
+                                            className="d-block, w-10"
                                             height={400}
                                             width={320}
                                             src={Anastasiia}
@@ -172,10 +207,10 @@ class About extends React.Component {
                         </Card.Body>
                     </Card>
                     <Card style={cardStyleHeadingContact}>
-                        <Card.Body style={cardBody}>
-                            <Card.Title>Contact Us</Card.Title>
-                            <Card.Text style={cardText}><Button style={emailButton} href="mailto:jinder.team@gmail.com">Email</Button></Card.Text>
-                            <Card.Text style={cardText}><Button style={emailButton} href="https://www.instagram.com/jinderteam/">Instagram</Button></Card.Text>
+                        <Card.Body>
+                            <Card.Title style={cardTitle}>Contact Us</Card.Title>
+                                <Button style={emailButton} href="mailto:jinder.team@gmail.com">Email</Button>
+                                <Button style={emailButton} href="https://www.instagram.com/jinderteam/">Instagram</Button>
                         </Card.Body>
                     </Card>               
                 </Container>
