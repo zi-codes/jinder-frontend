@@ -3,15 +3,6 @@ import React from "react";
 // import api from "../secretapikey";
 import api from "../publicapikey";
 
-const aws = require("aws-sdk");
-
-let s3 = new aws.S3({
-  googleKey: process.env.GOOGLE_API_KEY
-});
-console.log("this file is running ");
-
-console.log(s3);
-
 class SafeImageChecker extends React.Component {
   state = {
     images: this.props.images,
