@@ -6,30 +6,42 @@ import Harry from "./whoarewe/Harry.jpg";
 import Zi from "./whoarewe/Zi.jpg";
 import Josh from "./whoarewe/Josh.jpg";
 import Anastasiia from "./whoarewe/Anastasiia.jpg";
-import Image from 'react-image-resizer';
 import background from '../style/images/work-image.jpg'
+import Card from "react-bootstrap/Card";
 
 
 const containerPrimary = {
 backgroundImage: `url(${background})`,
 backgroundPosition: 'center',
-backgroundSize: 'cover',
+backgroundSize: 'wrap',
 backgroundRepeat: 'no-repeat',
-height: "800px",
+height: '100%',
 position: 'center'
+}
+
+const cardText = {
+textAlign: 'center',
+color: '#FF5903'
+}
+
+const cardBody = {
+textAlign: 'center'
+}
+
+const cardTitle = {
+textAlign: 'center'
 }
 
 const H1 = styled.h1`
 text-align: center;
 color: #FF5903;
-font-size: 100px;
+font-size: 50px;
 `
 
 const EmailButton = styled(Button)`
-background: palevioletred;
+background: orange;
 border-radius: 3px;
 border: none;
-colour: orange;
 ;
 `
 
@@ -70,78 +82,84 @@ class About extends React.Component {
             <div style={containerPrimary}>
                 
                 <header>
-                    <H1>
-                        About Us
-                    </H1>
-                        <Body>We created this web app to make a recruitment process fun, engaging and easy for both job hunter and employers.</Body>
-                    <H1>
-                        Our Vision and Mission
-                    </H1>
-                       <Body>To make recruitment process fun, engaging and easy.</Body>
-                    <H1>
-                        Who Are We?
-                    </H1>
-                    <CarouselStyle>
-                        <Carousel> 
-                            <Carousel.Item>
-                                <img
-                                className="w-10"
-                                height={400}
-                                width={320}
-                                src={Zi}
-                                alt="Zi"
-                                />
-                                    <Carousel.Caption>
-                                        <h3>Zi Deng</h3>
-                                    </Carousel.Caption>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img
-                                className="w-10"
-                                height={400}
-                                width={320}
-                                src={Josh}
-                                alt="Josh"
-                                />
-                                    <Carousel.Caption>
-                                        <h3>Josh Hemsley</h3>
-                                    </Carousel.Caption>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img
-                                className="w-10"
-                                height={400}
-                                width={320}
-                                src={Anastasiia}
-                                alt="Anastasiia"
-                                />
-                                    <Carousel.Caption>
-                                        <h3>Anastasiia Blaha</h3>
-                                    </Carousel.Caption>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img
-                                className="w-10"
-                                height={400}
-                                width={320}
-                                src={Harry}
-                                alt="Harry"
-                                />
-                                    <Carousel.Caption>
-                                        <h3>Harry Riley</h3>
-                                    </Carousel.Caption>
-                            </Carousel.Item>
-                        </Carousel>
-                    </CarouselStyle>
-                        <Body>We are the cool kids gang.</Body>
-                    <H1>
-                        Contact Us
-                        <Body>
-                            <EmailButton href="mailto:anastasiia.blaha@gmail.com">Email</EmailButton>
-                        </Body>
-                        <Body>Telephone:</Body>
-                        <Body>Instagram:</Body>
-                    </H1>
+                    <Card>
+                        <Card.Body style={cardBody}>
+                            <Card.Title style={cardTitle}>About Us</Card.Title>
+                            <Card.Text style={cardText}>We created this web app to make a recruitment process fun, engaging and easy for both job hunter and employers.</Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card>
+                        <Card.Body style={cardBody}>
+                            <Card.Title>Our Mission and Vision</Card.Title>
+                            <Card.Text style={cardText}>To make recruitment process fun, engaging and easy.</Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card>
+                        <Card.Body style={cardBody}>
+                            <Card.Title>Who are we? </Card.Title>
+                                <CarouselStyle>
+                                    <Carousel> 
+                                        <Carousel.Item>
+                                            <img
+                                            className="w-10"
+                                            height={400}
+                                            width={320}
+                                            src={Zi}
+                                            alt="Zi"
+                                            />
+                                                <Carousel.Caption>
+                                                    <h3>Zi Deng</h3>
+                                                </Carousel.Caption>
+                                        </Carousel.Item>
+                                        <Carousel.Item>
+                                            <img
+                                            className="w-10"
+                                            height={400}
+                                            width={320}
+                                            src={Josh}
+                                            alt="Josh"
+                                            />
+                                                <Carousel.Caption>
+                                                    <h3>Josh Hemsley</h3>
+                                                </Carousel.Caption>
+                                        </Carousel.Item>
+                                        <Carousel.Item>
+                                            <img
+                                            className="w-10"
+                                            height={400}
+                                            width={320}
+                                            src={Anastasiia}
+                                            alt="Anastasiia"
+                                            />
+                                                <Carousel.Caption>
+                                                    <h3>Anastasiia Blaha</h3>
+                                                </Carousel.Caption>
+                                        </Carousel.Item>
+                                        <Carousel.Item>
+                                            <img
+                                            className="w-10"
+                                            height={400}
+                                            width={320}
+                                            src={Harry}
+                                            alt="Harry"
+                                            />
+                                                <Carousel.Caption>
+                                                    <h3>Harry Riley</h3>
+                                                </Carousel.Caption>
+                                        </Carousel.Item>
+                                    </Carousel>
+                                </CarouselStyle>
+                            <Card.Text style={cardText}>We are team jinder</Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card>
+                        <Card.Body style={cardBody}>
+                            <Card.Title>Contact Us</Card.Title>
+                            <Card.Text style={cardText}><EmailButton href="mailto:jinder.team@gmail.com">Email</EmailButton></Card.Text>
+                            <Card.Text style={cardText}>Telephone:</Card.Text>
+                            {/* <Card.Text><Link href="goto:https://www.instagram.com/jinderteam/">Instagram</Link></Card.Text> */}
+                        </Card.Body>
+                    </Card>               
                 </header>
             </div>
         )
