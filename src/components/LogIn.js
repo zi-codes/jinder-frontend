@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import logo from "../Jinder2.png";
 
 class LogIn extends React.Component {
     state = {

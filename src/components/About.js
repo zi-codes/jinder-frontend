@@ -71,12 +71,6 @@ const emailButton = {
 background: "#FF5903"
 }
 
-const H1 = styled.h1`
-text-align: center;
-color: #FF5903;
-font-size: 50px;
-`
-
 const CarouselStyle = styled(Carousel)`
 text-align: center;
 font-colour: black;

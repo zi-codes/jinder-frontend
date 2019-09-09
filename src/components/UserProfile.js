@@ -25,7 +25,6 @@ class UserProfile extends React.Component {
 
     images: []
  
-
   };
 
   handleSubmit = event => {
@@ -183,7 +182,7 @@ class UserProfile extends React.Component {
           </Button>
         </Form>
 
-        {fireRedirect && ( <Redirect to='/profiles'/> )} 
+        {fireRedirect && ( <Redirect to="profiles"/> )} 
 
       </div>
     );
@@ -194,12 +193,10 @@ UserProfile.propTypes = {
   createProfile: PropTypes.func.isRequired
 };
 
-
 const welcomeMessage = {
-  color: '#FF5903',
-  textAlign: 'center',
-  padding: '10px'
+  color: "#FF5903",
+  textAlign: "center",
+  padding: "10px"
 }
-
 
 export default UserProfile;
