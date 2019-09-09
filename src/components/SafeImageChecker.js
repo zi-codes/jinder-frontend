@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import api from "../secretapikey";
 import { Button } from "react-bootstrap";
+import { StageSpinner } from "react-spinners-kit";
 // import api from "../publicapikey";
 
 class SafeImageChecker extends React.Component {
@@ -129,7 +130,16 @@ class SafeImageChecker extends React.Component {
     return (
       <div>
         {images.length > 0 && this.safeImgCheck(images[0])}
-        {images.length > 0 && <div> Now checking your images ... </div>}
+        {images.length > 0 && (
+          <div>
+            <span>
+              Checking that your image is appropriate for jinder, please wait
+            </span>
+            <span>
+              <StageSpinner color="#FF4500" loading={true} />{" "}
+            </span>
+          </div>
+        )}
         {this.renderResponse()}
       </div>
     );

@@ -6,6 +6,7 @@ import Swipeable from "react-swipy";
 import DefaultPicture from "./default.jpeg";
 import Filter from "./Filter";
 import globalUrl from "../globalUrl";
+import { StageSpinner } from "react-spinners-kit";
 import {
   appStyles,
   imgStyle,
@@ -15,6 +16,7 @@ import {
 
 class DisplayCandidateProfiles extends React.Component {
   state = {
+    loading: true,
     originalProfiles: [],
     profiles: [] //filtered profiles
   };
@@ -23,6 +25,7 @@ class DisplayCandidateProfiles extends React.Component {
     axiosClient.get("/api/profiles").then(response => {
       this.setState({ profiles: response.data.reverse() });
       this.setState({ originalProfiles: response.data.reverse() });
+      this.setState({ loading: false });
     });
   };
 
@@ -93,13 +96,21 @@ class DisplayCandidateProfiles extends React.Component {
 
   render() {
     const { profiles } = this.state;
+    const { loading } = this.state;
     return (
       <Container>
         <Row className="justify-content-center">
           <Filter filterCards={this.filterCards}></Filter>
         </Row>
+
         <div style={appStyles}>
           <div style={wrapperStyles}>
+            {loading && (
+              <div style={{ textAlign: "center" }}>
+                Loading profiles, please wait{" "}
+                <StageSpinner color="#FF4500" loading={loading} />
+              </div>
+            )}
             {profiles.length > 0 && (
               <div style={wrapperStyles}>
                 <Swipeable
@@ -146,7 +157,7 @@ class DisplayCandidateProfiles extends React.Component {
                 )}
               </div>
             )}
-            {profiles.length <= 1 && (
+            {profiles.length <= 1 && !this.state.loading && (
               <SwipeCard zIndex={-2}>No more profiles</SwipeCard>
             )}
           </div>
