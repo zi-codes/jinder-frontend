@@ -8,38 +8,67 @@ import Josh from "./whoarewe/Josh.jpg";
 import Anastasiia from "./whoarewe/Anastasiia.jpg";
 import background from '../style/images/work-image.jpg'
 import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 
 
 const containerPrimary = {
 backgroundImage: `url(${background})`,
 backgroundPosition: 'center',
-backgroundSize: 'wrap',
+backgroundSize: 'cover',
 backgroundRepeat: 'no-repeat',
 height: '100%',
 position: 'center'
 }
 
-const cardStyleHeading = {
-    width: '18rem',
-    textAlign: 'center',
-    border: 'none',
-    margin: 'auto',
-    marginTop: '100px',
-    backgroundColor: '#FFFFFF99'
-  }
-  
+const cardStyleHeadingAbout = {
+width: '30rem',
+textAlign: 'center',
+border: 'none',
+margin: '5rem',
+backgroundColor: '#FFFFFF99'
+}
 
+const cardStyleHeadingMission = {
+width: '30rem',
+textAlign: 'center',
+border: 'none',
+margin: '5rem',
+backgroundColor: '#FFFFFF99'
+}
+
+const cardStyleHeadingWho = {
+width: '30rem',
+textAlign: 'center',
+border: 'none',
+margin: '5rem',
+backgroundColor: '#FFFFFF99'
+}
+
+const cardStyleHeadingContact = {
+width: '30rem',
+textAlign: 'center',
+border: 'none',
+margin: '5rem',
+backgroundColor: '#FFFFFF99'
+}
+  
 const cardText = {
 textAlign: 'center',
+fontSize: '25px',
 color: '#FF5903'
 }
 
 const cardBody = {
-textAlign: 'center'
+textAlign: 'center',
+text: 'bold',
 }
 
 const cardTitle = {
-textAlign: 'center'
+textAlign: 'center',
+}
+
+const emailButton = {
+background: '#FF5903',
 }
 
 const H1 = styled.h1`
@@ -47,10 +76,6 @@ text-align: center;
 color: #FF5903;
 font-size: 50px;
 `
-
-const emailButton = {
-background: '#FF5903'
-}
 
 const Body = styled.body`
 text-align: center;
@@ -88,22 +113,22 @@ class About extends React.Component {
         return (  
             <div style={containerPrimary}>
                 
-                <header>
-                    <Card style={cardStyleHeading}>
+                <Container>
+                    <Card style={cardStyleHeadingAbout}>
                         <Card.Body style={cardBody}>
                             <Card.Title style={cardTitle}>About Us</Card.Title>
                             <Card.Text style={cardText}>We created this web app to make a recruitment process fun, engaging and easy for both job hunter and employers.</Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={cardStyleHeading}>
+                    <Card style={cardStyleHeadingMission}>
                         <Card.Body style={cardBody}>
                             <Card.Title>Our Mission and Vision</Card.Title>
                             <Card.Text style={cardText}>To make recruitment process fun, engaging and easy.</Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={cardStyleHeading}>
+                    <Card style={cardStyleHeadingWho}>
                         <Card.Body style={cardBody}>
-                            <Card.Title>Who are we? </Card.Title>
+                            <Card.Title>Meet the Team</Card.Title>
                                 <CarouselStyle>
                                     <Carousel> 
                                         <Carousel.Item>
@@ -159,14 +184,14 @@ class About extends React.Component {
                             <Card.Text style={cardText}>We are team jinder</Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={cardStyleHeading}>
+                    <Card style={cardStyleHeadingContact}>
                         <Card.Body style={cardBody}>
                             <Card.Title>Contact Us</Card.Title>
                             <Card.Text style={cardText}><Button style={emailButton} href="mailto:jinder.team@gmail.com">Email</Button></Card.Text>
                             <Card.Text style={cardText}><Button style={emailButton} href="https://www.instagram.com/jinderteam/">Instagram</Button></Card.Text>
                         </Card.Body>
                     </Card>               
-                </header>
+                </Container>
             </div>
         )
     }
