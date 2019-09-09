@@ -193,7 +193,39 @@ StandUp:coffee: **_What car are you today?_**
    - Today - finish the BE, matching logic
 
 ## Monday (09.09.19) :chart_with_upwards_trend:
- - 
+StandUp :cofee::cofee::cofee: :one:/:ten: 
+
+- **Harry 8.5/10**
+  - Routes: changed url paths
+  - Homepage **done**
+  - No blockers today
+  - Today: - link the homepage
+           - authentication with Josh
+
+- **Anastasiia 6.7/10**
+  - About page: clean up
+  - BE REDME with Josh
+  - Blockers: weekend merge nightmare, all done now
+  - Update FE and BE READMEs
+  - Instagram - create, put up pictures
+
+- **Zi 7/10**
+  - BE with Josh matches - working now
+  - Basic FE for the matches
+  - Image checking - only works locally at the moment
+  - Password matching works
+  - Today: tidy up all the forms - a version that’s fully functional
+
+- **Josh 9/10**
+  - Matching BE with Zi
+  - All live and pushed - works great
+  - Today: authentication on React and help with anything that is needed
+  - Add Personality functionality - challenge
+  - BE README with Anastasiia
+
+- _Match notification_
+- _Add other non-software skills_
+
 ## Tuesday (10.09.19) :chart_with_upwards_trend:
 - 
 -
