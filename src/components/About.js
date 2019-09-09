@@ -19,6 +19,16 @@ height: '100%',
 position: 'center'
 }
 
+const cardStyleHeading = {
+    width: '18rem',
+    textAlign: 'center',
+    border: 'none',
+    margin: 'auto',
+    marginTop: '100px',
+    backgroundColor: '#FFFFFF99'
+  }
+  
+
 const cardText = {
 textAlign: 'center',
 color: '#FF5903'
@@ -82,19 +92,19 @@ class About extends React.Component {
             <div style={containerPrimary}>
                 
                 <header>
-                    <Card>
+                    <Card style={cardStyleHeading}>
                         <Card.Body style={cardBody}>
                             <Card.Title style={cardTitle}>About Us</Card.Title>
                             <Card.Text style={cardText}>We created this web app to make a recruitment process fun, engaging and easy for both job hunter and employers.</Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card>
+                    <Card style={cardStyleHeading}>
                         <Card.Body style={cardBody}>
                             <Card.Title>Our Mission and Vision</Card.Title>
                             <Card.Text style={cardText}>To make recruitment process fun, engaging and easy.</Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card>
+                    <Card style={cardStyleHeading}>
                         <Card.Body style={cardBody}>
                             <Card.Title>Who are we? </Card.Title>
                                 <CarouselStyle>
@@ -152,12 +162,11 @@ class About extends React.Component {
                             <Card.Text style={cardText}>We are team jinder</Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card>
+                    <Card style={cardStyleHeading}>
                         <Card.Body style={cardBody}>
                             <Card.Title>Contact Us</Card.Title>
                             <Card.Text style={cardText}><EmailButton href="mailto:jinder.team@gmail.com">Email</EmailButton></Card.Text>
-                            <Card.Text style={cardText}>Telephone:</Card.Text>
-                            {/* <Card.Text><Link href="goto:https://www.instagram.com/jinderteam/">Instagram</Link></Card.Text> */}
+                            <Card.Text style={cardText}><EmailButton href="https://www.instagram.com/jinderteam/">Instagram</EmailButton></Card.Text>
                         </Card.Body>
                     </Card>               
                 </header>
