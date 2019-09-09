@@ -48,12 +48,9 @@ color: #FF5903;
 font-size: 50px;
 `
 
-const EmailButton = styled(Button)`
-background: orange;
-border-radius: 3px;
-border: none;
-;
-`
+const emailButton = {
+background: '#FF5903'
+}
 
 const Body = styled.body`
 text-align: center;
@@ -165,8 +162,8 @@ class About extends React.Component {
                     <Card style={cardStyleHeading}>
                         <Card.Body style={cardBody}>
                             <Card.Title>Contact Us</Card.Title>
-                            <Card.Text style={cardText}><EmailButton href="mailto:jinder.team@gmail.com">Email</EmailButton></Card.Text>
-                            <Card.Text style={cardText}><EmailButton href="https://www.instagram.com/jinderteam/">Instagram</EmailButton></Card.Text>
+                            <Card.Text style={cardText}><Button style={emailButton} href="mailto:jinder.team@gmail.com">Email</Button></Card.Text>
+                            <Card.Text style={cardText}><Button style={emailButton} href="https://www.instagram.com/jinderteam/">Instagram</Button></Card.Text>
                         </Card.Body>
                     </Card>               
                 </header>
@@ -176,4 +173,3 @@ class About extends React.Component {
 }
 
 export default About;
-
