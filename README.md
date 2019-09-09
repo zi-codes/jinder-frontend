@@ -1,4 +1,3 @@
-# Jinder:tm:
 # [Jinder](http://jinder-frontend.herokuapp.com/):tm:
 ![Jinder2](https://user-images.githubusercontent.com/42152431/64133475-22a97a00-cdce-11e9-812b-f6a4924d397f.png)
 
@@ -59,7 +58,7 @@ These instructions will get you a copy of the project up and running on your loc
 - Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos
 - Slack
 - [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
-- Instagram
+- [Instagram](https://www.instagram.com/jinderteam/)
 
 ### Tech Stack :computer:
 
