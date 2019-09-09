@@ -78,6 +78,21 @@ class App extends React.Component {
       .catch(error => console.error(error));
   };
 
+  createEmployerSession = state => {
+    fetch("https://jinder-backend.herokuapp.com/employers/sign_in", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        employer: {
+          email: state.email,
+          password: state.password
+        }
+      })
+    });
+  };
+
   buildUserProfileFormData = state => {
     let formData = new FormData();
     formData.append("profile[first_name]", state.firstName);
@@ -182,7 +197,7 @@ class App extends React.Component {
 
           <Route
             exact
-            path="/login"
+            path="/candidate-login"
             render={props => (
               <LogIn {...props} createSession={this.createSession} />
             )}
@@ -201,7 +216,7 @@ class App extends React.Component {
 
           <Route
             exact
-            path="/profile"
+            path="/candidate-profile"
             render={props => (
               <UserProfile {...props} createProfile={this.createProfile} />
             )}
