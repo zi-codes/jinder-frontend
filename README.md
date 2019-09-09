@@ -59,7 +59,7 @@ These instructions will get you a copy of the project up and running on your loc
 - Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos
 - Slack
 - [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
-- Instagram
+- [Instagram](https://www.instagram.com/jinderteam/)
 
 ### Tech Stack :computer:
 
