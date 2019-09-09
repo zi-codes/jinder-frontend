@@ -6,80 +6,74 @@ import Harry from "./whoarewe/Harry.jpg";
 import Zi from "./whoarewe/Zi.jpg";
 import Josh from "./whoarewe/Josh.jpg";
 import Anastasiia from "./whoarewe/Anastasiia.jpg";
-import background from '../style/images/work-image.jpg'
+import background from "../style/images/work-image.jpg";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 
 
 const containerPrimary = {
 backgroundImage: `url(${background})`,
-backgroundPosition: 'center',
-backgroundSize: 'cover',
-backgroundRepeat: 'no-repeat',
-height: '100%',
-position: 'center'
+backgroundPosition: "center",
+backgroundSize: "cover",
+backgroundRepeat: "no-repeat",
+height: "100%",
+position: "center"
 }
 
 const cardStyleHeadingAbout = {
-width: '30rem',
-textAlign: 'center',
-border: 'none',
-margin: '5rem',
-backgroundColor: '#FFFFFF99'
+width: "30rem",
+textAlign: "center",
+border: "none",
+margin: "5rem",
+backgroundColor: "#FFFFFF99"
 }
 
 const cardStyleHeadingMission = {
-width: '30rem',
-textAlign: 'center',
-border: 'none',
-margin: '5rem',
-backgroundColor: '#FFFFFF99'
+width: "30rem",
+textAlign: "center",
+border: "none",
+margin: "5rem",
+backgroundColor: "#FFFFFF99"
 }
 
 const cardStyleHeadingWho = {
-width: '30rem',
-textAlign: 'center',
-border: 'none',
-margin: '5rem',
-backgroundColor: '#FFFFFF99'
+width: "30rem",
+textAlign: "center",
+border: "none",
+margin: "5rem",
+backgroundColor: "#FFFFFF99"
 }
 
 const cardStyleHeadingContact = {
-width: '30rem',
-textAlign: 'center',
-border: 'none',
-margin: '5rem',
-backgroundColor: '#FFFFFF99'
+width: "30rem",
+textAlign: "center",
+border: "none",
+margin: "5rem",
+backgroundColor: "#FFFFFF99"
 }
   
 const cardText = {
-textAlign: 'center',
-fontSize: '25px',
-color: '#FF5903'
+textAlign: "center",
+fontSize: "25px",
+color: "#FF5903"
 }
 
 const cardBody = {
-textAlign: 'center',
-text: 'bold',
+textAlign: "center",
+text: "bold"
 }
 
 const cardTitle = {
-textAlign: 'center',
+textAlign: "center"
 }
 
 const emailButton = {
-background: '#FF5903',
+background: "#FF5903"
 }
 
 const H1 = styled.h1`
 text-align: center;
 color: #FF5903;
-font-size: 50px;
-`
-
-const Body = styled.body`
-text-align: center;
-color: blue;
 font-size: 50px;
 `
 
@@ -112,7 +106,6 @@ class About extends React.Component {
     render() {
         return (  
             <div style={containerPrimary}>
-                
                 <Container>
                     <Card style={cardStyleHeadingAbout}>
                         <Card.Body style={cardBody}>
