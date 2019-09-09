@@ -18,11 +18,26 @@ class EmployerProfile extends React.Component {
 
     // for image upload
 
-    images: []
+    images: [],
+    imageNeedsChecking: false
+  };
+
+  componentDidMount = () => {
+    console.log(
+      "you used the email " + sessionStorage.getItem("employer_email")
+    );
+    console.log(
+      "you used the password " + sessionStorage.getItem("employer_password")
+    );
   };
 
   handleSubmit = event => {
-    if (this.state.urlInvalid === true) {
+    if (this.state.urlInvalid) {
+      event.preventDefault();
+      return;
+    }
+
+    if (this.state.imageNeedsChecking) {
       event.preventDefault();
       return;
     }
@@ -59,6 +74,21 @@ class EmployerProfile extends React.Component {
     this.setState({ images: images });
   };
 
+  updateImageCheckStatus = status => {
+    console.log(status);
+    this.setState({ imageNeedsChecking: status });
+  };
+
+  clearPhotos = () => {
+    sessionStorage.setItem("employer_first_name", this.state.firstName);
+    sessionStorage.setItem("employer_surname", this.state.surname);
+    sessionStorage.setItem("employer_bio", this.state.bio);
+    sessionStorage.setItem("employer_website", this.state.companyUrl);
+
+    console.log("now in employer profile clearing photos");
+    window.location.reload();
+  };
+
   render() {
     const { fireRedirect } = this.state;
 
@@ -79,6 +109,7 @@ class EmployerProfile extends React.Component {
                     type="text"
                     name="firstName"
                     placeholder="Enter your first name"
+                    defaultValue={sessionStorage.getItem("employer_first_name")}
                     onChange={this.handleFieldChange}
                     required
                   />
@@ -92,6 +123,7 @@ class EmployerProfile extends React.Component {
                     placeholder="Enter your surname"
                     onChange={this.handleFieldChange}
                     required
+                    defaultValue={sessionStorage.getItem("employer_surname")}
                   />
                 </Form.Group>
 
@@ -103,6 +135,7 @@ class EmployerProfile extends React.Component {
                     placeholder="Enter your company bio"
                     onChange={this.handleFieldChange}
                     required
+                    defaultValue={sessionStorage.getItem("employer_bio")}
                   />
                 </Form.Group>
 
@@ -111,15 +144,18 @@ class EmployerProfile extends React.Component {
                   <Form.Control
                     type="text"
                     name="companyUrl"
-                    placeholder="Enter your company website url"
+                    placeholder="Must be a valid url"
                     onChange={this.handleFieldChange}
                     required
                     isInvalid={this.state.urlInvalid}
+                    defaultValue={sessionStorage.getItem("employer_website")}
                   />
                 </Form.Group>
 
                 <ImageUpload
                   updateImages={this.updateImages}
+                  updateImageCheckStatus={this.updateImageCheckStatus}
+                  clearPhotos={this.clearPhotos}
                   images={this.state.images}
                 ></ImageUpload>
 

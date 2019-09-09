@@ -1,6 +1,8 @@
 import axios from "axios";
 import React from "react";
+import PropTypes from "prop-types";
 import api from "../secretapikey";
+import { Button } from "react-bootstrap";
 // import api from "../publicapikey";
 
 class SafeImageChecker extends React.Component {
@@ -66,12 +68,19 @@ class SafeImageChecker extends React.Component {
   };
 
   handleResponse = response => {
+    let that = this;
     let naughties = this.findNaughties(response);
     let label = this.findLabel(response);
     this.setState({ status: "checked" });
-    this.setState({ naughties: naughties });
+    this.setState({ naughties: naughties }, that.completeImageCheck(naughties));
     this.setState({ label: label });
     this.setState({ images: [] });
+  };
+
+  completeImageCheck = naughties => {
+    if (naughties.length === 0) {
+      this.props.completeImageCheck();
+    }
   };
 
   findNaughties = response => {
@@ -85,6 +94,37 @@ class SafeImageChecker extends React.Component {
     return response.data.responses[0].labelAnnotations[0].description;
   };
 
+  clearPhotos = () => {
+    this.props.clearPhotos();
+  };
+
+  renderResponse = () => {
+    const { images } = this.state;
+    const { naughties } = this.state;
+    const { label } = this.state;
+    if (naughties.length > 0 && label) {
+      return (
+        <div>
+          Your {label.toLowerCase()} is way too {naughties[0][0]} for jinder!
+          <Button onClick={this.clearPhotos}>Try another photo.</Button>
+        </div>
+      );
+    }
+    if (naughties.length === 0 && label) {
+      return <div>Your {label.toLowerCase()} is perfect for jinder :)</div>;
+    }
+  };
+
+  // {naughties.length > 0 && label && (
+  //   <div>
+  //     Your {label.toLowerCase()} is way too {naughties[0][0]} for jinder!
+  //     Try another photo.
+  //   </div>
+  // )}
+  // {naughties.length === 0 && label && (
+  //   <div>Your {label.toLowerCase()} is perfect for jinder :)</div>
+  // )}
+
   render() {
     const { images } = this.state;
     const { naughties } = this.state;
@@ -93,18 +133,15 @@ class SafeImageChecker extends React.Component {
       <div>
         {images.length > 0 && this.safeImgCheck(images[0])}
         {images.length > 0 && <div> Now checking your images ... </div>}
-        {naughties.length > 0 && label && (
-          <div>
-            Your {label} is way too {naughties[0][0]} for jinder! Try another
-            photo.
-          </div>
-        )}
-        {naughties.length === 0 && label && (
-          <div>Your {label} is perfect for jinder :)</div>
-        )}
+        {this.renderResponse()}
       </div>
     );
   }
 }
+
+SafeImageChecker.propTypes = {
+  clearPhotos: PropTypes.func.isRequired,
+  completeImageCheck: PropTypes.func.isRequired
+};
 
 export default SafeImageChecker;

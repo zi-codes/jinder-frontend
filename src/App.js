@@ -26,10 +26,6 @@ import globalUrl from "./globalUrl";
 
 class App extends React.Component {
   state = {
-    // to store employer details from sign up page until profile is complete
-    employerEmail: null,
-    employerPassword: null,
-
     userId: sessionStorage.getItem("user_id"),
     employerId: sessionStorage.getItem("employer_id")
   };
@@ -123,8 +119,8 @@ class App extends React.Component {
   // =======================
 
   createEmployer = state => {
-    this.setState({ employerEmail: state.email });
-    this.setState({ employerPassword: state.password });
+    sessionStorage.setItem("employer_email", state.email);
+    sessionStorage.setItem("employer_password", state.password);
   };
 
   buildEmployerProfileFormData = state => {
@@ -132,8 +128,14 @@ class App extends React.Component {
 
     formData.append("employer[first_name]", state.firstName);
     formData.append("employer[last_name]", state.surname);
-    formData.append("employer[email]", this.state.employerEmail);
-    formData.append("employer[password]", this.state.employerPassword);
+    formData.append(
+      "employer[email]",
+      sessionStorage.getItem("employer_email")
+    );
+    formData.append(
+      "employer[password]",
+      sessionStorage.getItem("employer_password")
+    );
     formData.append("employer[bio]", state.bio);
     formData.append("employer[company_url]", state.companyUrl);
 
@@ -156,6 +158,15 @@ class App extends React.Component {
       .then(response => this.saveEmployerId(response));
     this.setState({ employerEmail: null });
     this.setState({ employerPassword: null });
+    let attributes = [
+      "employer_email",
+      "employer_password",
+      "employer_first_name",
+      "employer_surname",
+      "employer_bio",
+      "employer_website"
+    ];
+    attributes.forEach(attr => sessionStorage.setItem(attr, ""));
   };
 
   saveEmployerId = response => {
