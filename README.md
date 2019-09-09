@@ -194,8 +194,11 @@ StandUp:coffee: **_What car are you today?_**
    - Today - finish the BE, matching logic
 
 ## Monday (09.09.19) :chart_with_upwards_trend:
- - 
-StandUp :cofee::cofee::cofee: :one:/:ten: 
+
+Team Jinder breakfast :heart:
+![Facetune_09-09-2019-11-10-35](https://user-images.githubusercontent.com/42152431/64522707-8235e700-d2f2-11e9-9d2d-a32a55b8c22e.JPG)
+
+StandUp :coffee::coffee::coffee: :one:/:one::zero:
 
 - **Harry 8.5/10**
   - Routes: changed url paths
