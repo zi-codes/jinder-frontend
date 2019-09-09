@@ -2,11 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
-import Harry from "./whoarewe/Harry.jpeg";
-import Zi from "./whoarewe/Zi.jpeg";
-import Josh from "./whoarewe/Josh.jpeg";
-import Anastasiia from "./whoarewe/Anastasiia.jpeg";
+import Harry from "./whoarewe/Harry.jpg";
+import Zi from "./whoarewe/Zi.jpg";
+import Josh from "./whoarewe/Josh.jpg";
+import Anastasiia from "./whoarewe/Anastasiia.jpg";
+import Image from 'react-image-resizer';
+import background from '../style/images/work-image.jpg'
 
+
+const containerPrimary = {
+backgroundImage: `url(${background})`,
+backgroundPosition: 'center',
+backgroundSize: 'cover',
+backgroundRepeat: 'no-repeat',
+height: "800px",
+position: 'center'
+}
 
 const H1 = styled.h1`
 text-align: center;
@@ -15,11 +26,11 @@ font-size: 100px;
 `
 
 const EmailButton = styled(Button)`
-    backgrounf: palevioletred;
-    border-radius: 3px;
-    border: none;
-    colour: orange;
-    ;
+background: palevioletred;
+border-radius: 3px;
+border: none;
+colour: orange;
+;
 `
 
 const Body = styled.body`
@@ -55,8 +66,8 @@ font-colour: black;
 class About extends React.Component {
 
     render() {
-        return (
-            <div>
+        return (  
+            <div style={containerPrimary}>
                 
                 <header>
                     <H1>
@@ -75,16 +86,8 @@ class About extends React.Component {
                             <Carousel.Item>
                                 <img
                                 className="w-10"
-                                src={Harry}
-                                alt="Harry"
-                                />
-                                    <Carousel.Caption>
-                                        <h3>Harry Riley</h3>
-                                    </Carousel.Caption>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img
-                                className="w-10"
+                                height={400}
+                                width={320}
                                 src={Zi}
                                 alt="Zi"
                                 />
@@ -95,6 +98,8 @@ class About extends React.Component {
                             <Carousel.Item>
                                 <img
                                 className="w-10"
+                                height={400}
+                                width={320}
                                 src={Josh}
                                 alt="Josh"
                                 />
@@ -105,6 +110,8 @@ class About extends React.Component {
                             <Carousel.Item>
                                 <img
                                 className="w-10"
+                                height={400}
+                                width={320}
                                 src={Anastasiia}
                                 alt="Anastasiia"
                                 />
@@ -112,8 +119,20 @@ class About extends React.Component {
                                         <h3>Anastasiia Blaha</h3>
                                     </Carousel.Caption>
                             </Carousel.Item>
+                            <Carousel.Item>
+                                <img
+                                className="w-10"
+                                height={400}
+                                width={320}
+                                src={Harry}
+                                alt="Harry"
+                                />
+                                    <Carousel.Caption>
+                                        <h3>Harry Riley</h3>
+                                    </Carousel.Caption>
+                            </Carousel.Item>
                         </Carousel>
-                        </CarouselStyle>
+                    </CarouselStyle>
                         <Body>We are the cool kids gang.</Body>
                     <H1>
                         Contact Us
