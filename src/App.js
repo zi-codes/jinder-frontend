@@ -156,6 +156,10 @@ class App extends React.Component {
     axiosClient
       .post("/employers", this.buildEmployerProfileFormData(state))
       .then(response => this.saveEmployerId(response));
+  };
+
+  saveEmployerId = response => {
+    sessionStorage.setItem("employer_id", response.data.id);
     this.setState({ employerEmail: null });
     this.setState({ employerPassword: null });
     let attributes = [
@@ -167,10 +171,10 @@ class App extends React.Component {
       "employer_website"
     ];
     attributes.forEach(attr => sessionStorage.setItem(attr, ""));
-  };
-
-  saveEmployerId = response => {
-    sessionStorage.setItem("employer_id", response.data.id);
+    console.log(
+      "employer successfully saved with id of " +
+        sessionStorage.getItem("employer_id")
+    );
   };
 
   render() {

@@ -20,7 +20,6 @@ class DisplayCandidateProfiles extends React.Component {
   };
 
   componentDidMount = () => {
-    console.log("employer id is " + sessionStorage.getItem("employer_id"));
     axiosClient.get("/api/profiles").then(response => {
       this.setState({ profiles: response.data.reverse() });
       this.setState({ originalProfiles: response.data.reverse() });
@@ -29,6 +28,10 @@ class DisplayCandidateProfiles extends React.Component {
 
   handleSwipe = dir => {
     console.log(dir);
+    console.log(
+      "handling swipe for employer with id " +
+        sessionStorage.getItem("employer_id")
+    );
     if (dir === "left") {
       this.handleLeft();
     } else {

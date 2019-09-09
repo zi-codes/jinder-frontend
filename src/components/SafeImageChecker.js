@@ -99,7 +99,6 @@ class SafeImageChecker extends React.Component {
   };
 
   renderResponse = () => {
-    const { images } = this.state;
     const { naughties } = this.state;
     const { label } = this.state;
     if (naughties.length > 0 && label) {
@@ -127,8 +126,6 @@ class SafeImageChecker extends React.Component {
 
   render() {
     const { images } = this.state;
-    const { naughties } = this.state;
-    const { label } = this.state;
     return (
       <div>
         {images.length > 0 && this.safeImgCheck(images[0])}

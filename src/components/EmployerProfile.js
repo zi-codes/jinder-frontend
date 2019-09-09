@@ -7,7 +7,7 @@ import ImageUpload from "./ImageUpload";
 class EmployerProfile extends React.Component {
   state = {
     // for routing
-    fireRedirect: this.props.redirect,
+    fireRedirect: false,
 
     //for profile details
     firstName: null,
@@ -75,7 +75,6 @@ class EmployerProfile extends React.Component {
   };
 
   updateImageCheckStatus = status => {
-    console.log(status);
     this.setState({ imageNeedsChecking: status });
   };
 
