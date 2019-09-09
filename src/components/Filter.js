@@ -1,44 +1,42 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Select from "react-select";
-import { industryOptions } from "../data/IndustryData";
-import { skillsOptions } from "../data/SkillsData";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-
-// wait to integrate with harry ;)
+import { Button, Form, FormControl, Card } from "react-bootstrap";
 
 class Filter extends React.Component {
   state = {
-    keyword: ""
+    keywords: ""
   };
 
   handleChange = event => {
-    this.setState({ keyword: event.target.value });
+    let value = event.target.value;
+    let keywords = value.split(" ").map(keyword => keyword.toLowerCase());
+    this.setState({ keywords: keywords }, () => {
+      this.props.filterCards(this.state.keywords);
+    });
   };
+
   render() {
     return (
-      <div>
-        <Form>
-          <Form.Group controlId="formBasicSkills">
-            <Form.Label>Job Skills:</Form.Label>
-            <Select
-              isMulti
-              name="skills"
-              options={skillsOptions}
-              className="basic-multi-select"
-              classNamePrefix="select"
-              onChange={this.handleSkillsChange}
-              placeholder="Enter your skills"
+      <Card style={{ width: "26rem", marginTop: "2em" }}>
+        <Card.Body>
+          <Form inline>
+            <FormControl
+              style={{ width: "70%" }}
+              type="text"
+              placeholder="Filter by industry or skill"
+              className="mr-sm-2"
+              onChange={this.handleChange}
             />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </div>
+            <Button variant="outline-success">Filter</Button>
+          </Form>
+        </Card.Body>
+      </Card>
     );
   }
 }
+
+Filter.propTypes = {
+  filterCards: PropTypes.func.isRequired
+};
 
 export default Filter;

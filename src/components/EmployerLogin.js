@@ -4,25 +4,25 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 class EmployerLogIn extends React.Component {
-    state = {
-        email: null,
-        password: null
-     };
+  state = {
+    email: null,
+    password: null
+  };
 
-    handleSubmit = event => {
-        event.preventDefault();
-        this.props.createEmployerSession(this.state);
-        this.setState({ email: null });
-        this.setState({ password: null });
-      };
-    
-      handleChange = ({ target }) => {
-        this.setState({ [target.name]: target.value });
-      };
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.createEmployerSession(this.state);
+    this.setState({ email: null });
+    this.setState({ password: null });
+  };
 
-    render() {
-        return (
-            <div>
+  handleChange = ({ target }) => {
+    this.setState({ [target.name]: target.value });
+  };
+
+  render() {
+    return (
+      <div>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -31,6 +31,7 @@ class EmployerLogIn extends React.Component {
               type="email"
               placeholder="Enter email"
               onChange={this.handleChange}
+              required
             />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else ;)
@@ -44,6 +45,7 @@ class EmployerLogIn extends React.Component {
               type="password"
               placeholder="Password"
               onChange={this.handleChange}
+              required
             />
           </Form.Group>
 
@@ -52,13 +54,12 @@ class EmployerLogIn extends React.Component {
           </Button>
         </Form>
       </div>
-
-        )
-    }
+    );
+  }
 }
 
 EmployerLogIn.propTypes = {
   createEmployerSession: PropTypes.func.isRequired
-  };
+};
 
 export default EmployerLogIn;

@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import { Button, Form } from "react-bootstrap";
 import Select from "react-select";
 import Img from "react-fix-image-orientation";
 import { industryOptions } from "../data/IndustryData";
 import { skillsOptions } from "../data/SkillsData";
 import { Redirect } from "react-router-dom";
+import ImageUpload from "./ImageUpload";
 
 // const Checkbox = props => <input type="checkbox" {...props} />;
 
@@ -24,8 +24,6 @@ class UserProfile extends React.Component {
     // for image upload
 
     images: []
- 
-
   };
 
   handleSubmit = event => {
@@ -55,73 +53,29 @@ class UserProfile extends React.Component {
     this.setState({ skills: skills.join() });
   };
 
-
-//   toggleClearable = () =>
-//     this.setState(state => ({ isClearable: !state.isClearable }));
-//   toggleDisabled = () =>
-//     this.setState(state => ({ isDisabled: !state.isDisabled }));
-//   toggleLoading = () =>
-//     this.setState(state => ({ isLoading: !state.isLoading }));
-//   toggleRtl = () => this.setState(state => ({ isRtl: !state.isRtl }));
-//   toggleSearchable = () =>
-//     this.setState(state => ({ isSearchable: !state.isSearchable }));
-
-  // Image Upload functions
-
-  renderUploadImagesButton = () => {
-    return (
-      <Form.Control
-        name="images"
-        type="file"
-        ref={field => (this.ImagesField = field)}
-        multiple={true}
-        accept="image/*"
-        onChange={e => this.handleImagesChange(e)}
-      ></Form.Control>
-    );
-  };
-
-  renderSelectedImagesFiles = () => {
-    let fileDOMs = this.state.images.map((el, index) => {
-      if (el._destroy) {
-        // we use _destroy to mark the removed photo
-        return null;
-      }
-
-      return (
-        <li key={index}>
-          <div className="photo">
-            <Img
-              width={150}
-              src={el.id ? el.url : URL.createObjectURL(el)}
-              style={{ alignSelf: "center" }}
-            />
-          </div>
-          <div className="file-name">{el.name}</div>
-        </li>
-      );
-    });
-
-    return <ul className="selected-images">{fileDOMs}</ul>;
-  };
-
-  handleImagesChange() {
-    let files = this.ImagesField.files;
-    let { images } = this.state;
-    for (let i = 0; i < files.length; i++) {
-      images.push(files.item(i));
-    }
-
+  updateImages = images => {
     this.setState({ images: images });
-  }
+  };
+
+  //   toggleClearable = () =>
+  //     this.setState(state => ({ isClearable: !state.isClearable }));
+  //   toggleDisabled = () =>
+  //     this.setState(state => ({ isDisabled: !state.isDisabled }));
+  //   toggleLoading = () =>
+  //     this.setState(state => ({ isLoading: !state.isLoading }));
+  //   toggleRtl = () => this.setState(state => ({ isRtl: !state.isRtl }));
+  //   toggleSearchable = () =>
+  //     this.setState(state => ({ isSearchable: !state.isSearchable }));
 
   render() {
     const { fireRedirect } = this.state;
 
     return (
       <div>
-
-      <p style={welcomeMessage}>Hey hot stuff. Start courting the market right away by filling in your details below...</p>
+        <p style={welcomeMessage}>
+          Hey hot stuff. Start courting the market right away by filling in your
+          details below...
+        </p>
 
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="formBasicFirstName">
@@ -172,19 +126,17 @@ class UserProfile extends React.Component {
             />
           </Form.Group>
 
-          <Form.Group controlId="formImages">
-            <Form.Label>Upload images:</Form.Label>
-            {this.renderUploadImagesButton()}
-            {this.renderSelectedImagesFiles()}
-          </Form.Group>
+          <ImageUpload
+            updateImages={this.updateImages}
+            images={this.state.images}
+          ></ImageUpload>
 
           <Button variant="primary" type="submit">
             Submit
           </Button>
         </Form>
 
-        {fireRedirect && ( <Redirect to='/profiles'/> )} 
-
+        {fireRedirect && <Redirect to="/profiles" />}
       </div>
     );
   }
@@ -194,12 +146,10 @@ UserProfile.propTypes = {
   createProfile: PropTypes.func.isRequired
 };
 
-
 const welcomeMessage = {
-  color: '#FF5903',
-  textAlign: 'center',
-  padding: '10px'
-}
-
+  color: "#FF5903",
+  textAlign: "center",
+  padding: "10px"
+};
 
 export default UserProfile;
