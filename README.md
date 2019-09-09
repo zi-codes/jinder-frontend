@@ -196,7 +196,7 @@ StandUp:coffee: **_What car are you today?_**
 Team Jinder breakfast :heart:
 ![Facetune_09-09-2019-11-10-35](https://user-images.githubusercontent.com/42152431/64522707-8235e700-d2f2-11e9-9d2d-a32a55b8c22e.JPG)
 
-StandUp :cofee::cofee::cofee: :one:/:one::zero:
+StandUp :coffee::coffee::coffee: :one:/:one::zero:
 
 - **Harry 8.5/10**
   - Routes: changed url paths
