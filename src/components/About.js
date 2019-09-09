@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
 import Harry from "./whoarewe/Harry.jpeg";

@@ -1,25 +1,49 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import axiosClient from "./axiosClient";
 import SignUp from "./components/SignUp";
+import EmployerSignUp from "./components/EmployerSignUp";
 import LogIn from "./components/LogIn";
+import EmployerLogIn from "./components/EmployerLogin";
 import UserProfile from "./components/UserProfile";
-import AboutUs from "./components/About";
-import Header from "./components/Header";
+import About from "./components/About";
 import DisplayProfiles from "./components/DisplayProfiles";
+import Header from "./components/Header";
+import HomePage from "./components/HomePage";
 
+import globalUrl from "./globalUrl";
 
 class App extends React.Component {
   state = {};
 
-  createUser = state => {
+  componentDidMount() {
+    console.log(globalUrl);
+  }
 
-    fetch("https://jinder-backend.herokuapp.com/users", {
+  createUser = state => {
+    fetch(`${globalUrl}/users`, {
       method: "post",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
         user: {
+          email: state.email,
+          password: state.password
+        }
+      })
+    });
+  };
+
+  createEmployer = state => {
+
+    fetch("https://jinder-backend.herokuapp.com/employers", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        employer: {
           email: state.email,
           password: state.password
         }
@@ -28,8 +52,7 @@ class App extends React.Component {
   };
 
   createSession = state => {
-
-    fetch("https://jinder-backend.herokuapp.com/api/sessions", {
+    fetch(`${globalUrl}/api/sessions`, {
       method: "post",
       headers: {
         "Content-Type": "application/json"
@@ -43,38 +66,75 @@ class App extends React.Component {
     });
   };
 
-  createProfile = state => {
-    fetch("https://jinder-backend.herokuapp.com/api/profiles", {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-        // 'X-User-Email': '',
-        // 'X-User-Token': ''
 
+  createEmployerSession = state => {
+
+    fetch("https://jinder-backend.herokuapp.com/employers/sign_in", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
       },
-      body:  JSON.stringify({"profile":
-        {
-          "user_id": 1,
-          "first_name": state.firstName,
-          "last_name": state.surname,
-          "industry": state.industry,
-          "skills": state.skills
+      body: JSON.stringify({
+        employer: {
+          email: state.email,
+          password: state.password
         }
       })
     });
-  }
+  };
+
+  buildUserProfileFormData = state => {
+    let formData = new FormData();
+    formData.append("profile[first_name]", state.firstName);
+    formData.append("profile[last_name]", state.surname);
+    formData.append("profile[user_id]", 1);
+    formData.append("profile[industry]", state.industry);
+    formData.append("profile[skills]", state.skills);
+
+    let images = state.images;
+    for (let i = 0; i < images.length; i++) {
+      let file = images[i];
+      formData.append(
+        `profile[images_attributes][${i}][photo]`,
+        file,
+        file.name
+      );
+    }
+
+    return formData;
+  };
+
+  createProfile = state => {
+    axiosClient.post("/api/profiles", this.buildUserProfileFormData(state), {
+      headers: {
+        "X-User-Token": "uBEf4-XyHQmyGRkK3hyu",
+        "X-User-Email": "123456@123456"
+      }
+    });
+  };
 
   render() {
     return (
       <div className="App">
-          <BrowserRouter>
+        <BrowserRouter>
           <Header />
+            <Route exact path="/" component={HomePage} />
+
             <Route exact path="/profiles" component={DisplayProfiles} />
-            <Route exact path= "/" render={(props) => <SignUp {...props} createUser={this.createUser} />} />
+
+            <Route exact path= "/candidate-sign-up" render={(props) => <SignUp {...props} createUser={this.createUser} />} />
+
+            <Route exact path= "/employer-sign-up" render={(props) => <EmployerSignUp {...props} createEmployer={this.createEmployer} />} />
+
             <Route exact path= "/login" render={(props) => <LogIn {...props} createSession={this.createSession} />} />
+
+            <Route exact path= "/employer-login" render={(props) => <EmployerLogIn {...props} createEmployerSession={this.createEmployerSession} />} />
+
             <Route exact path= "/profile" render={(props) => <UserProfile {...props} createProfile={this.createProfile} />} />
-            <Route exact path= "/about" component={AboutUs} />
+
+            <Route exact path= "/about" render={(props) => <About {...props} createSession={this.createSession} />} />
           </BrowserRouter>
+
       </div>
     );
   }

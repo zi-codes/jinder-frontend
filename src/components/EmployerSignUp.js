@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Redirect } from 'react-router-dom';
 
-class SignUp extends React.Component {
+class EmployerSignUp extends React.Component {
   state = {
     fireRedirect: false,
     email: null,
@@ -14,7 +14,7 @@ class SignUp extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.createUser(this.state);
+    this.props.createEmployer(this.state);
     this.setState({ email: null });
     this.setState({ password: null });
     this.setState({ passwordConfirmation: null });
@@ -75,8 +75,8 @@ class SignUp extends React.Component {
   }
 }
 
-SignUp.propTypes = {
-  createUser: PropTypes.func.isRequired
+EmployerSignUp.propTypes = {
+  createEmployer: PropTypes.func.isRequired
 };
 
-export default SignUp;
+export default EmployerSignUp;
