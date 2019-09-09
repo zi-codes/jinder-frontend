@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
 import Harry from "./whoarewe/Harry.jpg";
 import Zi from "./whoarewe/Zi.jpg";
@@ -9,126 +8,10 @@ import Anastasiia from "./whoarewe/Anastasiia.jpg";
 import background from "../style/images/work-image.jpg";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
-
-const containerPrimary = {
-backgroundImage: `url(${background})`,
-backgroundPosition: "center",
-backgroundSize: "cover",
-backgroundRepeat: "no-repeat",
-height: "100%",
-position: "center"
-}
-
-const cardStyleHeadingAbout = {
-width: "40rem",
-textAlign: "center",
-border: "none",
-margin: "auto",
-marginTop: "100px",
-backgroundColor: "#FFFFFF99",
-fontWeight: "bold",
-paddingTop: "20px",
-paddingBottom: "20px"
-}
-
-const cardStyleHeadingMission = {
-width: "40rem",
-textAlign: "center",
-border: "none",
-margin: "auto",
-marginTop: "100px",
-backgroundColor: "#FFFFFF99",
-fontWeight: "bold",
-paddingTop: "20px",
-paddingBottom: "20px"
-}
-
-const cardStyleHeadingWho = {
-width: "30rem",
-textAlign: "center",
-border: "none",
-margin: "auto",
-marginTop: "100px",
-backgroundColor: "#FFFFFF99",
-fontWeight: "bold",
-paddingTop: "20px",
-paddingBottom: "20px"
-}
-
-const cardStyleHeadingContact = {
-width: "30rem",
-textAlign: "center",
-border: "none",
-margin: "auto",
-marginTop: "100px",
-backgroundColor: "#FFFFFF99",
-fontWeight: "bold",
-paddingTop: "20px",
-paddingBottom: "20px"
-}
-  
-const cardText = {
-textAlign: "center",
-fontSize: "25px",
-color: "#000000",
-}
-
-const cardBody = {
-textAlign: "center",
-paddingTop: "20px",
-paddingBottom: "20px"
-}
-
-const cardTitle = {
-background: "#FF5903",
-color: "#fff",
-textAlign: "center",
-fontWeight: "bold",
-fontSize: "30px"
-}
-
-const emailButton = {
-background: "#FF5903",
-marginTop: "10px",
-margin: "20px"
-}
-
-const welcomeContainer = {
-backgroundColor: "rgba(52, 52, 52, 0.7)"
-}
-
-const historyWelcome = {
-color: "#fff",
-textAlign: "center",
-paddingTop: "25px",
-}
-
-const CarouselStyle = styled(Carousel)`
-text-align: center;
-`
-
-
-// const Body = styled.body`
-//     font-size: 16px;
-//     border: solid 1px #dbdbdb;
-//     border-radius: 3px;
-//     color: #262626;
-//     padding: 7px 33px;
-//     border-radius: 3px;
-//     color: #999;
-//     cursor: text;
-//     font-size: 14px;
-//     font-weight: 300;
-//     text-align: center;
-//     background: #fafafa;
-//     &:active,
-//     &:focus {
-//         text-align: center;
-//     }
-// `
+import { SocialIcon } from "react-social-icons";
 
 class About extends React.Component {
-
+    
     render() {
         return (  
             <div style={containerPrimary}>
@@ -203,14 +86,14 @@ class About extends React.Component {
                                         </Carousel.Item>
                                     </Carousel>
                                 </CarouselStyle>
-                            <Card.Text style={cardText}>We are team jinder</Card.Text>
+                            <Card.Text style={cardText}>the brains behind jinder app</Card.Text>
                         </Card.Body>
                     </Card>
                     <Card style={cardStyleHeadingContact}>
                         <Card.Body>
                             <Card.Title style={cardTitle}>Contact Us</Card.Title>
-                                <Button style={emailButton} href="mailto:jinder.team@gmail.com">Email</Button>
-                                <Button style={emailButton} href="https://www.instagram.com/jinderteam/">Instagram</Button>
+                                <SocialIcon style={socialIcon} url="mailto:jinder.team@gmail.com">Email</SocialIcon>
+                                <SocialIcon style={socialIcon} url="https://www.instagram.com/jinderteam/">Instagram</SocialIcon>
                         </Card.Body>
                     </Card>               
                 </Container>
@@ -220,3 +103,112 @@ class About extends React.Component {
 }
 
 export default About;
+
+const containerPrimary = {
+backgroundImage: `url(${background})`,
+backgroundPosition: "center",
+backgroundSize: "cover",
+backgroundRepeat: "no-repeat",
+height: "100%",
+position: "center"
+}
+
+const cardStyleHeadingAbout = {
+width: "40rem",
+textAlign: "center",
+border: "none",
+margin: "auto",
+marginTop: "100px",
+backgroundColor: "#FFFFFF99",
+fontWeight: "bold",
+paddingTop: "20px",
+paddingBottom: "20px"
+}
+
+const cardStyleHeadingMission = {
+width: "40rem",
+textAlign: "center",
+border: "none",
+margin: "auto",
+marginTop: "100px",
+backgroundColor: "#FFFFFF99",
+fontWeight: "bold",
+paddingTop: "20px",
+paddingBottom: "20px"
+}
+
+const cardStyleHeadingWho = {
+width: "30rem",
+textAlign: "center",
+border: "none",
+margin: "auto",
+marginTop: "100px",
+backgroundColor: "#FFFFFF99",
+fontWeight: "bold",
+paddingTop: "20px",
+paddingBottom: "20px"
+}
+
+const cardStyleHeadingContact = {
+width: "30rem",
+textAlign: "center",
+border: "none",
+margin: "auto",
+marginTop: "100px",
+backgroundColor: "#FFFFFF99",
+fontWeight: "bold",
+paddingTop: "20px",
+paddingBottom: "20px"
+}
+  
+const cardText = {
+textAlign: "center",
+fontSize: "25px",
+color: "#000000",
+}
+
+const cardTitle = {
+background: "#FF5903",
+color: "#fff",
+textAlign: "center",
+fontWeight: "bold",
+fontSize: "30px"
+}
+
+const welcomeContainer = {
+backgroundColor: "rgba(52, 52, 52, 0.7)"
+}
+
+const historyWelcome = {
+color: "#fff",
+textAlign: "center",
+paddingTop: "25px"
+}
+
+const socialIcon = {
+margin: "25px"
+}
+
+const CarouselStyle = styled(Carousel)`
+text-align: center;
+`
+
+
+// const Body = styled.body`
+//     font-size: 16px;
+//     border: solid 1px #dbdbdb;
+//     border-radius: 3px;
+//     color: #262626;
+//     padding: 7px 33px;
+//     border-radius: 3px;
+//     color: #999;
+//     cursor: text;
+//     font-size: 14px;
+//     font-weight: 300;
+//     text-align: center;
+//     background: #fafafa;
+//     &:active,
+//     &:focus {
+//         text-align: center;
+//     }
+// `
