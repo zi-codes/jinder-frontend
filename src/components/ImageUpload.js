@@ -51,7 +51,7 @@ class ImageUpload extends React.Component {
     return (
       <>
         <Form.Group controlId="formImages">
-          <Form.Label>Profile picture:</Form.Label>
+          <Form.Label>Profile picture (optional):</Form.Label>
           {this.renderUploadImagesButton()}
           {this.renderSelectedImagesFiles()}
         </Form.Group>

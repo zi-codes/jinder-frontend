@@ -14,6 +14,7 @@ class EmployerProfile extends React.Component {
     surname: null,
     bio: null,
     companyUrl: null,
+    urlInvalid: null,
 
     // for image upload
 
@@ -21,6 +22,10 @@ class EmployerProfile extends React.Component {
   };
 
   handleSubmit = event => {
+    if (this.state.urlInvalid === true) {
+      event.preventDefault();
+      return;
+    }
     event.preventDefault();
     this.props.createEmployerProfile(this.state);
     this.setState({ firstName: null });
@@ -33,6 +38,21 @@ class EmployerProfile extends React.Component {
 
   handleFieldChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
+    if (target.name === "companyUrl") {
+      if (this.isUrlValid(target.value)) {
+        this.setState({ urlInvalid: false });
+      } else {
+        this.setState({ urlInvalid: true });
+      }
+    }
+  };
+
+  isUrlValid = userInput => {
+    var res = userInput.match(
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+    );
+    if (res == null) return false;
+    else return true;
   };
 
   updateImages = images => {
@@ -60,6 +80,7 @@ class EmployerProfile extends React.Component {
                     name="firstName"
                     placeholder="Enter your first name"
                     onChange={this.handleFieldChange}
+                    required
                   />
                 </Form.Group>
 
@@ -70,6 +91,7 @@ class EmployerProfile extends React.Component {
                     name="surname"
                     placeholder="Enter your surname"
                     onChange={this.handleFieldChange}
+                    required
                   />
                 </Form.Group>
 
@@ -80,6 +102,7 @@ class EmployerProfile extends React.Component {
                     name="bio"
                     placeholder="Enter your company bio"
                     onChange={this.handleFieldChange}
+                    required
                   />
                 </Form.Group>
 
@@ -90,6 +113,8 @@ class EmployerProfile extends React.Component {
                     name="companyUrl"
                     placeholder="Enter your company website url"
                     onChange={this.handleFieldChange}
+                    required
+                    isInvalid={this.state.urlInvalid}
                   />
                 </Form.Group>
 

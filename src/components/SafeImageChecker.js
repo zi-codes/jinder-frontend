@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
-// import api from "../secretapikey";
-import api from "../publicapikey";
+import api from "../secretapikey";
+// import api from "../publicapikey";
 
 class SafeImageChecker extends React.Component {
   state = {
