@@ -229,14 +229,14 @@ StandUp :coffee::coffee::coffee: :one:/:one::zero:
 - _Add other non-software skills_
 
 ## Tuesday (10.09.19) :chart_with_upwards_trend:
-- **Zi - :sunny:**
+- **Zi - :sunny::sunny::sunny:**
   - Yesterday: spent way too long on API keys but now it’s all done
   - Fixing image form 
   - Matching - instant confirmation done
   - Today: clean up candidate route with Anastasiia
   - Today: adding a company’s name form with Anastasiia
 
-- **Josh - :sunny: with level thin clouds**
+- **Josh - :sunny: with level thin :cloud::cloud::cloud: **
   - Employer session 
   - Edge case - if employees and user use the same email and password - will return user session
   - Blocker: not yet - personaluit
@@ -246,7 +246,6 @@ StandUp :coffee::coffee::coffee: :one:/:one::zero:
 - **Harry - :sunny: with a bit of :fog: :fog: :fog:  in a form of Josh**
   - Yesterday: authentification - fixed this morning
   - Profile - personality profile
-
 
 
 - **Anastasiia - :sunny: but :snowflake:**
