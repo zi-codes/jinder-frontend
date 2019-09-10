@@ -49,8 +49,6 @@ These instructions will get you a copy of the project up and running on your loc
        - [ ] __pass__ if it that logic produces the expected result.
     - [ ] Can articulate why any test exists (or does not exist).
     - [ ] Every feature is tested from the user's perspective.
- 
-### Kanban & Given / When / Then . ????????????????????????
 
 ### Tools :hammer:
 
