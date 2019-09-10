@@ -39,30 +39,46 @@ class ImageUpload extends React.Component {
   };
 
   handleImagesChange(event) {
+    this.props.updateImageCheckStatus(true);
     let files = this.ImagesField.files;
     let { images } = this.state;
     for (let i = 0; i < files.length; i++) {
       images.push(files.item(i));
     }
     this.props.updateImages(images);
+    this.props.updateImageCheckStatus(true);
   }
+
+  clearPhotos = () => {
+    this.props.clearPhotos();
+  };
+
+  completeImageCheck = () => {
+    this.props.updateImageCheckStatus(false);
+  };
 
   render() {
     return (
       <>
         <Form.Group controlId="formImages">
-          <Form.Label>Profile picture:</Form.Label>
+          <Form.Label>Profile picture (optional):</Form.Label>
           {this.renderUploadImagesButton()}
           {this.renderSelectedImagesFiles()}
         </Form.Group>
-        <SafeImageChecker images={this.state.images}></SafeImageChecker>
+        <SafeImageChecker
+          images={this.state.images}
+          clearPhotos={this.clearPhotos}
+          completeImageCheck={this.completeImageCheck}
+        ></SafeImageChecker>
       </>
     );
   }
 }
 
 ImageUpload.propTypes = {
-  updateImages: PropTypes.func.isRequired
+  updateImages: PropTypes.func.isRequired,
+  clearPhotos: PropTypes.func.isRequired,
+  updateImageCheckStatus: PropTypes.func.isRequired
 };
 
 export default ImageUpload;

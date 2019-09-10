@@ -114,6 +114,8 @@ class App extends React.Component {
     formData.append("profile[user_id]", sessionStorage.getItem("user_id"));
     formData.append("profile[industry]", state.industry);
     formData.append("profile[skills]", state.skills);
+    formData.append("profile[personality]", state.personalityTraits);
+    formData.append("profile[user_bio]", state.bio);
 
     let images = state.images;
     for (let i = 0; i < images.length; i++) {
@@ -137,17 +139,25 @@ class App extends React.Component {
   // =======================
 
   createEmployer = state => {
-    this.setState({ employerEmail: state.email });
-    this.setState({ employerPassword: state.password });
+    sessionStorage.setItem("employer_email", state.email);
+    sessionStorage.setItem("employer_password", state.password);
   };
 
   buildEmployerProfileFormData = state => {
+    console.log(state);
     let formData = new FormData();
 
     formData.append("employer[first_name]", state.firstName);
     formData.append("employer[last_name]", state.surname);
-    formData.append("employer[email]", this.state.employerEmail);
-    formData.append("employer[password]", this.state.employerPassword);
+    formData.append("employer[company_nane]", state.companyName);
+    formData.append(
+      "employer[email]",
+      sessionStorage.getItem("employer_email")
+    );
+    formData.append(
+      "employer[password]",
+      sessionStorage.getItem("employer_password")
+    );
     formData.append("employer[bio]", state.bio);
     formData.append("employer[company_url]", state.companyUrl);
 
@@ -168,12 +178,26 @@ class App extends React.Component {
     axiosClient
       .post("/employers", this.buildEmployerProfileFormData(state))
       .then(response => this.saveEmployerId(response));
-    this.setState({ employerEmail: null });
-    this.setState({ employerPassword: null });
   };
 
   saveEmployerId = response => {
     sessionStorage.setItem("employer_id", response.data.id);
+    this.setState({ employerEmail: null });
+    this.setState({ employerPassword: null });
+    let attributes = [
+      "employer_email",
+      "employer_password",
+      "employer_first_name",
+      "employer_surname",
+      "employer_company_name",
+      "employer_bio",
+      "employer_website"
+    ];
+    attributes.forEach(attr => sessionStorage.setItem(attr, ""));
+    console.log(
+      "employer successfully saved with id of " +
+        sessionStorage.getItem("employer_id")
+    );
   };
 
   render() {
