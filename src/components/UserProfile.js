@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, Form, Card, Row, Container, Col } from "react-bootstrap";
 import Select from "react-select";
-// import Img from "react-fix-image-orientation";
 import { industryOptions } from "../data/IndustryData";
 import { skillsOptions } from "../data/SkillsData";
 import { Redirect } from "react-router-dom";
@@ -18,12 +17,6 @@ class UserProfile extends React.Component {
   state = {
     // for routing
     fireRedirect: false,
-
-    // sessionStorage.setItem("user_first_name", this.state.firstName);
-    // sessionStorage.setItem("user_surname", this.state.surname);
-    // sessionStorage.setItem("user_industry", this.state.industry);
-    // sessionStorage.setItem("user_bio", this.state.bio);
-    // sessionStorage.setItem("user_skills", this.state.skills);
 
     //for profile details
     firstName: sessionStorage.getItem("user_first_name"),
@@ -107,16 +100,6 @@ class UserProfile extends React.Component {
     sessionStorage.setItem("user_skills", this.state.skills);
     sessionStorage.setItem("user_personality", this.state.skills);
     window.location.reload();
-  };
-
-  rememberSkills = () => {
-    console.log("hello");
-    let skillsArray = sessionStorage.getItem("user_skills").split(",");
-    console.log(skillsArray);
-    let hashArray = [];
-    skillsArray.forEach(item => hashArray.push({ label: item, value: item }));
-    console.log("hash arry is" + hashArray);
-    return hashArray;
   };
 
   render() {

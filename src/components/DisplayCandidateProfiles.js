@@ -25,6 +25,7 @@ class DisplayCandidateProfiles extends React.Component {
   };
 
   componentDidMount = () => {
+    this.setState({ loading: true });
     axiosClient.get("/api/profiles").then(response => {
       this.setState({ profiles: response.data.reverse() });
       this.setState({ originalProfiles: response.data.reverse() });

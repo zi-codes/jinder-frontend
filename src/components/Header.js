@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  Button,
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl
-} from "react-bootstrap";
+import PropTypes from "prop-types";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../style/images/jinder-flame-white.png";
 import globalUrl from "../globalUrl";
 
@@ -29,6 +23,7 @@ export default class Header extends React.Component {
 
   destroyUserId = () => {
     sessionStorage.clear();
+    this.props.destroyRedirects();
   };
 
   render() {
@@ -145,6 +140,10 @@ export default class Header extends React.Component {
     );
   }
 }
+
+Header.propTypes = {
+  destroyRedirects: PropTypes.func.isRequired
+};
 
 const headerStyle = {
   background: "#FF5903"

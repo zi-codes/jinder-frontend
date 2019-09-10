@@ -223,13 +223,19 @@ class App extends React.Component {
     );
   };
 
+  destroyRedirects = () => {
+    this.setState({ fireRedirect: false });
+    this.setState({ fireRedirectAfterUserSignIn: false });
+    this.setState({ fireRedirectAfterEmployerSignIn: false });
+  };
+
   render() {
     const { fireRedirect } = this.state;
 
     return (
       <div className="App">
         <BrowserRouter>
-          <Header />
+          <Header destroyRedirects={this.destroyRedirects} />
           <Route exact path="/" component={HomePage} />
 
           <Route
