@@ -1,6 +1,9 @@
 import axios from "axios";
 import React from "react";
+import PropTypes from "prop-types";
 // import api from "../secretapikey";
+import { Button } from "react-bootstrap";
+import { StageSpinner } from "react-spinners-kit";
 import api from "../publicapikey";
 
 class SafeImageChecker extends React.Component {
@@ -51,27 +54,34 @@ class SafeImageChecker extends React.Component {
       dataType: "json"
     };
 
-  //   axios
-  //     .post(
-  //       "https://vision.googleapis.com/v1/images:annotate?key=" + api,
-  //       body,
-  //       headers
-  //     )
-  //     .then(function(response) {
-  //       that.handleResponse(response);
-  //     })
-  //     .catch(function(error) {
-  //       console.log(error);
-  //     });
+    axios
+      .post(
+        "https://vision.googleapis.com/v1/images:annotate?key=" + api,
+        body,
+        headers
+      )
+      .then(function(response) {
+        that.handleResponse(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
 
   handleResponse = response => {
+    let that = this;
     let naughties = this.findNaughties(response);
     let label = this.findLabel(response);
     this.setState({ status: "checked" });
-    this.setState({ naughties: naughties });
+    this.setState({ naughties: naughties }, that.completeImageCheck(naughties));
     this.setState({ label: label });
     this.setState({ images: [] });
+  };
+
+  completeImageCheck = naughties => {
+    if (naughties.length === 0) {
+      this.props.completeImageCheck();
+    }
   };
 
   findNaughties = response => {
@@ -85,26 +95,50 @@ class SafeImageChecker extends React.Component {
     return response.data.responses[0].labelAnnotations[0].description;
   };
 
-  render() {
-    const { images } = this.state;
+  clearPhotos = () => {
+    this.props.clearPhotos();
+  };
+
+  renderResponse = () => {
     const { naughties } = this.state;
     const { label } = this.state;
+    if (naughties.length > 0 && label) {
+      return (
+        <div>
+          Your {label.toLowerCase()} is way too {naughties[0][0]} for jinder!
+          <Button onClick={this.clearPhotos}>Try another photo.</Button>
+        </div>
+      );
+    }
+    if (naughties.length === 0 && label) {
+      return <div>Your {label.toLowerCase()} is perfect for jinder :)</div>;
+    }
+  };
+
+  render() {
+    const { images } = this.state;
     return (
       <div>
         {images.length > 0 && this.safeImgCheck(images[0])}
-        {images.length > 0 && <div> Now checking your images ... </div>}
-        {naughties.length > 0 && label && (
+        {images.length > 0 && (
           <div>
-            Your {label} is way too {naughties[0][0]} for jinder! Try another
-            photo.
+            <span>
+              Checking that your image is appropriate for jinder, please wait
+            </span>
+            <span>
+              <StageSpinner color="#FF4500" loading={true} />{" "}
+            </span>
           </div>
         )}
-        {naughties.length === 0 && label && (
-          <div>Your {label} is perfect for jinder :)</div>
-        )}
+        {this.renderResponse()}
       </div>
     );
   }
 }
+
+SafeImageChecker.propTypes = {
+  clearPhotos: PropTypes.func.isRequired,
+  completeImageCheck: PropTypes.func.isRequired
+};
 
 export default SafeImageChecker;

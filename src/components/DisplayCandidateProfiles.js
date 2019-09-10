@@ -6,6 +6,9 @@ import Swipeable from "react-swipy";
 import DefaultPicture from "./default.jpeg";
 import Filter from "./Filter";
 import globalUrl from "../globalUrl";
+import { StageSpinner } from "react-spinners-kit";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   appStyles,
   imgStyle,
@@ -15,20 +18,25 @@ import {
 
 class DisplayCandidateProfiles extends React.Component {
   state = {
+    loading: true,
     originalProfiles: [],
     profiles: [] //filtered profiles
   };
 
   componentDidMount = () => {
-    console.log("employer id is " + sessionStorage.getItem("employer_id"));
     axiosClient.get("/api/profiles").then(response => {
       this.setState({ profiles: response.data.reverse() });
       this.setState({ originalProfiles: response.data.reverse() });
+      this.setState({ loading: false });
     });
   };
 
   handleSwipe = dir => {
     console.log(dir);
+    console.log(
+      "handling swipe for employer with id " +
+        sessionStorage.getItem("employer_id")
+    );
     if (dir === "left") {
       this.handleLeft();
     } else {
@@ -40,17 +48,27 @@ class DisplayCandidateProfiles extends React.Component {
     let swipedProfile = this.state.profiles[0];
     console.log(swipedProfile);
     let data = {
-      accepted_profiles: swipedProfile.user_id,
+      accepted_profiles: swipedProfile.id,
       id: sessionStorage.getItem("employer_id")
     };
     axiosClient.patch("/employers/update_matches", data);
+    if (
+      swipedProfile.user.accepted_employers.includes(
+        sessionStorage.getItem("employer_id")
+      )
+    ) {
+      console.log(swipedProfile.user.accepted_employers);
+      toast(
+        `${swipedProfile.first_name} likes you back! Go to your matches to contact them.`
+      );
+    }
   };
 
   handleLeft = () => {
     let swipedProfile = this.state.profiles[0];
     console.log(swipedProfile);
     let data = {
-      rejected_profiles: swipedProfile.user_id,
+      rejected_profiles: swipedProfile.id,
       id: sessionStorage.getItem("employer_id")
     };
     axiosClient.patch("/employers/update_matches", data);
@@ -90,13 +108,22 @@ class DisplayCandidateProfiles extends React.Component {
 
   render() {
     const { profiles } = this.state;
+    const { loading } = this.state;
     return (
       <Container>
+        <ToastContainer />
         <Row className="justify-content-center">
           <Filter filterCards={this.filterCards}></Filter>
         </Row>
+
         <div style={appStyles}>
           <div style={wrapperStyles}>
+            {loading && (
+              <div style={{ textAlign: "center" }}>
+                Loading profiles, please wait{" "}
+                <StageSpinner color="#FF4500" loading={loading} />
+              </div>
+            )}
             {profiles.length > 0 && (
               <div style={wrapperStyles}>
                 <Swipeable
@@ -115,13 +142,18 @@ class DisplayCandidateProfiles extends React.Component {
                 >
                   <SwipeCard>
                     <Card>
-                      <Card.Img variant="top" src={this.showImg(0, profiles)} />
+                      <Card.Img
+                        variant="top"
+                        src={this.showImg(0, profiles)}
+                        draggable={false}
+                      />
                       <Card.Body>
                         <Card.Title>
                           {profiles[0].first_name} {profiles[0].last_name}
                         </Card.Title>
                         <p>Industry: {profiles[0].industry}</p>
                         <p>Skills: {profiles[0].skills}</p>
+                        <p>Bio: {profiles[0].user_bio}</p>
                       </Card.Body>
                     </Card>
                   </SwipeCard>
@@ -137,13 +169,14 @@ class DisplayCandidateProfiles extends React.Component {
                         </Card.Title>
                         <p>Industry: {profiles[1].industry}</p>
                         <p>Skills: {profiles[1].skills}</p>
+                        <p>Bio: {profiles[1].user_bio}</p>
                       </Card.Body>
                     </Card>
                   </SwipeCard>
                 )}
               </div>
             )}
-            {profiles.length <= 1 && (
+            {profiles.length <= 1 && !this.state.loading && (
               <SwipeCard zIndex={-2}>No more profiles</SwipeCard>
             )}
           </div>
