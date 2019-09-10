@@ -180,6 +180,7 @@ class EmployerProfile extends React.Component {
               </Form>
 
               {fireRedirect && <Redirect to="/candidate-profiles" />}
+              
             </Card.Body>
           </Card>
         </Row>

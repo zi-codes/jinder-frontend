@@ -113,6 +113,7 @@ class App extends React.Component {
     formData.append("profile[user_id]", sessionStorage.getItem("user_id"));
     formData.append("profile[industry]", state.industry);
     formData.append("profile[skills]", state.skills);
+    formData.append("profile[user_bio]", state.bio);
 
     let images = state.images;
     for (let i = 0; i < images.length; i++) {

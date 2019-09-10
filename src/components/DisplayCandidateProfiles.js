@@ -149,6 +149,7 @@ class DisplayCandidateProfiles extends React.Component {
                         </Card.Title>
                         <p>Industry: {profiles[0].industry}</p>
                         <p>Skills: {profiles[0].skills}</p>
+                        <p>Bio: {profiles[0].user_bio}</p>
                       </Card.Body>
                     </Card>
                   </SwipeCard>
@@ -164,6 +165,7 @@ class DisplayCandidateProfiles extends React.Component {
                         </Card.Title>
                         <p>Industry: {profiles[1].industry}</p>
                         <p>Skills: {profiles[1].skills}</p>
+                        <p>Bio: {profiles[1].user_bio}</p>
                       </Card.Body>
                     </Card>
                   </SwipeCard>
