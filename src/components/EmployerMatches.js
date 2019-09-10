@@ -1,6 +1,10 @@
 import React from "react";
 import axiosClient from "../axiosClient";
-import { Card } from "react-bootstrap";
+import { Card, Container, Row, CardDeck } from "react-bootstrap";
+import NoMatches from "./NoMatches";
+import globalUrl from "../globalUrl";
+import DefaultPicture from "./default.jpeg";
+import { imgStyle, cardStyle } from "./swipeStyling";
 
 class EmployerMatches extends React.Component {
   state = {
@@ -8,7 +12,6 @@ class EmployerMatches extends React.Component {
   };
   componentDidMount() {
     let current_employer_id = sessionStorage.getItem("employer_id");
-    console.log("current employer id is " + current_employer_id);
     Promise.all([
       axiosClient.get("/employers/" + current_employer_id),
       axiosClient.get("/api/profiles")
@@ -17,42 +20,75 @@ class EmployerMatches extends React.Component {
 
   findMatches = response => {
     let current_employer_id = sessionStorage.getItem("employer_id");
+    if (current_employer_id === null) {
+      return;
+    }
     let profileIdsTheyLike = response[0].data.accepted_profiles.map(str =>
       parseInt(str, 10)
     );
     let allProfiles = response[1].data;
-    console.log(profileIdsTheyLike);
-    console.log(allProfiles);
     let profilesTheyLike = allProfiles.filter(profile =>
       profileIdsTheyLike.includes(profile.id)
     );
-    console.log(profilesTheyLike);
     let matches = profilesTheyLike.filter(profile =>
       profile.user.accepted_employers.includes(current_employer_id)
     );
-    console.log(matches);
     this.setState({ matches: matches });
+  };
+
+  showImg = profile => {
+    if (profile.image_photos[0]) {
+      return globalUrl + profile.image_photos[0].url;
+    } else {
+      return DefaultPicture;
+    }
   };
 
   renderMatch = match => {
     return (
-      <Card key={match.id}>
+      <Card style={cardStyle} key={match.id}>
+        <Card.Img
+          style={imgStyle}
+          variant="top"
+          src={this.showImg(match)}
+          draggable={false}
+        />
         <Card.Body>
           <Card.Title>
-            {match.first_name} {match.last_name}
+            {match.first_name} {match.last_name} likes you back!
           </Card.Title>
-          Contact them @ {match.user.email}
+          <p>Industry: {match.industry}</p>
+          <p>Skills: {match.skills}</p>
+          <p>Bio: {match.user_bio}</p>
+          <p>Contact them at {match.user.email}</p>
         </Card.Body>
       </Card>
     );
   };
   render() {
+    let noMatches;
+    let matches;
+    if (this.state.matches.length === 0) {
+      noMatches = <NoMatches></NoMatches>;
+    } else {
+      matches = (
+        <Container>
+          <Row
+            className="justify-content-center"
+            style={{ paddingTop: "20px" }}
+          >
+            <CardDeck>
+              {this.state.matches.map(match => this.renderMatch(match))}
+            </CardDeck>
+          </Row>
+        </Container>
+      );
+    }
     return (
-      <div>
-        <h2>Here are the users you have matched with:</h2>
-
-        <div>{this.state.matches.map(match => this.renderMatch(match))}</div>
-      </div>
+      <>
+        {noMatches}
+        {matches}
+      </>
     );
   }
 }

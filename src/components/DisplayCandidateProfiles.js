@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import {
   appStyles,
   imgStyle,
+  cardStyle,
   wrapperStyles,
   actionsStyles
 } from "./swipeStyling";
@@ -141,11 +142,12 @@ class DisplayCandidateProfiles extends React.Component {
                   onAfterSwipe={this.remove}
                 >
                   <SwipeCard>
-                    <Card>
+                    <Card style={cardStyle}>
                       <Card.Img
                         variant="top"
                         src={this.showImg(0, profiles)}
                         draggable={false}
+                        style={imgStyle}
                       />
                       <Card.Body>
                         <Card.Title>
@@ -160,8 +162,13 @@ class DisplayCandidateProfiles extends React.Component {
                 </Swipeable>
                 {profiles.length > 1 && (
                   <SwipeCard zIndex={-1}>
-                    <Card>
-                      <Card.Img variant="top" src={this.showImg(1, profiles)} />
+                    <Card style={cardStyle}>
+                      <Card.Img
+                        variant="top"
+                        src={this.showImg(1, profiles)}
+                        draggable={false}
+                        style={imgStyle}
+                      />
 
                       <Card.Body>
                         <Card.Title>

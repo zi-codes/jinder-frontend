@@ -10,11 +10,11 @@ class EmployerProfile extends React.Component {
     fireRedirect: false,
 
     //for profile details
-    firstName: null,
-    surname: null,
-    companyName: null,
-    bio: null,
-    companyUrl: null,
+    firstName: sessionStorage.getItem("employer_first_name"),
+    surname: sessionStorage.getItem("employer_surname"),
+    companyName: sessionStorage.getItem("employer_company_name"),
+    bio: sessionStorage.getItem("employer_bio"),
+    companyUrl: sessionStorage.getItem("employer_website"),
     urlInvalid: null,
 
     // for image upload
@@ -180,7 +180,6 @@ class EmployerProfile extends React.Component {
               </Form>
 
               {fireRedirect && <Redirect to="/candidate-profiles" />}
-              
             </Card.Body>
           </Card>
         </Row>

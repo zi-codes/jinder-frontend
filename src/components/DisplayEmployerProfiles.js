@@ -8,6 +8,7 @@ import globalUrl from "../globalUrl";
 import {
   appStyles,
   imgStyle,
+  cardStyle,
   wrapperStyles,
   actionsStyles
 } from "./swipeStyling";
@@ -90,7 +91,7 @@ class DisplayEmployerProfiles extends React.Component {
                   onAfterSwipe={this.remove}
                 >
                   <SwipeCard>
-                    <Card>
+                    <Card style={cardStyle}>
                       <Card.Img
                         style={imgStyle}
                         variant="top"
@@ -111,7 +112,7 @@ class DisplayEmployerProfiles extends React.Component {
                 </Swipeable>
                 {profiles.length > 1 && (
                   <SwipeCard zIndex={-1}>
-                    <Card>
+                    <Card style={cardStyle}>
                       <Card.Img
                         style={imgStyle}
                         variant="top"

@@ -11,14 +11,19 @@ export const imgStyle = {
   height: "200px"
 };
 
+export const cardStyle = {
+  width: "280px",
+  height: "420px"
+};
+
 export const wrapperStyles = {
   position: "relative",
   width: "280px",
-  height: "400px"
+  height: "420px"
 };
 
 export const actionsStyles = {
   display: "flex",
   justifyContent: "space-between",
-  margin: "40 px 5px 0px 5px"
+  margin: "10px 5px 0px 5px"
 };
