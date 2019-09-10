@@ -258,6 +258,7 @@ StandUp :coffee::coffee::coffee: :one:/:one::zero:
 
 - **ADD BIO TO USERS**
 - **ADD COMPANY NAME TO EMPLOYERS**
+- **EDIT PROFILE**
 
 TOMORROW COLOUR: BLUEEEEEEE :blue_heart: :blue_heart: :blue_heart: :blue_heart: 
 -
