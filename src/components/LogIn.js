@@ -45,7 +45,7 @@ class LogIn extends React.Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-             <Button variant="primary" type="submit">
+             <Button variant="primary" type="submit" style={{ background: '#FF5903', border: 'none' }}>
                 Submit
              </Button>
              </Form>

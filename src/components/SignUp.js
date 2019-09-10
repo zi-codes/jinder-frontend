@@ -140,7 +140,7 @@ class SignUp extends React.Component {
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" style={{ background: '#FF5903', border: 'none' }}>
                 Submit
               </Button>
             </Form>

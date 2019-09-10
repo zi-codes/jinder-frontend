@@ -5,10 +5,9 @@ import Select from "react-select";
 // import Img from "react-fix-image-orientation";
 import { industryOptions } from "../data/IndustryData";
 import { skillsOptions } from "../data/SkillsData";
+import { personalityTraits } from "../data/PersonalityTraitsData";
 import { Redirect } from "react-router-dom";
 import ImageUpload from "./ImageUpload";
-
-import background from "../style/images/beaver.jpeg";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -25,12 +24,12 @@ class UserProfile extends React.Component {
     surname: null,
     industry: null,
     skills: null,
+    personalityTraits: null,
 
     bio: null,
     skills_valid: false,
+    personalityTraits_valid: false,
     industry_valid: false,
-    personalityTraits: null,
-
 
     // for image upload
 
@@ -39,13 +38,17 @@ class UserProfile extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.skills_valid && this.state.industry_valid){ 
+    if (this.state.skills_valid && this.state.industry_valid && this.state.personalityTraits_valid){ 
       this.props.createProfile(this.state);
       this.setState({ firstName: null });
       this.setState({ surname: null });
       this.setState({ industry: null });
       this.setState({ skills: null });
+      this.setState({ personalityTraits: null });
       this.setState({ bio: null });
+      this.setState({ skills_valid: false });
+      this.setState({ industry_valid: false });
+      this.setState({ personalityTraits_valid: false });
       this.setState({ images: [] });
       this.setState({ fireRedirect: true }); 
     }
@@ -78,11 +81,12 @@ class UserProfile extends React.Component {
   };
 
   handlePersonalityTraitsChange = event => {
-    const skills = [];
-    event.forEach(skill => {
-      skills.push(skill.value);
+    const personalityTraits = [];
+    event.forEach(trait => {
+      personalityTraits.push(trait.value);
     });
-    this.setState({ skills: skills.join() });
+    if (personalityTraits.length > 0){ this.setState({ personalityTraits_valid: true}) }
+    this.setState({ personalityTraits: personalityTraits.join() });
   };
 
 
@@ -175,6 +179,20 @@ class UserProfile extends React.Component {
                     placeholder="Enter your skills"
                   />
                 </Form.Group>
+
+                <Form.Group controlId="formBasicSkills">
+                  <Form.Label>Personality Traits:</Form.Label>
+                  <Select
+                    isMulti
+                    name="personalityTraits"
+                    options={personalityTraits}
+                    className="basic-multi-select"
+                    classNamePrefix="select"
+                    onChange={this.handlePersonalityTraitsChange}
+                    placeholder="Enter your personality traits"
+                  />
+                </Form.Group>
+
                 <Form.Group controlId="formBasicBio">
                   <Form.Label>Bio:</Form.Label>
                   <Form.Control
@@ -193,7 +211,7 @@ class UserProfile extends React.Component {
                   images={this.state.images}
                 ></ImageUpload>
 
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" style={{ background: '#FF5903', border: 'none' }}>
                   Submit
                 </Button>
               </Form>
