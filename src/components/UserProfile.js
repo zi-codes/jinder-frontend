@@ -8,6 +8,7 @@ import { skillsOptions } from "../data/SkillsData";
 import { Redirect } from "react-router-dom";
 import ImageUpload from "./ImageUpload";
 import PreventDisplay from './PreventDisplay'
+import '../style/css/PlaybuzzRemove.css'
 
 class UserProfile extends React.Component {
   state = {
@@ -145,5 +146,7 @@ const welcomeMessage = {
   textAlign: "center",
   padding: "10px"
 };
+
+
 
 export default UserProfile;
