@@ -8,7 +8,6 @@ import { skillsOptions } from "../data/SkillsData";
 import { Redirect } from "react-router-dom";
 import ImageUpload from "./ImageUpload";
 import PreventDisplay from './PreventDisplay'
-import '../style/css/PlaybuzzRemove.css'
 
 class UserProfile extends React.Component {
   state = {
@@ -20,6 +19,7 @@ class UserProfile extends React.Component {
     surname: null,
     industry: null,
     skills: null,
+    personalityTraits: null,
 
     // for image upload
 
@@ -52,6 +52,15 @@ class UserProfile extends React.Component {
     });
     this.setState({ skills: skills.join() });
   };
+
+  handlePersonalityTraitsChange = event => {
+    const skills = [];
+    event.forEach(skill => {
+      skills.push(skill.value);
+    });
+    this.setState({ skills: skills.join() });
+  };
+
 
   updateImages = images => {
     this.setState({ images: images });
@@ -117,6 +126,19 @@ class UserProfile extends React.Component {
               className="basic-multi-select"
               classNamePrefix="select"
               onChange={this.handleSkillsChange}
+              placeholder="Enter your skills"
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicSkills">
+            <Form.Label>Job Skills:</Form.Label>
+            <Select
+              isMulti
+              name="skills"
+              options={skillsOptions}
+              className="basic-multi-select"
+              classNamePrefix="select"
+              onChange={this.handlePersonalityTraitsChange}
               placeholder="Enter your skills"
             />
           </Form.Group>
