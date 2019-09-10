@@ -243,13 +243,13 @@ StandUp :coffee::coffee::coffee: :one:/:one::zero:
   - Today - personality quiz into profile section
 
 
-- **Harry - sunny with a bit of mist in a form of Josh**
+- **Harry - :sunny: with a bit of :fog: :fog: :fog:  in a form of Josh**
   - Yesterday: authentification - fixed this morning
   - Profile - personality profile
 
 
 
-- **Anastasiia - sunny but cold**
+- **Anastasiia - :sunny: but :snowflake:**
   - Yesterday: about page done - need text
   - Instagram: created and added pictures
   - Blockers: merged origin master - nothing loading (update: the route was missing from App.js, all fixed now). Merged to master
@@ -260,7 +260,7 @@ StandUp :coffee::coffee::coffee: :one:/:one::zero:
 - **ADD BIO TO USERS**
 - **ADD COMPANY NAME TO EMPLOYERS**
 
-TOMORROW COLOUR: BLUEEEEEEE
+TOMORROW COLOUR: BLUEEEEEEE :blue_heart: :blue_heart: :blue_heart: :blue_heart: 
 -
 ## Wednesday (11.09.19) :chart_with_upwards_trend:
 - Feauture Freeze :snowflake:
