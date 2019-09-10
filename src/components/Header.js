@@ -13,21 +13,18 @@ export default class Header extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        user: {
-          id: sessionStorage.getItem('user_id')
-        }
+          email: sessionStorage.getItem('user_')
       })
     })
       .then(response => response.json())
-      .then( this.destroyUserId())
+      .then(data => console.log(data))
+      .then(this.destroyUserId())
       .catch(error => console.error(error));
-
   };
 
   destroyUserId = () => {
     sessionStorage.clear();
   };
-
 
   render() {
 
