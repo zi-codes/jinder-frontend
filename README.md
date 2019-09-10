@@ -231,7 +231,38 @@ StandUp :coffee::coffee::coffee: :one:/:one::zero:
 - _Add other non-software skills_
 
 ## Tuesday (10.09.19) :chart_with_upwards_trend:
-- 
+- **Zi - :sunny:**
+  - Yesterday: spent way too long on API keys but now it’s all done
+  - Fixing image form 
+  - Matching - instant confirmation done
+  - Today: clean up candidate route with Anastasiia
+  - Today: adding a company’s name form with Anastasiia
+
+- **Josh - :sunny: with level thin clouds**
+  - Employer session 
+  - Edge case - if employees and user use the same email and password - will return user session
+  - Blocker: not yet - personaluit
+  - Today - personality quiz into profile section
+
+
+- **Harry - sunny with a bit of mist in a form of Josh**
+  - Yesterday: authentification - fixed this morning
+  - Profile - personality profile
+
+
+
+- **Anastasiia - sunny but cold**
+  - Yesterday: about page done - need text
+  - Instagram: created and added pictures
+  - Blockers: merged origin master - nothing loading (update: the route was missing from App.js, all fixed now). Merged to master
+  - Readme Update (FE) 
+  - Clean up 
+  - Trello update
+
+- **ADD BIO TO USERS**
+- **ADD COMPANY NAME TO EMPLOYERS**
+
+TOMORROW COLOUR: BLUEEEEEEE
 -
 ## Wednesday (11.09.19) :chart_with_upwards_trend:
 - Feauture Freeze :snowflake:
