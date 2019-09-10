@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button, Navbar, Nav, NavDropdown, Form, FormControl  } from 'react-bootstrap';
-import logo from '../style/images/jinder-flame-white.png'
+import React from "react";
+import { Button, Navbar, Nav, NavDropdown, Form, FormControl  } from "react-bootstrap";
+import logo from "../style/images/jinder-flame-white.png";
 
 export default class Header extends React.Component {
   render() {
@@ -44,19 +44,19 @@ export default class Header extends React.Component {
 }
 
 const headerStyle = {
-  background: '#FF5903',
+  background: "#FF5903",
 }
 
 const linkStyle = {
-  color: '#fff'
+  color: "#fff"
 }
 
 const dropdownLinkStyle = {
-  color: '#FF5903'
+  color: "#FF5903"
 }
 
 const buttonStyle = {
-  background: '#fff',
-  border: '#fff',
-  color: '#FF5903'
+  background: "#fff",
+  border: "#fff",
+  color: "#FF5903"
 }
