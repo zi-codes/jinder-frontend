@@ -8,6 +8,8 @@ import { skillsOptions } from "../data/SkillsData";
 import { Redirect } from "react-router-dom";
 import ImageUpload from "./ImageUpload";
 import background from "../style/images/beaver.jpeg";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class UserProfile extends React.Component {
   state = {
@@ -20,6 +22,8 @@ class UserProfile extends React.Component {
     industry: null,
     skills: null,
     bio: null,
+    skills_valid: false,
+    industry_valid: false,
 
     // for image upload
 
@@ -28,14 +32,19 @@ class UserProfile extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.createProfile(this.state);
-    this.setState({ firstName: null });
-    this.setState({ surname: null });
-    this.setState({ industry: null });
-    this.setState({ skills: null });
-    this.setState({ bio: null });
-    this.setState({ images: [] });
-    this.setState({ fireRedirect: true });
+    if (this.state.skills_valid && this.state.industry_valid){ 
+      this.props.createProfile(this.state);
+      this.setState({ firstName: null });
+      this.setState({ surname: null });
+      this.setState({ industry: null });
+      this.setState({ skills: null });
+      this.setState({ bio: null });
+      this.setState({ images: [] });
+      this.setState({ fireRedirect: true }); 
+    }
+    else {
+      toast.info("Please fill in your industry and skills!");
+    }
   };
 
   handleNameChange = ({ target }) => {
@@ -43,6 +52,7 @@ class UserProfile extends React.Component {
   };
 
   handleIndustryChange = event => {
+    if (event.value){ this.setState({ industry_valid: true}) }
     this.setState({ industry: event.value });
   };
 
@@ -51,6 +61,7 @@ class UserProfile extends React.Component {
     event.forEach(skill => {
       skills.push(skill.value);
     });
+    if (skills.length > 0){ this.setState({ skills_valid: true}) }
     this.setState({ skills: skills.join() });
   };
 
@@ -128,6 +139,7 @@ class UserProfile extends React.Component {
                     name="firstName"
                     placeholder="Enter your first name"
                     onChange={this.handleNameChange}
+                    required
                   />
                 </Form.Group>
 
@@ -138,10 +150,11 @@ class UserProfile extends React.Component {
                     name="surname"
                     placeholder="Enter your surname"
                     onChange={this.handleNameChange}
+                    required
                   />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicSkills">
+                <Form.Group controlId="formBasicIndustry">
                   <Form.Label>Industry:</Form.Label>
                   <React.Fragment>
                     <Select
@@ -155,6 +168,8 @@ class UserProfile extends React.Component {
                     />
                   </React.Fragment>
                 </Form.Group>
+
+                <ToastContainer />
 
                 <Form.Group controlId="formBasicSkills">
                   <Form.Label>Job Skills:</Form.Label>
@@ -175,6 +190,7 @@ class UserProfile extends React.Component {
                     name="bio"
                     placeholder="Tell us something about yourself"
                     onChange={this.handleBioChange}
+                    required
                   />
                 </Form.Group>
 
@@ -191,7 +207,7 @@ class UserProfile extends React.Component {
               </Form>
 
               {fireRedirect && <Redirect to="/employer-profiles" />}
-              
+
             </Card.Body>
           </Card>
         </Row>
