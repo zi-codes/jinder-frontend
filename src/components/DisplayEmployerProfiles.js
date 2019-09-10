@@ -98,9 +98,10 @@ class DisplayEmployerProfiles extends React.Component {
                       />
 
                       <Card.Body>
-                        <Card.Title>
+                        <Card.Title>{profiles[0].company_nane}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">
                           {profiles[0].first_name} {profiles[0].last_name}
-                        </Card.Title>
+                        </Card.Subtitle>
                         <p>Bio: {profiles[0].bio}</p>
                         <p>Website: {profiles[0].company_url}</p>
                       </Card.Body>
@@ -117,9 +118,10 @@ class DisplayEmployerProfiles extends React.Component {
                       />
 
                       <Card.Body>
-                        <Card.Title>
+                        <Card.Title>{profiles[1].company_nane}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">
                           {profiles[1].first_name} {profiles[1].last_name}
-                        </Card.Title>
+                        </Card.Subtitle>
                         <p>Bio: {profiles[1].bio}</p>
                         <p>Website: {profiles[1].company_url}</p>
                       </Card.Body>

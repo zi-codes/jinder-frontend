@@ -124,10 +124,12 @@ class App extends React.Component {
   };
 
   buildEmployerProfileFormData = state => {
+    console.log(state);
     let formData = new FormData();
 
     formData.append("employer[first_name]", state.firstName);
     formData.append("employer[last_name]", state.surname);
+    formData.append("employer[company_nane]", state.companyName);
     formData.append(
       "employer[email]",
       sessionStorage.getItem("employer_email")
@@ -167,6 +169,7 @@ class App extends React.Component {
       "employer_password",
       "employer_first_name",
       "employer_surname",
+      "employer_company_name",
       "employer_bio",
       "employer_website"
     ];

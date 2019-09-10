@@ -7,6 +7,8 @@ import DefaultPicture from "./default.jpeg";
 import Filter from "./Filter";
 import globalUrl from "../globalUrl";
 import { StageSpinner } from "react-spinners-kit";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   appStyles,
   imgStyle,
@@ -46,17 +48,27 @@ class DisplayCandidateProfiles extends React.Component {
     let swipedProfile = this.state.profiles[0];
     console.log(swipedProfile);
     let data = {
-      accepted_profiles: swipedProfile.user_id,
+      accepted_profiles: swipedProfile.id,
       id: sessionStorage.getItem("employer_id")
     };
     axiosClient.patch("/employers/update_matches", data);
+    if (
+      swipedProfile.user.accepted_employers.includes(
+        sessionStorage.getItem("employer_id")
+      )
+    ) {
+      console.log(swipedProfile.user.accepted_employers);
+      toast(
+        `${swipedProfile.first_name} likes you back! Go to your matches to contact them.`
+      );
+    }
   };
 
   handleLeft = () => {
     let swipedProfile = this.state.profiles[0];
     console.log(swipedProfile);
     let data = {
-      rejected_profiles: swipedProfile.user_id,
+      rejected_profiles: swipedProfile.id,
       id: sessionStorage.getItem("employer_id")
     };
     axiosClient.patch("/employers/update_matches", data);
@@ -99,6 +111,7 @@ class DisplayCandidateProfiles extends React.Component {
     const { loading } = this.state;
     return (
       <Container>
+        <ToastContainer />
         <Row className="justify-content-center">
           <Filter filterCards={this.filterCards}></Filter>
         </Row>

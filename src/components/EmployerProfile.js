@@ -12,6 +12,7 @@ class EmployerProfile extends React.Component {
     //for profile details
     firstName: null,
     surname: null,
+    companyName: null,
     bio: null,
     companyUrl: null,
     urlInvalid: null,
@@ -45,6 +46,7 @@ class EmployerProfile extends React.Component {
     this.props.createEmployerProfile(this.state);
     this.setState({ firstName: null });
     this.setState({ surname: null });
+    this.setState({ companyName: null });
     this.setState({ bio: null });
     this.setState({ companyUrl: null });
     this.setState({ images: [] });
@@ -81,10 +83,10 @@ class EmployerProfile extends React.Component {
   clearPhotos = () => {
     sessionStorage.setItem("employer_first_name", this.state.firstName);
     sessionStorage.setItem("employer_surname", this.state.surname);
+    sessionStorage.setItem("employer_company_name", this.state.companyName);
     sessionStorage.setItem("employer_bio", this.state.bio);
     sessionStorage.setItem("employer_website", this.state.companyUrl);
 
-    console.log("now in employer profile clearing photos");
     window.location.reload();
   };
 
@@ -123,6 +125,20 @@ class EmployerProfile extends React.Component {
                     onChange={this.handleFieldChange}
                     required
                     defaultValue={sessionStorage.getItem("employer_surname")}
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="formBasicCompanyName">
+                  <Form.Label>Company Name:</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="companyName"
+                    placeholder="Enter your company's name"
+                    onChange={this.handleFieldChange}
+                    required
+                    defaultValue={sessionStorage.getItem(
+                      "employer_company_name"
+                    )}
                   />
                 </Form.Group>
 
