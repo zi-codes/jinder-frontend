@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import background from "../style/images/work-image.jpg";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
+import { Card, Button, Row, Container, Col } from "react-bootstrap";
 
 export default class HomePage extends Component {
   render() {
