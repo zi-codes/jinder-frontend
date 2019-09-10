@@ -13,7 +13,7 @@ export default class HomePage extends Component {
       <div style={containerPrimary}>
         <div style={welcomeMessageContainer}>
           <h1 style={welcomeMessage1}>
-            The new way to get lai...paid is here...
+            The new way to get paid is here...
           </h1>
           <h6 style={welcomeMessage2}>
             This is the future of finding the perfect professional match.
@@ -39,7 +39,7 @@ export default class HomePage extends Component {
                   <br></br>
                 </Card.Body>
                 <Card.Footer style={footerStyle}>
-                  <Card.Link style={linkStyle} href="/login">
+                  <Card.Link style={linkStyle} href="/candidate-login">
                     Got an account? Sign in here
                   </Card.Link>
                 </Card.Footer>
@@ -63,7 +63,7 @@ export default class HomePage extends Component {
                   <br></br>
                 </Card.Body>
                 <Card.Footer style={footerStyle}>
-                  <Card.Link style={linkStyle} href="/login">
+                  <Card.Link style={linkStyle} href="/employer-login">
                     Got an account? Sign in here
                   </Card.Link>
                 </Card.Footer>

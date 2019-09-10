@@ -18,7 +18,6 @@ class SignUp extends React.Component {
     this.setState({ email: null });
     this.setState({ password: null });
     this.setState({ passwordConfirmation: null });
-    this.setState({ fireRedirect: true })
   };
 
   handleChange = ({ target }) => {
@@ -27,7 +26,6 @@ class SignUp extends React.Component {
   
   render() {
 
-    const { fireRedirect } = this.state;
 
     return (
       <div>
@@ -69,7 +67,6 @@ class SignUp extends React.Component {
             Submit
           </Button>
         </Form>
-        {fireRedirect && ( <Redirect to='/profile'/> )} 
       </div>
     );
   }

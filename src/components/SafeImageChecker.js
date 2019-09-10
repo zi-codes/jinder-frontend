@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import api from "../secretapikey";
+// import api from "../secretapikey";
 
 class SafeImageChecker extends React.Component {
   state = {
@@ -50,18 +50,18 @@ class SafeImageChecker extends React.Component {
       dataType: "json"
     };
 
-    axios
-      .post(
-        "https://vision.googleapis.com/v1/images:annotate?key=" + api,
-        body,
-        headers
-      )
-      .then(function(response) {
-        that.handleResponse(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+  //   axios
+  //     .post(
+  //       "https://vision.googleapis.com/v1/images:annotate?key=" + api,
+  //       body,
+  //       headers
+  //     )
+  //     .then(function(response) {
+  //       that.handleResponse(response);
+  //     })
+  //     .catch(function(error) {
+  //       console.log(error);
+  //     });
   };
 
   handleResponse = response => {
