@@ -105,26 +105,32 @@ class SafeImageChecker extends React.Component {
     if (naughties.length > 0 && label) {
       return (
         <div>
-          Your {label.toLowerCase()} is way too {naughties[0][0]} for jinder!
-          <Button onClick={this.clearPhotos}>Try another photo.</Button>
+          🤖 JinderBot says your {label.toLowerCase()} is way too{" "}
+          {naughties[0][0]} for jinder!
+          <br />
+          <Button style={{ marginTop: "5px" }} onClick={this.clearPhotos}>
+            Try another photo
+          </Button>
         </div>
       );
     }
     if (naughties.length === 0 && label) {
-      return <div>Your {label.toLowerCase()} is perfect for jinder :)</div>;
+      return (
+        <div>
+          🤖 JinderBot says your {label.toLowerCase()} is perfect for jinder 😉
+        </div>
+      );
     }
   };
 
   render() {
     const { images } = this.state;
     return (
-      <div>
+      <div style={{ marginBottom: "20px" }}>
         {images.length > 0 && this.safeImgCheck(images[0])}
         {images.length > 0 && (
           <div>
-            <span>
-              Checking that your image is appropriate for jinder, please wait
-            </span>
+            <span>🤖 JinderBot is checking your image, please wait</span>
             <span>
               <StageSpinner color="#FF4500" loading={true} />{" "}
             </span>

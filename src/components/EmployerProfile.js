@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button, Form, Card, Container, Row } from "react-bootstrap";
+import { Button, Form, Card, Container, Row, Col } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import ImageUpload from "./ImageUpload";
 
@@ -104,29 +104,38 @@ class EmployerProfile extends React.Component {
               </p>
 
               <Form onSubmit={this.handleSubmit}>
-                <Form.Group controlId="formBasicFirstName">
-                  <Form.Label>First Name:</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="firstName"
-                    placeholder="Enter your first name"
-                    defaultValue={sessionStorage.getItem("employer_first_name")}
-                    onChange={this.handleFieldChange}
-                    required
-                  />
-                </Form.Group>
-
-                <Form.Group controlId="formBasicSurname">
-                  <Form.Label>Surname:</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="surname"
-                    placeholder="Enter your surname"
-                    onChange={this.handleFieldChange}
-                    required
-                    defaultValue={sessionStorage.getItem("employer_surname")}
-                  />
-                </Form.Group>
+                <Form.Row>
+                  <Col>
+                    <Form.Group controlId="formBasicFirstName">
+                      <Form.Label>First Name:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="firstName"
+                        placeholder="First name"
+                        defaultValue={sessionStorage.getItem(
+                          "employer_first_name"
+                        )}
+                        onChange={this.handleFieldChange}
+                        required
+                      />
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group controlId="formBasicSurname">
+                      <Form.Label>Surname:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="surname"
+                        placeholder="Last name"
+                        onChange={this.handleFieldChange}
+                        required
+                        defaultValue={sessionStorage.getItem(
+                          "employer_surname"
+                        )}
+                      />
+                    </Form.Group>
+                  </Col>
+                </Form.Row>
 
                 <Form.Group controlId="formBasicCompanyName">
                   <Form.Label>Company Name:</Form.Label>
@@ -145,6 +154,7 @@ class EmployerProfile extends React.Component {
                 <Form.Group controlId="formBasicBio">
                   <Form.Label>Company Bio:</Form.Label>
                   <Form.Control
+                    as="textarea"
                     type="text"
                     name="bio"
                     placeholder="Enter your company bio"

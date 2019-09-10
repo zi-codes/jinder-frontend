@@ -5,6 +5,9 @@ import { Card, Container, Button } from "react-bootstrap";
 import Swipeable from "react-swipy";
 import DefaultPicture from "./default.jpeg";
 import globalUrl from "../globalUrl";
+import { StageSpinner } from "react-spinners-kit";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   appStyles,
   imgStyle,
@@ -15,11 +18,15 @@ import {
 
 class DisplayEmployerProfiles extends React.Component {
   state = {
-    profiles: []
+    profiles: [],
+    myProfileId: null
   };
 
   componentDidMount = () => {
     console.log("user id is " + sessionStorage.getItem("user_id"));
+    axiosClient
+      .get("/api/profiles/" + sessionStorage.getItem("user_id"))
+      .then(response => this.setState({ myProfileId: response.data[0].id }));
     axiosClient
       .get("/employers")
       .then(response => this.setState({ profiles: response.data.reverse() }));
@@ -42,6 +49,16 @@ class DisplayEmployerProfiles extends React.Component {
       id: sessionStorage.getItem("user_id")
     };
     axiosClient.patch("/users/update_matches", data);
+    if (
+      swipedProfile.accepted_profiles.includes(
+        this.state.myProfileId.toString()
+      )
+    ) {
+      console.log("helloo");
+      toast(
+        `${swipedProfile.first_name} likes you back! Go to your matches to contact them.`
+      );
+    }
   };
 
   handleLeft = () => {
@@ -72,6 +89,7 @@ class DisplayEmployerProfiles extends React.Component {
     const { profiles } = this.state;
     return (
       <Container>
+        <ToastContainer />
         <div style={appStyles}>
           <div style={wrapperStyles}>
             {profiles.length > 0 && (

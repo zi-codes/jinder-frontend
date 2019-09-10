@@ -24,18 +24,28 @@ class ImageUpload extends React.Component {
   renderSelectedImagesFiles = () => {
     let fileDOMs = this.state.images.map((el, index) => {
       return (
-        <li key={index} style={{ listStyle: "none", padding: "10px" }}>
+        <li key={index} style={{ listStyle: "none", alignSelf: "center" }}>
           <div className="photo">
             <Img
               src={el.id ? el.url : URL.createObjectURL(el)}
-              style={{ alignSelf: "center", height: "70px" }}
+              style={{
+                alignSelf: "center",
+                height: "150px",
+                width: "200px",
+                objectFit: "cover",
+                objectPosition: "0 0"
+              }}
             />
           </div>
         </li>
       );
     });
 
-    return <ul className="selected-images">{fileDOMs}</ul>;
+    return (
+      <ul style={{ margin: "0px", padding: "0px" }} className="selected-images">
+        {fileDOMs}
+      </ul>
+    );
   };
 
   handleImagesChange(event) {
