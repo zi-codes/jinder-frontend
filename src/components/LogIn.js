@@ -45,12 +45,11 @@ class LogIn extends React.Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </div>
+             <Button variant="primary" type="submit">
+                Submit
+             </Button>
+             </Form>
+            </div>
 
         )
     }

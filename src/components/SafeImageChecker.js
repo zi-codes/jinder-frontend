@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import PropTypes from "prop-types";
-import api from "../secretapikey";
+// import api from "../secretapikey";
 import { Button } from "react-bootstrap";
 import { StageSpinner } from "react-spinners-kit";
 // import api from "../publicapikey";
@@ -54,18 +54,18 @@ class SafeImageChecker extends React.Component {
       dataType: "json"
     };
 
-    axios
-      .post(
-        "https://vision.googleapis.com/v1/images:annotate?key=" + api,
-        body,
-        headers
-      )
-      .then(function(response) {
-        that.handleResponse(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+  //   axios
+  //     .post(
+  //       "https://vision.googleapis.com/v1/images:annotate?key=" + api,
+  //       body,
+  //       headers
+  //     )
+  //     .then(function(response) {
+  //       that.handleResponse(response);
+  //     })
+  //     .catch(function(error) {
+  //       console.log(error);
+  //     });
   };
 
   handleResponse = response => {

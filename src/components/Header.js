@@ -1,9 +1,49 @@
+
 import React from 'react';
 import { Button, Navbar, Nav, NavDropdown, Form, FormControl  } from 'react-bootstrap';
 import logo from '../style/images/jinder-flame-white.png'
+import globalUrl from "../globalUrl";
 
 export default class Header extends React.Component {
+
+  destroySession = () => {
+    fetch(`${globalUrl}/api/sessions`, {
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user: {
+          id: sessionStorage.getItem('user_id')
+        }
+      })
+    })
+      .then(response => response.json())
+      .then( this.destroyUserId())
+      .catch(error => console.error(error));
+
+  };
+
+  destroyUserId = () => {
+    sessionStorage.clear();
+  };
+
+
   render() {
+
+    let signIn;
+    let signUp;
+    let signOut;
+
+    if(sessionStorage.getItem('user_id') === null) {
+      signIn = <Nav.Link style={linkStyle} href="/">Sign In</Nav.Link>
+      signUp = <Nav.Link style={linkStyle} href="/">Sign Up</Nav.Link>
+    } else {
+      signOut = <Nav.Link onClick={this.destroySession} style={linkStyle} on href="/">Sign Out</Nav.Link>
+      }
+
+
+
     return (
       <header style={headerStyle}>
         <Navbar expand="lg">
@@ -20,22 +60,16 @@ export default class Header extends React.Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link style={linkStyle} href="/">Home</Nav.Link>
-              <Nav.Link style={linkStyle} href="/">Sign In</Nav.Link>
               <Nav.Link style={linkStyle} href="/profiles">View Profiles</Nav.Link>
               <NavDropdown title={<span style={linkStyle}>Your Profile</span>}>
                 <NavDropdown.Item style={dropdownLinkStyle} href="/profile">Create Profile</NavDropdown.Item>
                 <NavDropdown.Item style={dropdownLinkStyle}  href="/profile">Edit</NavDropdown.Item>
-                {/* <NavDropdown.Item style={dropdownLinkStyle}  href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
               </NavDropdown>
               <Nav.Link style={linkStyle} href="/about">About Us</Nav.Link>
             </Nav>
-            <Nav.Link style={linkStyle} href="/">Sign Up</Nav.Link>
-            <Form inline>
-              <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-              <Button style={buttonStyle} variant="outline-success">Search</Button>
-            </Form>
+            {signIn}
+            {signUp}
+            {signOut}
           </Navbar.Collapse>
         </Navbar>
       </header>
@@ -44,19 +78,13 @@ export default class Header extends React.Component {
 }
 
 const headerStyle = {
-  background: '#FF5903',
+  background: "#FF5903",
 }
 
 const linkStyle = {
-  color: '#fff'
+  color: "#fff"
 }
 
 const dropdownLinkStyle = {
-  color: '#FF5903'
-}
-
-const buttonStyle = {
-  background: '#fff',
-  border: '#fff',
-  color: '#FF5903'
+  color: "#FF5903"
 }
