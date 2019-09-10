@@ -95,6 +95,7 @@ class DisplayEmployerProfiles extends React.Component {
                         style={imgStyle}
                         variant="top"
                         src={this.showImg(0, profiles)}
+                        draggable={false}
                       />
 
                       <Card.Body>

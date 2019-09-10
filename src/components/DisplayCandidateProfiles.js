@@ -142,7 +142,11 @@ class DisplayCandidateProfiles extends React.Component {
                 >
                   <SwipeCard>
                     <Card>
-                      <Card.Img variant="top" src={this.showImg(0, profiles)} />
+                      <Card.Img
+                        variant="top"
+                        src={this.showImg(0, profiles)}
+                        draggable={false}
+                      />
                       <Card.Body>
                         <Card.Title>
                           {profiles[0].first_name} {profiles[0].last_name}
