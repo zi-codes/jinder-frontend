@@ -25,9 +25,13 @@ import EmployerMatches from "./components/EmployerMatches";
 
 import globalUrl from "./globalUrl";
 
+import { Redirect } from 'react-router-dom';
+
+
 class App extends React.Component {
   state = {
     // to store employer details from sign up page until profile is complete
+    fireRedirect: false,
     employerEmail: null,
     employerPassword: null,
 
@@ -55,10 +59,18 @@ class App extends React.Component {
       .then(response => response.json())
       .then(data => this.saveUserId(data))
       .catch(error => console.error(error));
+
   };
 
+  redirect = () => {
+    this.setState({ fireRedirect: true }, () => {
+    });
+      
+  }
+
   saveUserId = data => {
-    sessionStorage.setItem("user_id", data.id);
+    sessionStorage.setItem("user_id", data.id)
+    this.redirect();
   };
 
   createSession = state => {
@@ -164,6 +176,9 @@ class App extends React.Component {
   };
 
   render() {
+
+    const { fireRedirect } = this.state;
+
     return (
       <div className="App">
         <BrowserRouter>
@@ -219,7 +234,7 @@ class App extends React.Component {
             exact
             path="/candidate-profile"
             render={props => (
-              <UserProfile {...props} createProfile={this.createProfile} />
+              <UserProfile {...props} createProfile={this.createProfile} userID={this.state.userId} />
             )}
           />
           <Route
@@ -245,12 +260,16 @@ class App extends React.Component {
             render={props => <UserMatches {...props} />}
           />
 
+          {fireRedirect && <Redirect to='/candidate-profile'/> } 
+
           <Route
             exact
             path="/about"
             render={props => <About {...props} />}
           />
+
         </BrowserRouter>
+
       </div>
     );
   }
