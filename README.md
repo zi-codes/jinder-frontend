@@ -1,4 +1,4 @@
-# Jinder:tm:
+# [Jinder](http://jinder-frontend.herokuapp.com/):tm:
 ![Jinder2](https://user-images.githubusercontent.com/42152431/64133475-22a97a00-cdce-11e9-812b-f6a4924d397f.png)
 
 **_Makers Academy Final Project by June2019 Cohort. For this project, we designed a web application using Ruby on Rails, React, RSpec and Jest, PostgreSQL and Active Record. Deployment - Heroku._**
@@ -58,7 +58,7 @@ These instructions will get you a copy of the project up and running on your loc
 - Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos
 - Slack
 - [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
-- Instagram
+- [Instagram](https://www.instagram.com/jinderteam/)
 
 ### Tech Stack :computer:
 
@@ -193,7 +193,43 @@ StandUp:coffee: **_What car are you today?_**
    - Today - finish the BE, matching logic
 
 ## Monday (09.09.19) :chart_with_upwards_trend:
- - 
+
+Team Jinder breakfast :heart:
+![Facetune_09-09-2019-11-10-35](https://user-images.githubusercontent.com/42152431/64522707-8235e700-d2f2-11e9-9d2d-a32a55b8c22e.JPG)
+
+StandUp :coffee::coffee::coffee: :one:/:one::zero:
+
+- **Harry 8.5/10**
+  - Routes: changed url paths
+  - Homepage **done**
+  - No blockers today
+  - Today: - link the homepage
+           - authentication with Josh
+
+- **Anastasiia 6.7/10**
+  - About page: clean up
+  - BE REDME with Josh
+  - Blockers: weekend merge nightmare, all done now
+  - Update FE and BE READMEs
+  - Instagram - create, put up pictures
+
+- **Zi 7/10**
+  - BE with Josh matches - working now
+  - Basic FE for the matches
+  - Image checking - only works locally at the moment
+  - Password matching works
+  - Today: tidy up all the forms - a version that’s fully functional
+
+- **Josh 9/10**
+  - Matching BE with Zi
+  - All live and pushed - works great
+  - Today: authentication on React and help with anything that is needed
+  - Add Personality functionality - challenge
+  - BE README with Anastasiia
+
+- _Match notification_
+- _Add other non-software skills_
+
 ## Tuesday (10.09.19) :chart_with_upwards_trend:
 - 
 -
