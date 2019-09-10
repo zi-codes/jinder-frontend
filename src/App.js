@@ -10,6 +10,9 @@ import axiosClient from "./axiosClient";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import UserProfile from "./components/UserProfile";
+import About from "./components/About";
+import Header from "./components/Header";
+import HomePage from "./components/HomePage";
 import DisplayEmployerProfiles from "./components/DisplayEmployerProfiles";
 import UserMatches from "./components/UserMatches";
 
@@ -20,8 +23,6 @@ import EmployerProfile from "./components/EmployerProfile";
 import DisplayCandidateProfiles from "./components/DisplayCandidateProfiles";
 import EmployerMatches from "./components/EmployerMatches";
 
-import HomePage from "./components/HomePage";
-import Header from "./components/Header";
 import globalUrl from "./globalUrl";
 
 import { Redirect } from 'react-router-dom';
@@ -258,7 +259,15 @@ class App extends React.Component {
             path="/candidate-matches"
             render={props => <UserMatches {...props} />}
           />
+
           {fireRedirect && <Redirect to='/candidate-profile'/> } 
+
+          <Route
+            exact
+            path="/about"
+            render={props => <About {...props} />}
+          />
+
         </BrowserRouter>
 
       </div>

@@ -1,5 +1,4 @@
-# Jinder:tm:
-# [Jinder](http://jinder-frontend.herokuapp.com/):tm:
+# [Jinder](http://www.jinder.work/):tm:
 ![Jinder2](https://user-images.githubusercontent.com/42152431/64133475-22a97a00-cdce-11e9-812b-f6a4924d397f.png)
 
 **_Makers Academy Final Project by June2019 Cohort. For this project, we designed a web application using Ruby on Rails, React, RSpec and Jest, PostgreSQL and Active Record. Deployment - Heroku._**
@@ -50,8 +49,6 @@ These instructions will get you a copy of the project up and running on your loc
        - [ ] __pass__ if it that logic produces the expected result.
     - [ ] Can articulate why any test exists (or does not exist).
     - [ ] Every feature is tested from the user's perspective.
- 
-### Kanban & Given / When / Then . ????????????????????????
 
 ### Tools :hammer:
 
@@ -59,7 +56,7 @@ These instructions will get you a copy of the project up and running on your loc
 - Git & Github with [FE](https://github.com/hjdr/jinder-frontend) & [BE](https://github.com/hemser1/jinder-backend) repos
 - Slack
 - [Trello](https://trello.com/b/bKBmXk0L/%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5%F0%9F%94%A5)
-- Instagram
+- [Instagram](https://www.instagram.com/jinderteam/)
 
 ### Tech Stack :computer:
 
@@ -232,7 +229,37 @@ StandUp :coffee::coffee::coffee: :one:/:one::zero:
 - _Add other non-software skills_
 
 ## Tuesday (10.09.19) :chart_with_upwards_trend:
-- 
+- **Zi - :sunny::sunny::sunny:**
+  - Yesterday: spent way too long on API keys but now it’s all done
+  - Fixing image form 
+  - Matching - instant confirmation done
+  - Today: clean up candidate route with Anastasiia
+  - Today: adding a company’s name form with Anastasiia
+
+- **Josh - :sunny: with level thin :cloud::cloud::cloud:**
+  - Employer session 
+  - Edge case - if employees and user use the same email and password - will return user session
+  - Blocker: not yet - personaluit
+  - Today - personality quiz into profile section
+
+
+- **Harry - :sunny: with a bit of :fog: :fog: :fog:  in a form of Josh**
+  - Yesterday: authentification - fixed this morning
+  - Profile - personality profile
+
+
+- **Anastasiia - :sunny: but :snowflake:**
+  - Yesterday: about page done - need text
+  - Instagram: created and added pictures
+  - Blockers: merged origin master - nothing loading (update: the route was missing from App.js, all fixed now). Merged to master
+  - Readme Update (FE) 
+  - Clean up 
+  - Trello update
+
+- **ADD BIO TO USERS**
+- **ADD COMPANY NAME TO EMPLOYERS**
+
+TOMORROW COLOUR: BLUEEEEEEE :blue_heart: :blue_heart: :blue_heart: :blue_heart: 
 -
 ## Wednesday (11.09.19) :chart_with_upwards_trend:
 - Feauture Freeze :snowflake:

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 class SignUp extends React.Component {
   state = {
