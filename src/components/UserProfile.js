@@ -131,15 +131,15 @@ class UserProfile extends React.Component {
           </Form.Group>
 
           <Form.Group controlId="formBasicSkills">
-            <Form.Label>Job Skills:</Form.Label>
+            <Form.Label>Personality Traits:</Form.Label>
             <Select
               isMulti
-              name="skills"
+              name="personalityTraits"
               options={skillsOptions}
               className="basic-multi-select"
               classNamePrefix="select"
               onChange={this.handlePersonalityTraitsChange}
-              placeholder="Enter your skills"
+              placeholder="Enter your personality traits"
             />
           </Form.Group>
 
