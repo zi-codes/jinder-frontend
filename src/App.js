@@ -2,6 +2,10 @@ import React from "react";
 
 // for routing
 import { BrowserRouter, Route } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
+import globalUrl from "./globalUrl";
+import PreventDisplay from "./components/PreventDisplay"
+import LoginDirection from "./components/LoginDirection"
 
 // for API calls
 import axiosClient from "./axiosClient";
@@ -23,9 +27,6 @@ import EmployerProfile from "./components/EmployerProfile";
 import DisplayCandidateProfiles from "./components/DisplayCandidateProfiles";
 import EmployerMatches from "./components/EmployerMatches";
 
-import globalUrl from "./globalUrl";
-
-import { Redirect } from 'react-router-dom';
 
 
 class App extends React.Component {
@@ -36,7 +37,7 @@ class App extends React.Component {
     employerPassword: null,
 
     userId: sessionStorage.getItem("user_id"),
-    employerId: sessionStorage.getItem("employer_id")
+    employerId: sessionStorage.getItem("employer_id"),
   };
 
   // ========================
@@ -57,7 +58,7 @@ class App extends React.Component {
       })
     })
       .then(response => response.json())
-      .then(data => this.saveUserId(data))
+      .then(data => this.saveUserData(data))
       .catch(error => console.error(error));
 
   };
@@ -68,10 +69,12 @@ class App extends React.Component {
       
   }
 
-  saveUserId = data => {
+  saveUserData = data => {
     sessionStorage.setItem("user_id", data.id)
+    sessionStorage.setItem("user_email", data.email)
     this.redirect();
   };
+
 
   createSession = state => {
     fetch(`${globalUrl}/api/sessions`, {
@@ -80,10 +83,8 @@ class App extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        user: {
           email: state.email,
           password: state.password
-        }
       })
     })
       .then(response => response.json())
@@ -212,6 +213,18 @@ class App extends React.Component {
             exact
             path="/candidate-profiles"
             component={DisplayCandidateProfiles}
+          />
+
+          <Route
+            exact
+            path="/login-direction"
+            component={LoginDirection}
+          />
+
+          <Route
+            exact
+            path="/login-or-sign-up"
+            component={PreventDisplay}
           />
 
           <Route

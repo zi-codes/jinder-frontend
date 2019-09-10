@@ -7,9 +7,13 @@ import { industryOptions } from "../data/IndustryData";
 import { skillsOptions } from "../data/SkillsData";
 import { Redirect } from "react-router-dom";
 import ImageUpload from "./ImageUpload";
+
 import background from "../style/images/beaver.jpeg";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import PreventDisplay from './PreventDisplay'
+
 
 class UserProfile extends React.Component {
   state = {
@@ -21,9 +25,12 @@ class UserProfile extends React.Component {
     surname: null,
     industry: null,
     skills: null,
+
     bio: null,
     skills_valid: false,
     industry_valid: false,
+    personalityTraits: null,
+
 
     // for image upload
 
@@ -65,9 +72,20 @@ class UserProfile extends React.Component {
     this.setState({ skills: skills.join() });
   };
 
+
   handleBioChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };
+
+  handlePersonalityTraitsChange = event => {
+    const skills = [];
+    event.forEach(skill => {
+      skills.push(skill.value);
+    });
+    this.setState({ skills: skills.join() });
+  };
+
+
 
   updateImages = images => {
     this.setState({ images: images });
@@ -92,33 +110,7 @@ class UserProfile extends React.Component {
     if(sessionStorage.getItem('user_id') === null) {
       console.log(sessionStorage.getItem('user_id'))
       return (
-        <div style={containerPrimary}>
-          <Container>
-            <Row style={RowStyle}>
-              <Col style={colStyle}>
-                <Card style={cardStyle}>
-                  <Card.Header style={cardHeaderStyle} as="h5">
-                    Hey, slow down eager beaver!
-                  </Card.Header>
-                  <Card.Body>
-                    <Card.Text style={cardFontStyle}>
-                    You must log in before you can start creating your beautiful profile
-                    </Card.Text>
-                    <Button style={buttonStyle} href="candidate-sign-up">
-                      Sign Up
-                    </Button>
-                    <br></br>
-                  </Card.Body>
-                  <Card.Footer style={footerStyle}>
-                    <Card.Link style={linkStyle} href="/login">
-                      Got an account? Sign in here
-                    </Card.Link>
-                  </Card.Footer>
-                </Card>
-              </Col>
-            </Row>
-          </Container>
-        </div>
+        <PreventDisplay />
       ) } else {
         console.log(sessionStorage.getItem('user_id'))
     return (
@@ -226,56 +218,6 @@ const welcomeMessage = {
   padding: "10px"
 };
 
-const containerPrimary = {
-  backgroundImage: `url(${background})`,
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
-  height: "800px",
-  position: "center"
-};
-
-const RowStyle = {
-  height: "700px"
-};
-
-const cardStyle = {
-  width: "18rem",
-  textAlign: "center",
-  border: "none",
-  margin: "auto",
-  marginTop: "100px",
-  backgroundColor: "#FFFFFF99"
-};
-
-const cardHeaderStyle = {
-  background: "#FF5903",
-  color: "#fff"
-};
-
-const buttonStyle = {
-  background: "#FF5903",
-  border: "none",
-  marginBottom: "10px"
-};
-
-const linkStyle = {
-  fontSize: 13
-};
-
-const colStyle = {
-  flex: 1,
-  justifyContent: "center",
-  alignItems: "center"
-};
-
-const footerStyle = {
-  backgroundColor: "#C0C0C0"
-};
-
-const cardFontStyle = {
-  fontWeight: "bold"
-};
 
 
 export default UserProfile;
