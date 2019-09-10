@@ -236,7 +236,7 @@ StandUp :coffee::coffee::coffee: :one:/:one::zero:
   - Today: clean up candidate route with Anastasiia
   - Today: adding a company’s name form with Anastasiia
 
-- **Josh - :sunny: with level thin :cloud::cloud::cloud: **
+- **Josh - :sunny: with level thin :cloud::cloud::cloud:**
   - Employer session 
   - Edge case - if employees and user use the same email and password - will return user session
   - Blocker: not yet - personaluit
