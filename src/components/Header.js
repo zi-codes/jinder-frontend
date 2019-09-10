@@ -27,19 +27,37 @@ export default class Header extends React.Component {
   };
 
   render() {
+    console.log(sessionStorage.getItem('user_id'))
+    console.log(sessionStorage.getItem('employer_id'))
+    console.log(sessionStorage.getItem('user_id') !== null)
 
     let signIn;
     let signUp;
     let signOut;
+    let yourProfile;
+    let viewProfilesNotLoggedIn;
+    let viewProfilesAsCandidate;
+    let viewProfilesAsEmployer;
 
-    if(sessionStorage.getItem('user_id') === null) {
-      signIn = <Nav.Link style={linkStyle} href="/">Sign In</Nav.Link>
+    if(sessionStorage.getItem('user_id') === null &&    sessionStorage.getItem('employer_id') === null) {
+      signIn = <Nav.Link style={linkStyle} href="/login-direction">Sign In</Nav.Link>
       signUp = <Nav.Link style={linkStyle} href="/">Sign Up</Nav.Link>
+      viewProfilesNotLoggedIn = <Nav.Link style={linkStyle} href="/login-or-sign-up">View Profiles</Nav.Link>
     } else {
       signOut = <Nav.Link onClick={this.destroySession} style={linkStyle} on href="/">Sign Out</Nav.Link>
+      yourProfile = 
+        <NavDropdown title={<span style={linkStyle}>Your Profile</span>}>
+          <NavDropdown.Item style={dropdownLinkStyle} href="/profile">Create Profile</NavDropdown.Item>
+          <NavDropdown.Item style={dropdownLinkStyle}  href="/profile">Edit</NavDropdown.Item>
+        </NavDropdown>
       }
 
 
+    if(sessionStorage.getItem('user_id') !== null) {
+      viewProfilesAsCandidate = <Nav.Link style={linkStyle} href="/employer-profiles">View Employers</Nav.Link>
+    } else if(sessionStorage.getItem('employer_id') !== null) {
+      viewProfilesAsEmployer = <Nav.Link style={linkStyle} href="/candidate-profiles">View Candidates</Nav.Link>
+    }
 
     return (
       <header style={headerStyle}>
@@ -57,11 +75,10 @@ export default class Header extends React.Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link style={linkStyle} href="/">Home</Nav.Link>
-              <Nav.Link style={linkStyle} href="/profiles">View Profiles</Nav.Link>
-              <NavDropdown title={<span style={linkStyle}>Your Profile</span>}>
-                <NavDropdown.Item style={dropdownLinkStyle} href="/profile">Create Profile</NavDropdown.Item>
-                <NavDropdown.Item style={dropdownLinkStyle}  href="/profile">Edit</NavDropdown.Item>
-              </NavDropdown>
+              {viewProfilesNotLoggedIn}
+              {viewProfilesAsCandidate}
+              {viewProfilesAsEmployer}
+              {yourProfile}
               <Nav.Link style={linkStyle} href="/about">About Us</Nav.Link>
             </Nav>
             {signIn}

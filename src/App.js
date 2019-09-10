@@ -2,6 +2,10 @@ import React from "react";
 
 // for routing
 import { BrowserRouter, Route } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
+import globalUrl from "./globalUrl";
+import PreventDisplay from "./components/PreventDisplay"
+import LoginDirection from "./components/LoginDirection"
 
 // for API calls
 import axiosClient from "./axiosClient";
@@ -23,9 +27,6 @@ import EmployerProfile from "./components/EmployerProfile";
 import DisplayCandidateProfiles from "./components/DisplayCandidateProfiles";
 import EmployerMatches from "./components/EmployerMatches";
 
-import globalUrl from "./globalUrl";
-
-import { Redirect } from 'react-router-dom';
 
 
 class App extends React.Component {
@@ -189,6 +190,18 @@ class App extends React.Component {
             exact
             path="/candidate-profiles"
             component={DisplayCandidateProfiles}
+          />
+
+          <Route
+            exact
+            path="/login-direction"
+            component={LoginDirection}
+          />
+
+          <Route
+            exact
+            path="/login-or-sign-up"
+            component={PreventDisplay}
           />
 
           <Route
