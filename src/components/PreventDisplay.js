@@ -1,38 +1,39 @@
-import React from 'react'
+import React from "react";
 import { Button, Form, Card, Row, Container, Col } from "react-bootstrap";
-import background from "../style/images/beaver.jpg";
+import background from "../style/images/beaver.jpeg";
 
 export default class PreventDisplay extends React.Component {
   render() {
     return (
       <div style={containerPrimary}>
-      <Container>
-        <Row style={RowStyle}>
-          <Col style={colStyle}>
-            <Card style={cardStyle}>
-              <Card.Header style={cardHeaderStyle} as="h5">
-                Hey, slow down eager beaver!
-              </Card.Header>
-              <Card.Body>
-                <Card.Text style={cardFontStyle}>
-                You must log in before you can start viewing beautiful profiles
-                </Card.Text>
-                <Button style={buttonStyle} href="/">
-                  Sign Up
-                </Button>
-                <br></br>
-              </Card.Body>
-              <Card.Footer style={footerStyle}>
-                <Card.Link style={linkStyle} href="/">
-                  Got an account? Sign in here
-                </Card.Link>
-              </Card.Footer>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-    )
+        <Container>
+          <Row style={RowStyle}>
+            <Col style={colStyle}>
+              <Card style={cardStyle}>
+                <Card.Header style={cardHeaderStyle} as="h5">
+                  Hey, slow down eager beaver!
+                </Card.Header>
+                <Card.Body>
+                  <Card.Text style={cardFontStyle}>
+                    You must log in before you can start viewing beautiful
+                    profiles
+                  </Card.Text>
+                  <Button style={buttonStyle} href="/">
+                    Sign Up
+                  </Button>
+                  <br></br>
+                </Card.Body>
+                <Card.Footer style={footerStyle}>
+                  <Card.Link style={linkStyle} href="/">
+                    Got an account? Sign in here
+                  </Card.Link>
+                </Card.Footer>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
   }
 }
 

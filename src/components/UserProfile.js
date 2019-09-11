@@ -12,8 +12,6 @@ import background from "../style/images/beaver.jpeg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import PreventDisplay from "./PreventDisplay";
-
 class UserProfile extends React.Component {
   state = {
     // for routing
