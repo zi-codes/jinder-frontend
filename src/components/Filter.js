@@ -15,6 +15,13 @@ class Filter extends React.Component {
     traits: []
   };
 
+  componentWillReceiveProps(props) {
+    if (props.defaultLocation) {
+      let loc = props.defaultLocation.toLowerCase();
+      this.setState({ location: [loc] });
+    }
+  }
+
   handleChange = () => {
     let megaArray = this.state.location
       .concat(this.state.industry)
