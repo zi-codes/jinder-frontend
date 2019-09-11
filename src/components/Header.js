@@ -146,7 +146,10 @@ Header.propTypes = {
 };
 
 const headerStyle = {
-  background: "#FF5903"
+  background: "#FF5903",
+  position: "fixed",
+  width: "100%",
+  zIndex: "5"
 };
 
 const linkStyle = {
