@@ -66,12 +66,15 @@ const containerPrimary = {
   backgroundPosition: "center",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
-  height: "800px",
-  position: "center"
+  height: "100%",
+  backgroundAttachment: "fixed",
+  position: "center",
+    paddingBottom: "300px"
 };
 
 const RowStyle = {
-  height: "700px"
+  height: "100%",
+
 };
 
 const cardStyle = {
@@ -79,7 +82,7 @@ const cardStyle = {
   textAlign: "center",
   border: "none",
   margin: "auto",
-  marginTop: "100px",
+  marginTop: "150px",
   backgroundColor: "#FFFFFF99"
 };
 
