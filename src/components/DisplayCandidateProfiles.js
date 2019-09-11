@@ -169,15 +169,34 @@ class DisplayCandidateProfiles extends React.Component {
                 <Swipeable
                   buttons={({ right, left }) => (
                     <div style={actionsStyles}>
-                      <Button variant="danger" onClick={left}>
-                        Reject
+                      <Button
+                        style={{
+                          height: "70px",
+                          width: "70px",
+                          borderRadius: "50px",
+                          border: "5px solid #D3D3D3",
+                          backgroundColor: "white",
+                          color: "black"
+                        }}
+                        onClick={left}
+                      >
+                        ❌
                       </Button>
-                      <Button variant="success" onClick={right}>
-                        Accept
+                      <Button
+                        style={{
+                          height: "70px",
+                          width: "70px",
+                          borderRadius: "50px",
+                          border: "5px solid #D3D3D3",
+                          backgroundColor: "white",
+                          color: "black"
+                        }}
+                        onClick={right}
+                      >
+                        🧡
                       </Button>
                     </div>
                   )}
-                  onBeforeSwipe={dir => console.log(dir)}
                   onSwipe={dir => this.handleSwipe(dir)}
                   onAfterSwipe={this.remove}
                   min={1000}
