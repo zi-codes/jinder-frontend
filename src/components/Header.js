@@ -51,7 +51,7 @@ export default class Header extends React.Component {
         </Nav.Link>
       );
       signUp = (
-        <Nav.Link style={linkStyle} href="/">
+        <Nav.Link style={linkStyle} href="/sign-up-direction">
           Sign Up
         </Nav.Link>
       );
@@ -105,7 +105,7 @@ export default class Header extends React.Component {
     return (
       <header style={headerStyle}>
         <Navbar expand="lg">
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <img
               src={logo}
               width="35"

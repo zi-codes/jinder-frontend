@@ -195,6 +195,27 @@ class UserProfile extends React.Component {
                       onChange={this.handleSkillsChange}
                       placeholder="Enter your skills"
                     />
+
+                  <Form.Group controlId="formBasicSkills">
+                    <Form.Label>Personality Traits:</Form.Label>
+                    <Select
+                      isMulti
+                      name="personalityTraits"
+                      options={personalityTraits}
+                      defaultValue={
+                        sessionStorage.getItem("user_skills") &&
+                        sessionStorage
+                          .getItem("user_personality")
+                          .split(",")
+                          .map(item => ({ label: item, value: item }))
+                      }
+                      className="basic-multi-select"
+                      classNamePrefix="select"
+                      onChange={this.handlePersonalityTraitsChange}
+                      placeholder="Enter your personality traits"
+                    />
+                  </Form.Group>
+
                   </Form.Group>
                   <Form.Group controlId="formBasicBio">
                     <Form.Label>Bio:</Form.Label>
