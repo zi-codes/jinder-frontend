@@ -2,10 +2,10 @@ import React from "react";
 
 // for routing
 import { BrowserRouter, Route } from "react-router-dom";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import globalUrl from "./globalUrl";
-import PreventDisplay from "./components/PreventDisplay"
-import LoginDirection from "./components/LoginDirection"
+import PreventDisplay from "./components/PreventDisplay";
+import LoginDirection from "./components/LoginDirection";
 
 // for API calls
 import axiosClient from "./axiosClient";
@@ -27,17 +27,17 @@ import EmployerProfile from "./components/EmployerProfile";
 import DisplayCandidateProfiles from "./components/DisplayCandidateProfiles";
 import EmployerMatches from "./components/EmployerMatches";
 
-
-
 class App extends React.Component {
   state = {
     // to store employer details from sign up page until profile is complete
     fireRedirect: false,
+    fireRedirectAfterUserSignIn: false,
+    fireRedirectAfterEmployerSignIn: false,
     employerEmail: null,
     employerPassword: null,
 
     userId: sessionStorage.getItem("user_id"),
-    employerId: sessionStorage.getItem("employer_id"),
+    employerId: sessionStorage.getItem("employer_id")
   };
 
   // ========================
@@ -60,21 +60,35 @@ class App extends React.Component {
       .then(response => response.json())
       .then(data => this.saveUserData(data))
       .catch(error => console.error(error));
-
   };
 
+  // redirecting to creating a user profile after user sign up
   redirect = () => {
-    this.setState({ fireRedirect: true }, () => {
-    });
-      
-  }
+    this.setState({ fireRedirect: true }, () => {});
+  };
 
+  // saving after using sign up
   saveUserData = data => {
-    sessionStorage.setItem("user_id", data.id)
-    sessionStorage.setItem("user_email", data.email)
+    sessionStorage.setItem("employer_id", null);
+    sessionStorage.setItem("employer_email", null);
+    sessionStorage.setItem("user_id", data.id);
+    sessionStorage.setItem("user_email", data.email);
     this.redirect();
   };
 
+  // saving after user log in
+  saveUserLogin = data => {
+    sessionStorage.setItem("employer_id", null);
+    sessionStorage.setItem("employer_email", null);
+    sessionStorage.setItem("user_id", data.id);
+    sessionStorage.setItem("user_email", data.email);
+    this.redirectAfterUserSignIn();
+  };
+
+  // redirecting after user log in
+  redirectAfterUserSignIn = () => {
+    this.setState({ fireRedirectAfterUserSignIn: true });
+  };
 
   createSession = state => {
     fetch(`${globalUrl}/api/sessions`, {
@@ -83,28 +97,13 @@ class App extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-          email: state.email,
-          password: state.password
+        email: state.email,
+        password: state.password
       })
     })
       .then(response => response.json())
-      .then(data => this.saveUserId(data))
+      .then(data => this.saveUserLogin(data))
       .catch(error => console.error(error));
-  };
-
-  createEmployerSession = state => {
-    fetch("https://jinder-backend.herokuapp.com/employers/sign_in", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        employer: {
-          email: state.email,
-          password: state.password
-        }
-      })
-    });
   };
 
   buildUserProfileFormData = state => {
@@ -141,6 +140,28 @@ class App extends React.Component {
   createEmployer = state => {
     sessionStorage.setItem("employer_email", state.email);
     sessionStorage.setItem("employer_password", state.password);
+  };
+
+  createEmployerSession = state => {
+    fetch("https://jinder-backend.herokuapp.com/api/sessions", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: state.email,
+        password: state.password
+      })
+    })
+      .then(response => response.json())
+      .then(data => this.saveEmployerLogin(data))
+      .catch(error => console.error(error));
+  };
+
+  saveEmployerLogin = data => {
+    sessionStorage.setItem("user_id", null);
+    sessionStorage.setItem("employer_id", data.id);
+    this.setState({ fireRedirectAfterEmployerSignIn: true });
   };
 
   buildEmployerProfileFormData = state => {
@@ -181,6 +202,7 @@ class App extends React.Component {
   };
 
   saveEmployerId = response => {
+    sessionStorage.setItem("user_id", null);
     sessionStorage.setItem("employer_id", response.data.id);
     this.setState({ employerEmail: null });
     this.setState({ employerPassword: null });
@@ -200,14 +222,19 @@ class App extends React.Component {
     );
   };
 
-  render() {
+  destroyRedirects = () => {
+    this.setState({ fireRedirect: false });
+    this.setState({ fireRedirectAfterUserSignIn: false });
+    this.setState({ fireRedirectAfterEmployerSignIn: false });
+  };
 
+  render() {
     const { fireRedirect } = this.state;
 
     return (
       <div className="App">
         <BrowserRouter>
-          <Header />
+          <Header destroyRedirects={this.destroyRedirects} />
           <Route exact path="/" component={HomePage} />
 
           <Route
@@ -216,17 +243,9 @@ class App extends React.Component {
             component={DisplayCandidateProfiles}
           />
 
-          <Route
-            exact
-            path="/login-direction"
-            component={LoginDirection}
-          />
+          <Route exact path="/login-direction" component={LoginDirection} />
 
-          <Route
-            exact
-            path="/login-or-sign-up"
-            component={PreventDisplay}
-          />
+          <Route exact path="/login-or-sign-up" component={PreventDisplay} />
 
           <Route
             exact
@@ -271,7 +290,11 @@ class App extends React.Component {
             exact
             path="/candidate-profile"
             render={props => (
-              <UserProfile {...props} createProfile={this.createProfile} userID={this.state.userId} />
+              <UserProfile
+                {...props}
+                createProfile={this.createProfile}
+                userID={this.state.userId}
+              />
             )}
           />
           <Route
@@ -297,16 +320,16 @@ class App extends React.Component {
             render={props => <UserMatches {...props} />}
           />
 
-          {fireRedirect && <Redirect to='/candidate-profile'/> } 
+          {fireRedirect && <Redirect to="/candidate-profile" />}
+          {this.state.fireRedirectAfterUserSignIn && (
+            <Redirect to="/employer-profiles" />
+          )}
+          {this.state.fireRedirectAfterEmployerSignIn && (
+            <Redirect to="/candidate-profiles" />
+          )}
 
-          <Route
-            exact
-            path="/about"
-            render={props => <About {...props} />}
-          />
-
+          <Route exact path="/about" render={props => <About {...props} />} />
         </BrowserRouter>
-
       </div>
     );
   }

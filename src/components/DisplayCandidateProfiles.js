@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import {
   appStyles,
   imgStyle,
+  cardStyle,
   wrapperStyles,
   actionsStyles
 } from "./swipeStyling";
@@ -24,6 +25,7 @@ class DisplayCandidateProfiles extends React.Component {
   };
 
   componentDidMount = () => {
+    this.setState({ loading: true });
     axiosClient.get("/api/profiles").then(response => {
       this.setState({ profiles: response.data.reverse() });
       this.setState({ originalProfiles: response.data.reverse() });
@@ -46,12 +48,12 @@ class DisplayCandidateProfiles extends React.Component {
 
   handleRight = () => {
     let swipedProfile = this.state.profiles[0];
-    console.log(swipedProfile);
     let data = {
       accepted_profiles: swipedProfile.id,
       id: sessionStorage.getItem("employer_id")
     };
     axiosClient.patch("/employers/update_matches", data);
+    toast.success(`You liked ${swipedProfile.first_name}💖`);
     if (
       swipedProfile.user.accepted_employers.includes(
         sessionStorage.getItem("employer_id")
@@ -72,6 +74,7 @@ class DisplayCandidateProfiles extends React.Component {
       id: sessionStorage.getItem("employer_id")
     };
     axiosClient.patch("/employers/update_matches", data);
+    toast.warn(`You ghosted ${swipedProfile.first_name}👻`);
   };
 
   remove = () => {
@@ -111,7 +114,11 @@ class DisplayCandidateProfiles extends React.Component {
     const { loading } = this.state;
     return (
       <Container>
-        <ToastContainer />
+        <ToastContainer
+          position="top-center"
+          hideProgressBar
+          autoClose={1000}
+        />
         <Row className="justify-content-center">
           <Filter filterCards={this.filterCards}></Filter>
         </Row>
@@ -141,11 +148,12 @@ class DisplayCandidateProfiles extends React.Component {
                   onAfterSwipe={this.remove}
                 >
                   <SwipeCard>
-                    <Card>
+                    <Card style={cardStyle}>
                       <Card.Img
                         variant="top"
                         src={this.showImg(0, profiles)}
                         draggable={false}
+                        style={imgStyle}
                       />
                       <Card.Body>
                         <Card.Title>
@@ -161,8 +169,13 @@ class DisplayCandidateProfiles extends React.Component {
                 </Swipeable>
                 {profiles.length > 1 && (
                   <SwipeCard zIndex={-1}>
-                    <Card>
-                      <Card.Img variant="top" src={this.showImg(1, profiles)} />
+                    <Card style={cardStyle}>
+                      <Card.Img
+                        variant="top"
+                        src={this.showImg(1, profiles)}
+                        draggable={false}
+                        style={imgStyle}
+                      />
 
                       <Card.Body>
                         <Card.Title>
