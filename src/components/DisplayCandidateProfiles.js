@@ -21,15 +21,17 @@ class DisplayCandidateProfiles extends React.Component {
   state = {
     loading: true,
     originalProfiles: [],
-    profiles: [] //filtered profiles
+    profiles: [], //filtered profiles
+    profilesLength: 0
   };
 
   componentDidMount = () => {
     this.setState({ loading: true });
     axiosClient.get("/api/profiles").then(response => {
-      this.setState({ profiles: response.data.reverse() });
-      this.setState({ originalProfiles: response.data.reverse() });
+      this.setState({ profiles: response.data });
+      this.setState({ originalProfiles: response.data });
       this.setState({ loading: false });
+      this.setState({ profilesLength: response.data.length });
     });
   };
 
@@ -113,6 +115,7 @@ class DisplayCandidateProfiles extends React.Component {
         profile.industry.toLowerCase().match(new RegExp(keyword)) ||
         profile.skills.toLowerCase().match(new RegExp(keyword))
     );
+    console.log(filteredProfiles);
     return filteredProfiles;
   };
 
@@ -162,14 +165,25 @@ class DisplayCandidateProfiles extends React.Component {
                         draggable={false}
                         style={imgStyle}
                       />
+
                       <Card.Body>
                         <Card.Title>
-                          {profiles[0].first_name} {profiles[0].last_name}
+                          {profiles[1].first_name} {profiles[1].last_name}
                         </Card.Title>
-                        <p>Industry: {profiles[0].industry}</p>
-                        <p>Skills: {profiles[0].skills}</p>
-                        <p>Personality Traits: {profiles[0].personality}</p>
-                        <p>Bio: {profiles[0].user_bio}</p>
+                        <Card.Subtitle className="mb-2 text-muted">
+                          {profiles[1].industry}
+                        </Card.Subtitle>
+                        <span style={{ fontWeight: "600" }}>Skills </span>
+                        {profiles[1].skills.replace(/,/g, ", ")}
+                        <br />
+                        <span style={{ fontWeight: "600" }}>Traits </span>
+                        {profiles[1].personality.replace(/,/g, ", ")}
+                        <br />
+                        <span style={{ fontWeight: "600" }}>Bio </span>
+                        {profiles[1].user_bio}
+                        <br />
+                        <span style={{ fontWeight: "600" }}>Location </span>
+                        {profiles[1].location}
                       </Card.Body>
                     </Card>
                   </SwipeCard>
@@ -188,10 +202,20 @@ class DisplayCandidateProfiles extends React.Component {
                         <Card.Title>
                           {profiles[1].first_name} {profiles[1].last_name}
                         </Card.Title>
-                        <p>Industry: {profiles[1].industry}</p>
-                        <p>Skills: {profiles[1].skills}</p>
-                        <p>Personality Traits: {profiles[1].personality}</p>
-                        <p>Bio: {profiles[1].user_bio}</p>
+                        <Card.Subtitle className="mb-2 text-muted">
+                          {profiles[1].industry}
+                        </Card.Subtitle>
+                        <span style={{ fontWeight: "600" }}>Skills </span>
+                        {profiles[1].skills.replace(/,/g, ", ")}
+                        <br />
+                        <span style={{ fontWeight: "600" }}>Traits </span>
+                        {profiles[1].personality.replace(/,/g, ", ")}
+                        <br />
+                        <span style={{ fontWeight: "600" }}>Bio </span>
+                        {profiles[1].user_bio}
+                        <br />
+                        <span style={{ fontWeight: "600" }}>Location </span>
+                        {profiles[1].location}
                       </Card.Body>
                     </Card>
                   </SwipeCard>

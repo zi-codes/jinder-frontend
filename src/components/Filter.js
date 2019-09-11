@@ -1,21 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Select from "react-select";
+import { personalityTraits } from "../data/PersonalityTraitsData";
 import { industryOptions } from "../data/IndustryData";
 import { skillsOptions } from "../data/SkillsData";
 import { Button, Form, FormControl, Card } from "react-bootstrap";
 
 class Filter extends React.Component {
   state = {
-    keywords: ""
+    location: [],
+    industry: [],
+    skills: [],
+    personality: []
   };
 
-  handleChange = keywords => {
-    let keywordArray = keywords
-      .split(" ")
-      .map(keyword => keyword.toLowerCase());
-
+  handleChange = () => {
+    let megaArray = this.state.location
+      .concat(this.state.industry)
+      .concat(this.state.skills)
+      .concat(this.state.personality);
+    console.log(megaArray);
+    let keywordArray = megaArray.map(keyword => keyword.toLowerCase());
+    console.log(keywordArray);
     this.props.filterCards(keywordArray);
+  };
+
+  handleLocationChange = event => {
+    this.setState({ location: [event.target.value] }, () => {
+      this.handleChange();
+    });
   };
 
   handleIndustryChange = event => {
@@ -37,6 +50,15 @@ class Filter extends React.Component {
       <Card style={{ width: "26rem", marginTop: "2em" }}>
         <Card.Body>
           <Form>
+            <Form.Group controlId="formBasicLocation">
+              <React.Fragment>
+                <Form.Control
+                  name="location"
+                  onChange={this.handleLocationChange}
+                  placeholder="Location"
+                />
+              </React.Fragment>
+            </Form.Group>
             <Form.Group controlId="formBasicIndustry">
               <React.Fragment>
                 <Select
@@ -60,6 +82,21 @@ class Filter extends React.Component {
                 classNamePrefix="select"
                 onChange={this.handleSkillsChange}
                 placeholder="Filter by skills"
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicSkills">
+              <Select
+                isMulti
+                name="personalityTraits"
+                options={personalityTraits.map(trait => ({
+                  value: trait.label,
+                  label: trait.value
+                }))}
+                className="basic-multi-select"
+                classNamePrefix="select"
+                onChange={this.handlePersonalityChange}
+                placeholder="Filter by personality traits"
               />
             </Form.Group>
           </Form>

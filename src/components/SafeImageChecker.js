@@ -1,10 +1,10 @@
 import axios from "axios";
 import React from "react";
 import PropTypes from "prop-types";
-// import api from "../secretapikey";
+import api from "../secretapikey";
 import { Button } from "react-bootstrap";
 import { StageSpinner } from "react-spinners-kit";
-import api from "../publicapikey";
+// import api from "../publicapikey";
 
 class SafeImageChecker extends React.Component {
   state = {
@@ -126,7 +126,7 @@ class SafeImageChecker extends React.Component {
   render() {
     const { images } = this.state;
     return (
-      <div style={{ marginBottom: "20px" }}>
+      <div>
         {images.length > 0 && this.safeImgCheck(images[0])}
         {images.length > 0 && (
           <div>

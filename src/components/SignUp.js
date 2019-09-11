@@ -8,7 +8,6 @@ import Container from "react-bootstrap/Container";
 
 class SignUp extends React.Component {
   state = {
-    fireRedirect: false,
     email: null,
     password: null,
     passwordConfirmation: null,
@@ -30,7 +29,6 @@ class SignUp extends React.Component {
       this.setState({ email: null });
       this.setState({ password: null });
       this.setState({ passwordConfirmation: null });
-      this.setState({ fireRedirect: true });
     }
   };
 
@@ -63,24 +61,6 @@ class SignUp extends React.Component {
       }
     }
   };
-  // state = {
-  //   fireRedirect: false,
-  //   email: null,
-  //   password: null,
-  //   passwordConfirmation: null
-  // };
-
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   this.props.createUser(this.state);
-  //   this.setState({ email: null });
-  //   this.setState({ password: null });
-  //   this.setState({ passwordConfirmation: null });
-  // };
-
-  // handleChange = ({ target }) => {
-  //   this.setState({ [target.name]: target.value })
-  // }
 
   render() {
     return (
@@ -94,7 +74,7 @@ class SignUp extends React.Component {
                   <Form.Control
                     type="email"
                     name="email"
-                    placeholder="Enter email"
+                    placeholder="Enter your email address"
                     onChange={this.handleChange}
                     required
                     isInvalid={this.state.emailInvalid}
@@ -114,7 +94,7 @@ class SignUp extends React.Component {
                     onChange={this.handleChange}
                     required
                     isInvalid={this.state.passwordInvalid}
-                  />{" "}
+                  />
                   <Form.Control.Feedback type="invalid">
                     Password must be at least 6 characters
                   </Form.Control.Feedback>
@@ -126,7 +106,7 @@ class SignUp extends React.Component {
                   <Form.Control
                     name="passwordConfirmation"
                     type="password"
-                    placeholder="Confirm your password"
+                    placeholder="Please confirm your password"
                     onChange={this.handleChange}
                     required
                     isInvalid={this.state.pcInvalid}
@@ -142,7 +122,7 @@ class SignUp extends React.Component {
                   type="submit"
                   style={{ background: "#FF5903", border: "none" }}
                 >
-                  Submit
+                  Sign me up
                 </Button>
               </Form>
             </Card.Body>

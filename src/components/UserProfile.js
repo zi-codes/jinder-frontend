@@ -11,12 +11,10 @@ import PreventDisplay from "./PreventDisplay";
 import background from "../style/images/beaver.jpeg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import GeoLocator from "../GeoLocator";
 
 class UserProfile extends React.Component {
   state = {
-    // for routing
-    fireRedirect: false,
-
     //for profile details
     firstName: sessionStorage.getItem("user_first_name"),
     surname: sessionStorage.getItem("user_surname"),
@@ -24,6 +22,7 @@ class UserProfile extends React.Component {
     skills: sessionStorage.getItem("user_skills"),
     bio: sessionStorage.getItem("user_bio"),
     personalityTraits: sessionStorage.getItem("user_personality"),
+    location: "Automatic detection",
 
     skills_valid: false,
     personalityTraits_valid: false,
@@ -36,6 +35,15 @@ class UserProfile extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    if (!this.state.industry) {
+      toast.info("Please fill out your industry");
+    }
+    if (!this.state.skills) {
+      toast.info("Please fill out your skills");
+    }
+    if (!this.state.personalityTraits) {
+      toast.info("Please fill out your personality traits");
+    }
     if (
       this.state.skills_valid &&
       this.state.industry_valid &&
@@ -48,13 +56,11 @@ class UserProfile extends React.Component {
       this.setState({ skills: null });
       this.setState({ personalityTraits: null });
       this.setState({ bio: null });
+      this.setState({ location: null });
       this.setState({ skills_valid: false });
       this.setState({ industry_valid: false });
       this.setState({ personalityTraits_valid: false });
       this.setState({ images: [] });
-      this.setState({ fireRedirect: true });
-    } else {
-      toast.info("Please fill in your industry and skills!");
     }
   };
 
@@ -70,6 +76,9 @@ class UserProfile extends React.Component {
   };
 
   handleSkillsChange = event => {
+    if (!event) {
+      return;
+    }
     const skills = [];
     event.forEach(skill => {
       skills.push(skill.value);
@@ -85,6 +94,9 @@ class UserProfile extends React.Component {
   };
 
   handlePersonalityTraitsChange = event => {
+    if (!event) {
+      return;
+    }
     const personalityTraits = [];
     event.forEach(trait => {
       personalityTraits.push(trait.value);
@@ -93,6 +105,10 @@ class UserProfile extends React.Component {
       this.setState({ personalityTraits_valid: true });
     }
     this.setState({ personalityTraits: personalityTraits.join() });
+  };
+
+  updateLocation = city => {
+    this.setState({ location: city });
   };
 
   updateImages = images => {
@@ -114,50 +130,54 @@ class UserProfile extends React.Component {
   };
 
   render() {
-    console.log(sessionStorage.getItem("user_skills"));
-    const { fireRedirect } = this.state;
     if (sessionStorage.getItem("user_id") === null) {
       console.log(sessionStorage.getItem("user_id"));
       return <PreventDisplay />;
     } else {
-      console.log(sessionStorage.getItem("user_id"));
       return (
         <Container>
           <Row className="justify-content-center">
             <Card style={{ width: "26rem", marginTop: "2em" }}>
-              <Card.Body>
-                <p style={welcomeMessage}>
-                  Hey hot stuff. Start courting the market right away by filling
-                  in your details below...
-                </p>
+              <Form onSubmit={this.handleSubmit}>
+                <Card.Body>
+                  <p style={welcomeMessage}>
+                    Hey hot stuff. Start courting the market right away by
+                    filling in your details below...
+                  </p>
 
-                <Form onSubmit={this.handleSubmit}>
-                  <Form.Group controlId="formBasicFirstName">
-                    <Form.Label>First Name:</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="firstName"
-                      placeholder="Enter your first name"
-                      defaultValue={sessionStorage.getItem("user_first_name")}
-                      onChange={this.handleNameChange}
-                      required
-                    />
-                  </Form.Group>
-
-                  <Form.Group controlId="formBasicSurname">
-                    <Form.Label>Surname:</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="surname"
-                      placeholder="Enter your surname"
-                      defaultValue={sessionStorage.getItem("user_surname")}
-                      onChange={this.handleNameChange}
-                      required
-                    />
-                  </Form.Group>
+                  <Form.Row>
+                    <Col>
+                      <Form.Group controlId="formBasicFirstName">
+                        <Form.Label>First Name</Form.Label>
+                        <Form.Control
+                          type="text"
+                          name="firstName"
+                          placeholder="Enter your first name"
+                          defaultValue={sessionStorage.getItem(
+                            "user_first_name"
+                          )}
+                          onChange={this.handleNameChange}
+                          required
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col>
+                      <Form.Group controlId="formBasicSurname">
+                        <Form.Label>Surname</Form.Label>
+                        <Form.Control
+                          type="text"
+                          name="surname"
+                          placeholder="Enter your surname"
+                          defaultValue={sessionStorage.getItem("user_surname")}
+                          onChange={this.handleNameChange}
+                          required
+                        />
+                      </Form.Group>
+                    </Col>
+                  </Form.Row>
 
                   <Form.Group controlId="formBasicIndustry">
-                    <Form.Label>Industry:</Form.Label>
+                    <Form.Label>Industry</Form.Label>
                     <React.Fragment>
                       <Select
                         isSingle
@@ -178,7 +198,7 @@ class UserProfile extends React.Component {
                   <ToastContainer />
 
                   <Form.Group controlId="formBasicSkills">
-                    <Form.Label>Job Skills:</Form.Label>
+                    <Form.Label>Job Skills</Form.Label>
                     <Select
                       isMulti
                       name="skills"
@@ -195,9 +215,10 @@ class UserProfile extends React.Component {
                       onChange={this.handleSkillsChange}
                       placeholder="Enter your skills"
                     />
+                  </Form.Group>
 
                   <Form.Group controlId="formBasicSkills">
-                    <Form.Label>Personality Traits:</Form.Label>
+                    <Form.Label>Personality Traits</Form.Label>
                     <Select
                       isMulti
                       name="personalityTraits"
@@ -216,17 +237,25 @@ class UserProfile extends React.Component {
                     />
                   </Form.Group>
 
-                  </Form.Group>
                   <Form.Group controlId="formBasicBio">
-                    <Form.Label>Bio:</Form.Label>
+                    <Form.Label>Bio</Form.Label>
                     <Form.Control
                       type="text"
+                      as="textarea"
                       name="bio"
                       placeholder="Tell us something about yourself"
                       onChange={this.handleBioChange}
                       defaultValue={sessionStorage.getItem("user_bio")}
                       required
                     />
+                  </Form.Group>
+
+                  <Form.Group>
+                    <Form.Label>Location</Form.Label>
+
+                    <GeoLocator
+                      updateLocation={this.updateLocation}
+                    ></GeoLocator>
                   </Form.Group>
 
                   <ImageUpload
@@ -243,10 +272,8 @@ class UserProfile extends React.Component {
                   >
                     Submit
                   </Button>
-                </Form>
-
-                {fireRedirect && <Redirect to="/employer-profiles" />}
-              </Card.Body>
+                </Card.Body>
+              </Form>
             </Card>
           </Row>
         </Container>

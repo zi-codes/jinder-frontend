@@ -6,14 +6,19 @@ export const appStyles = {
 };
 
 export const imgStyle = {
-  objectFit: "cover",
-  width: "280px",
-  height: "200px"
+  // objectFit: "cover",
+  width: "270px",
+  height: "200px",
+  padding: "0px",
+  margin: "0px",
+  borderRadius: "25px 25px 0px 0px"
 };
 
 export const cardStyle = {
   width: "280px",
-  height: "420px"
+  height: "420px",
+  border: "5px solid orange",
+  borderRadius: "30px"
 };
 
 export const wrapperStyles = {
