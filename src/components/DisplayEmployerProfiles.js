@@ -81,10 +81,17 @@ class DisplayEmployerProfiles extends React.Component {
 
   showImg = (profileIndex, profiles) => {
     if (profiles[profileIndex].image_photos[0]) {
-      return globalUrl + profiles[profileIndex].image_photos[0].url;
+      return this.tidyImgUrl(profiles[profileIndex].image_photos[0].url);
     } else {
       return DefaultPicture;
     }
+  };
+
+  tidyImgUrl = url => {
+    return url.replace(
+      "//s3.amazonaws.com/jinder-bucket/",
+      "//jinder-bucket.s3.us-east-2.amazonaws.com/"
+    );
   };
 
   render() {

@@ -80,23 +80,25 @@ const containerPrimary = {
   backgroundImage: `url(${background})`,
   backgroundPosition: "center",
   backgroundSize: "cover",
+  backgroundAttachment: "fixed",
   backgroundRepeat: "no-repeat",
-  height: "800px",
-  position: "center"
+  height: "100%",
+  position: "center",
+  paddingBottom: "300px"
 };
 
 const RowStyle = {
-  height: "700px"
+  height: "100%"
 };
 
 const welcomeMessageContainer = {
-  backgroundColor: "rgba(52, 52, 52, 0.7)"
+  backgroundColor: "rgba(52, 52, 52, 0.7)",
 };
 
 const welcomeMessage1 = {
   color: "#fff",
   textAlign: "center",
-  paddingTop: "25px"
+  paddingTop: "90px"
 };
 
 const welcomeMessage2 = {
