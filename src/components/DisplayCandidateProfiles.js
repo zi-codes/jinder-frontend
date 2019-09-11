@@ -177,8 +177,10 @@ class DisplayCandidateProfiles extends React.Component {
                       </Button>
                     </div>
                   )}
+                  onBeforeSwipe={dir => console.log(dir)}
                   onSwipe={dir => this.handleSwipe(dir)}
                   onAfterSwipe={this.remove}
+                  min={1000}
                 >
                   <SwipeCard>
                     <Card style={cardStyle}>

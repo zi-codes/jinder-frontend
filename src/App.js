@@ -80,8 +80,7 @@ class App extends React.Component {
 
   // saving after using sign up
   saveUserData = data => {
-    sessionStorage.setItem("employer_id", null);
-    sessionStorage.setItem("employer_email", null);
+    sessionStorage.clear();
     sessionStorage.setItem("user_id", data.id);
     sessionStorage.setItem("user_email", data.email);
     this.redirect();
@@ -89,8 +88,7 @@ class App extends React.Component {
 
   // saving after user log in
   saveUserLogin = data => {
-    sessionStorage.setItem("employer_id", null);
-    sessionStorage.setItem("employer_email", null);
+    sessionStorage.clear();
     sessionStorage.setItem("user_id", data.id);
     sessionStorage.setItem("user_email", data.email);
     this.redirectAfterUserSignIn();
@@ -173,7 +171,7 @@ class App extends React.Component {
   };
 
   saveEmployerLogin = data => {
-    sessionStorage.setItem("user_id", null);
+    sessionStorage.clear();
     sessionStorage.setItem("employer_id", data.id);
     this.setState({ fireRedirectAfterEmployerSignIn: true });
   };
@@ -217,7 +215,7 @@ class App extends React.Component {
   };
 
   saveEmployerId = response => {
-    sessionStorage.setItem("user_id", null);
+    sessionStorage.clear();
     sessionStorage.setItem("employer_id", response.data.id);
     this.setState({ employerEmail: null });
     this.setState({ employerPassword: null });

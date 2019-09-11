@@ -46,12 +46,12 @@ export default class Header extends React.Component {
       sessionStorage.getItem("employer_id") === null
     ) {
       signIn = (
-        <Nav.Link style={linkStyle} href="/login-direction">
+        <Nav.Link style={linkStyleRight} href="/login-direction">
           Sign In
         </Nav.Link>
       );
       signUp = (
-        <Nav.Link style={linkStyle} href="/sign-up-direction">
+        <Nav.Link style={linkStyleRight} href="/sign-up-direction">
           Sign Up
         </Nav.Link>
       );
@@ -62,7 +62,12 @@ export default class Header extends React.Component {
       );
     } else {
       signOut = (
-        <Nav.Link onClick={this.destroySession} style={linkStyle} on href="/">
+        <Nav.Link
+          onClick={this.destroySession}
+          style={linkStyleRight}
+          on
+          href="/"
+        >
           Sign Out
         </Nav.Link>
       );
@@ -89,7 +94,9 @@ export default class Header extends React.Component {
           View Matches
         </Nav.Link>
       );
-    } else if (sessionStorage.getItem("employer_id") !== null) {
+    }
+
+    if (sessionStorage.getItem("employer_id") !== null) {
       viewProfilesAsEmployer = (
         <Nav.Link style={linkStyle} href="/candidate-profiles">
           View Candidates
@@ -156,6 +163,10 @@ const linkStyle = {
   color: "#fff"
 };
 
+const linkStyleRight = {
+  color: "#fff",
+  paddingLeft: "0px"
+};
 const dropdownLinkStyle = {
   color: "#FF5903"
 };
