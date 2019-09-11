@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 import globalUrl from "./globalUrl";
 import PreventDisplay from "./components/PreventDisplay";
 import LoginDirection from "./components/LoginDirection";
+import SignUpDirection from "./components/SignUpDirection";
 
 // for API calls
 import axiosClient from "./axiosClient";
@@ -244,6 +245,8 @@ class App extends React.Component {
           />
 
           <Route exact path="/login-direction" component={LoginDirection} />
+
+          <Route exact path="/sign-up-direction" component={SignUpDirection} />
 
           <Route exact path="/login-or-sign-up" component={PreventDisplay} />
 

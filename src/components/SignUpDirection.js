@@ -1,38 +1,58 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import background from "../style/images/question.jpg";
+import background from "../style/images/road.jpg";
 import { Card, Button, Row, Container, Col } from "react-bootstrap";
+import Typist from 'react-typist';
 
-export default class LoginDirection extends Component {
+export default class SignUpDirection extends Component {
   render() {
     return (
       <div style={containerPrimary}>
         <Container>
           <Row style={RowStyle}>
             <Col style={colStyle}>
-              <Card style={cardStyleLeft}>
+              <Card style={cardStyle}>
                 <Card.Header style={cardHeaderStyle} as="h5">
                   Who are you?
                 </Card.Header>
                 <Card.Body>
-                  <Button style={buttonStyle} href="candidate-login">
+                  <Card.Text style={cardFontStyle}>
+                    I am a candidate looking for the perfect employer.
+                  </Card.Text>
+                  <Button style={buttonStyle} href="candidate-sign-up">
                     Candidate
                   </Button>
-                  <Button style={buttonStyle} href="employer-login">
+                  <br />
+                  <Card.Text style={cardFontStyle}>
+                    I am an employer looking for the perfect candidate.
+                  </Card.Text>
+                  <Button style={buttonStyle} href="employer-sign-up">
                     Employer
                   </Button>
                 </Card.Body>
                 <Card.Footer style={footerStyle}>
                   <Card.Link style={linkStyle} href="/">
-                    No account? Sign up here
+                    Got an account? Sign in here
                   </Card.Link>
                 </Card.Footer>
               </Card>
-              <Container style={pageStrapLine}>
-                It was a match made in Jinder.
-              </Container>
             </Col>
-            <Col>
+            <Col style={pageStrapLine} >
+              <Typist avgTypingDelay={100} cursor={{
+                  show: true,
+                  blink: true,
+                  element: '|',
+                  hideWhenDone: false,
+                  hideWhenDoneDelay: 1000,
+               }}>
+                 <span>Your.</span>
+                 <br />
+                 <span>Journey.</span>
+                 <br />
+                 <span>Starts.</span>
+                 <br />
+                 <span>Here.</span>
+              </Typist>
             </Col>
           </Row>
         </Container>
@@ -54,16 +74,7 @@ const RowStyle = {
   height: "700px"
 };
 
-const cardStyleLeft = {
-  width: "18rem",
-  textAlign: "center",
-  border: "none",
-  margin: "auto",
-  marginTop: "100px",
-  backgroundColor: "#FFFFFF99"
-};
-
-const cardStyleRight = {
+const cardStyle = {
   width: "18rem",
   textAlign: "center",
   border: "none",
@@ -99,8 +110,12 @@ const footerStyle = {
 
 const pageStrapLine = {
   marginTop: '100px',
-  fontSize: 50,
+  fontSize: 80,
   fontWeight: 'bold',
   color: '#fff',
-  textAlign: 'center'
+  textAlign: 'left'
 }
+
+const cardFontStyle = {
+  fontWeight: "bold"
+};
