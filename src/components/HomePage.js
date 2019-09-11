@@ -2,18 +2,22 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import background from "../style/images/work-image.jpg";
 import { Card, Button, Row, Container, Col } from "react-bootstrap";
+import Typist from 'react-typist';
+import "../style/css/TypistHomepage.css"
 
 export default class HomePage extends Component {
   render() {
     return (
       <div style={containerPrimary}>
         <div style={welcomeMessageContainer}>
+        <Typist avgTypingDelay={100}>
           <h1 style={welcomeMessage1}>
             The new way to get paid is here...
           </h1>
           <h6 style={welcomeMessage2}>
             This is the future of finding the perfect professional match.
           </h6>
+          </Typist>
         </div>
         <Container>
           <Row style={RowStyle}>

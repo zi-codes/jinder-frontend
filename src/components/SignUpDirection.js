@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import background from "../style/images/road.jpg";
 import { Card, Button, Row, Container, Col } from "react-bootstrap";
 import Typist from 'react-typist';
+import "../style/css/TypistSignUpDirection.css"
 
 export default class SignUpDirection extends Component {
   render() {
@@ -37,22 +38,18 @@ export default class SignUpDirection extends Component {
                 </Card.Footer>
               </Card>
             </Col>
-            <Col style={pageStrapLine} >
-              <Typist avgTypingDelay={100} cursor={{
-                  show: true,
-                  blink: true,
-                  element: '|',
-                  hideWhenDone: false,
-                  hideWhenDoneDelay: 1000,
-               }}>
-                 <span>Your.</span>
-                 <br />
-                 <span>Journey.</span>
-                 <br />
-                 <span>Starts.</span>
-                 <br />
-                 <span>Here.</span>
-              </Typist>
+            <Col style={colStyle}>
+              <Container style={TypistCtr}>
+                <Typist avgTypingDelay={100}>
+                  Your
+                  <br />
+                  Journey
+                  <br />
+                  Starts
+                  <br />
+                  Here.
+                </Typist>
+              </Container>
             </Col>
           </Row>
         </Container>
@@ -100,21 +97,21 @@ const linkStyle = {
 
 const colStyle = {
   flex: 1,
-  justifyContent: "center",
-  alignItems: "center"
+  // justifyContent: "center",
+  // alignItems: "center"
 };
 
-const footerStyle = {
-  backgroundColor: "#C0C0C0"
-};
-
-const pageStrapLine = {
-  marginTop: '100px',
+const TypistCtr = {
+  alignItems: "center",
   fontSize: 80,
   fontWeight: 'bold',
   color: '#fff',
   textAlign: 'left'
 }
+
+const footerStyle = {
+  backgroundColor: "#C0C0C0"
+};
 
 const cardFontStyle = {
   fontWeight: "bold"
