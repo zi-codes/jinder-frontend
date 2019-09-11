@@ -11,15 +11,14 @@ class Filter extends React.Component {
     location: [],
     industry: [],
     skills: [],
-    personality: []
+    traits: []
   };
 
   handleChange = () => {
     let megaArray = this.state.location
       .concat(this.state.industry)
       .concat(this.state.skills)
-      .concat(this.state.personality);
-    console.log(megaArray);
+      .concat(this.state.traits);
     let keywordArray = megaArray.map(keyword => keyword.toLowerCase());
     console.log(keywordArray);
     this.props.filterCards(keywordArray);
@@ -32,7 +31,9 @@ class Filter extends React.Component {
   };
 
   handleIndustryChange = event => {
-    this.handleChange(event.value);
+    this.setState({ industry: [event.value] }, () => {
+      this.handleChange();
+    });
   };
 
   handleSkillsChange = event => {
@@ -41,8 +42,23 @@ class Filter extends React.Component {
       event.forEach(skill => {
         skills.push(skill.value.toLowerCase());
       });
-      this.props.filterCards(skills);
     }
+    this.setState({ skills: skills }, () => {
+      this.handleChange();
+    });
+  };
+
+  handlePersonalityChange = event => {
+    const traits = [];
+
+    if (event) {
+      event.forEach(trait => {
+        traits.push(trait.label.toLowerCase());
+      });
+    }
+    this.setState({ traits: traits }, () => {
+      this.handleChange();
+    });
   };
 
   render() {
