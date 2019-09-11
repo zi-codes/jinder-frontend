@@ -21,17 +21,29 @@ class DisplayCandidateProfiles extends React.Component {
   state = {
     loading: true,
     originalProfiles: [],
-    profiles: [] //filtered profiles
+    profiles: [],
+    location: null //filtered profiles
   };
 
   componentDidMount = () => {
     this.setState({ loading: true });
-    axiosClient.get("/api/profiles").then(response => {
-      this.setState({ profiles: response.data });
-      this.setState({ originalProfiles: response.data });
-      this.setState({ loading: false });
-      this.setState({ profilesLength: response.data.length });
-    });
+    axiosClient
+      .get("/api/profiles")
+      .then(response => {
+        this.setState({ profiles: response.data });
+        this.setState({ originalProfiles: response.data });
+        this.setState({ loading: false });
+        this.setState({ profilesLength: response.data.length });
+        return axiosClient.get(
+          "/employers/" + sessionStorage.getItem("employer_id")
+        );
+      })
+      .then(res => this.setDefaultLocation(res.data.location));
+  };
+
+  setDefaultLocation = location => {
+    this.setState({ location: location });
+    this.filterCards([location.toLowerCase()]);
   };
 
   handleSwipe = dir => {
@@ -100,12 +112,18 @@ class DisplayCandidateProfiles extends React.Component {
   };
 
   filterCards = keywords => {
+    console.log("filtering the cards with the keywords");
+    console.log(keywords);
     let profiles = this.state.originalProfiles;
     keywords.forEach(keyword => {
       profiles = this.filteredByKeyword(keyword, profiles);
     });
+    console.log(profiles);
 
-    this.setState({ profiles: profiles });
+    this.setState(
+      { profiles: profiles },
+      console.log("state successfully set")
+    );
   };
 
   filteredByKeyword = (keyword, profiles) => {
@@ -116,7 +134,6 @@ class DisplayCandidateProfiles extends React.Component {
         profile.personality.toLowerCase().match(new RegExp(keyword)) ||
         profile.location.toLowerCase().match(new RegExp(keyword))
     );
-    console.log(filteredProfiles);
     return filteredProfiles;
   };
 
@@ -131,7 +148,10 @@ class DisplayCandidateProfiles extends React.Component {
           autoClose={1000}
         />
         <Row className="justify-content-center">
-          <Filter filterCards={this.filterCards}></Filter>
+          <Filter
+            filterCards={this.filterCards}
+            defaultLocation={this.state.location}
+          ></Filter>
         </Row>
 
         <div>{profiles.length}</div>

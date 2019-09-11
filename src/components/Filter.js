@@ -5,6 +5,7 @@ import { personalityTraits } from "../data/PersonalityTraitsData";
 import { industryOptions } from "../data/IndustryData";
 import { skillsOptions } from "../data/SkillsData";
 import { Button, Form, FormControl, Card } from "react-bootstrap";
+import axiosClient from "../axiosClient";
 
 class Filter extends React.Component {
   state = {
@@ -71,7 +72,7 @@ class Filter extends React.Component {
                 <Form.Control
                   name="location"
                   onChange={this.handleLocationChange}
-                  placeholder="Location"
+                  defaultValue={this.props.defaultLocation}
                 />
               </React.Fragment>
             </Form.Group>
