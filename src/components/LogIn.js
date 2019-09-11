@@ -38,6 +38,7 @@ class LogIn extends React.Component {
                       name="email"
                       placeholder="Enter email"
                       onChange={this.handleChange}
+                      required
                     />
                   </Form.Group>
 
@@ -48,9 +49,14 @@ class LogIn extends React.Component {
                       name="password"
                       placeholder="Password"
                       onChange={this.handleChange}
+                      required
                     />
                   </Form.Group>
-                  <Button variant="primary" type="submit">
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    style={{ background: "#FF5903", border: "none" }}
+                  >
                     Submit
                   </Button>
                 </Form>

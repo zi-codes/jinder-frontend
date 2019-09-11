@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Form, Card, Row, Container, Col } from "react-bootstrap";
-import background from "../style/images/beaver.jpeg";
+import background from "../style/images/beaver.jpg";
 
 export default class PreventDisplay extends React.Component {
   render() {
