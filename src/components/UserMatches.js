@@ -40,10 +40,17 @@ class UserMatches extends React.Component {
 
   showImg = profile => {
     if (profile.image_photos[0]) {
-      return globalUrl + profile.image_photos[0].url;
+      return this.tidyImgUrl(profile.image_photos[0].url);
     } else {
       return DefaultPicture;
     }
+  };
+
+  tidyImgUrl = url => {
+    return url.replace(
+      "//s3.amazonaws.com/jinder-bucket/",
+      "//jinder-bucket.s3.us-east-2.amazonaws.com/"
+    );
   };
 
   renderMatch = match => {
