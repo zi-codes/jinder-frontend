@@ -48,12 +48,12 @@ class DisplayCandidateProfiles extends React.Component {
 
   handleRight = () => {
     let swipedProfile = this.state.profiles[0];
-    console.log(swipedProfile);
     let data = {
       accepted_profiles: swipedProfile.id,
       id: sessionStorage.getItem("employer_id")
     };
     axiosClient.patch("/employers/update_matches", data);
+    toast.success(`You liked ${swipedProfile.first_name}💖`);
     if (
       swipedProfile.user.accepted_employers.includes(
         sessionStorage.getItem("employer_id")
@@ -74,6 +74,7 @@ class DisplayCandidateProfiles extends React.Component {
       id: sessionStorage.getItem("employer_id")
     };
     axiosClient.patch("/employers/update_matches", data);
+    toast.warn(`You ghosted ${swipedProfile.first_name}👻`);
   };
 
   remove = () => {
@@ -113,7 +114,11 @@ class DisplayCandidateProfiles extends React.Component {
     const { loading } = this.state;
     return (
       <Container>
-        <ToastContainer />
+        <ToastContainer
+          position="top-center"
+          hideProgressBar
+          autoClose={1000}
+        />
         <Row className="justify-content-center">
           <Filter filterCards={this.filterCards}></Filter>
         </Row>

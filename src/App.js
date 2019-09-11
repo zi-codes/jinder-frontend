@@ -142,16 +142,14 @@ class App extends React.Component {
   };
 
   createEmployerSession = state => {
-    fetch("https://jinder-backend.herokuapp.com/employers/sign_in", {
+    fetch("https://jinder-backend.herokuapp.com/api/sessions", {
       method: "post",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        employer: {
-          email: state.email,
-          password: state.password
-        }
+        email: state.email,
+        password: state.password
       })
     })
       .then(response => response.json())
