@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import background from "../style/images/road.jpg";
 import { Card, Button, Row, Container, Col } from "react-bootstrap";
 import Typist from 'react-typist';
-import "../style/css/TypistSignUpDirection.css"
+import '../style/css/Typist.css'
 
 export default class SignUpDirection extends Component {
   render() {
@@ -40,14 +40,14 @@ export default class SignUpDirection extends Component {
             </Col>
             <Col style={colStyle}>
               <Container style={TypistCtr}>
-                <Typist avgTypingDelay={100}>
-                  Your
+                <Typist avgTypingDelay={120}>
+                  <span>Your</span>
                   <br />
-                  Journey
+                  <span>Journey</span>
                   <br />
-                  Starts
+                  <span>Starts</span>
                   <br />
-                  Here.
+                  <span>Here.</span>
                 </Typist>
               </Container>
             </Col>
@@ -100,16 +100,18 @@ const linkStyle = {
 
 const colStyle = {
   flex: 1,
-  // justifyContent: "center",
-  // alignItems: "center"
+  justifyContent: "center",
+  alignItems: "center"
 };
 
 const TypistCtr = {
+  paddingTop: "90px",
+  paddingLeft: "50px",
   alignItems: "center",
-  fontSize: 80,
+  fontSize: 85,
   fontWeight: 'bold',
   color: '#fff',
-  textAlign: 'left'
+  textAlign: 'left',
 }
 
 const footerStyle = {

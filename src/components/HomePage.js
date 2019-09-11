@@ -3,22 +3,23 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import background from "../style/images/work-image.jpg";
 import { Card, Button, Row, Container, Col } from "react-bootstrap";
 import Typist from 'react-typist';
-import "../style/css/TypistHomepage.css"
+import '../style/css/Typist.css'
 
 export default class HomePage extends Component {
   render() {
     return (
       <div style={containerPrimary}>
-        <div style={welcomeMessageContainer}>
-        <Typist avgTypingDelay={100}>
-          <h1 style={welcomeMessage1}>
-            The new way to get paid is here...
-          </h1>
+        <div style={topBanner}></div>
+        <div style={welcomeMessage1}>
+          <Typist avgTypingDelay={120} >
+              <span>The new way to get lai</span>
+              <Typist.Backspace count={3} delay={800} />
+              <span>paid is here...</span>
+          </Typist>
+        </div>
           <h6 style={welcomeMessage2}>
             This is the future of finding the perfect professional match.
           </h6>
-          </Typist>
-        </div>
         <Container>
           <Row style={RowStyle}>
             <Col style={colStyle}>
@@ -91,20 +92,21 @@ const RowStyle = {
   height: "100%"
 };
 
-const welcomeMessageContainer = {
-  backgroundColor: "rgba(52, 52, 52, 0.7)",
-};
-
 const welcomeMessage1 = {
-  color: "#fff",
-  textAlign: "center",
-  paddingTop: "90px"
+  paddingTop: "40px",
+  paddingBottom: "20px",
+  backgroundColor: "rgba(52, 52, 52, 0.7)",
+  fontSize: 75,
+  fontWeight: 'bold',
+  color: '#fff',
+  textAlign: 'center',
 };
 
 const welcomeMessage2 = {
   color: "#fff",
   textAlign: "center",
-  paddingBottom: "25px"
+  paddingBottom: "25px",
+  backgroundColor: "rgba(52, 52, 52, 0.7)"
 };
 
 const cardStyleLeft = {
@@ -153,3 +155,7 @@ const footerStyle = {
 const cardFontStyle = {
   fontWeight: "bold"
 };
+
+const topBanner = {
+  paddingTop: "100px"
+}

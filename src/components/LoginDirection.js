@@ -66,15 +66,6 @@ const cardStyleLeft = {
   backgroundColor: "#FFFFFF99"
 };
 
-const cardStyleRight = {
-  width: "18rem",
-  textAlign: "center",
-  border: "none",
-  margin: "auto",
-  marginTop: "100px",
-  backgroundColor: "#FFFFFF99"
-};
-
 const cardHeaderStyle = {
   background: "#FF5903",
   color: "#fff"
