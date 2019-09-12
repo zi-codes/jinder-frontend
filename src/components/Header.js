@@ -19,10 +19,56 @@ export default function Header() {
       }
     }
     document.addEventListener('scroll', handleScroll)
+    
     return () => {
       document.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
+  const backgroundCol =
+  navBackground ? "#FF5903" : "transparent"
+
+  // Text colour fade
+  const [navText, setNavText] = useState(false)
+  const navColRef = useRef()
+  navColRef.current = navText
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY >100
+      if (navColRef.current !== show) {
+        setNavText(show)
+      }
+    }
+    document.addEventListener('scroll', handleScroll)
+    
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  const navTextColor =
+  navBackground ? "white" : "#FF5903"
+
+   // Logo colour fade
+   const [navLogo, setNavLogo] = useState(false)
+   const navLogoColRef = useRef()
+   navLogoColRef.current = navLogo
+   useEffect(() => {
+     const handleScroll = () => {
+       const show = window.scrollY >100
+       if (navLogoColRef.current !== show) {
+        setNavLogo(show)
+       }
+     }
+     document.addEventListener('scroll', handleScroll)
+     
+     return () => {
+       document.removeEventListener('scroll', handleScroll)
+     }
+   }, [])
+ 
+   const navLogoColor =
+   navBackground ? whiteLogo : orangeLogo
   
   const destroySession = () => {
     fetch(`${globalUrl}/api/sessions`, {
@@ -59,16 +105,12 @@ export default function Header() {
       linkColour = "white"
       logo = whiteLogo
     } else {
-      linkColour = "#FF5903"
-      logo = orangeLogo
+      linkColour = navTextColor
+      logo = navLogoColor
     } 
    }
-   
-   console.log(linkColourChecker())
 
-    // console.log(sessionStorage.getItem("user_id"));
-    // console.log(sessionStorage.getItem("employer_id"));
-    // console.log(sessionStorage.getItem("user_id") !== null);
+   linkColourChecker();
 
     let signIn;
     let signUp;
@@ -85,46 +127,36 @@ export default function Header() {
       sessionStorage.getItem("employer_id") === null
     ) {
       signIn = (
-        <Nav.Link style={{color : `${linkColour}`, paddingLeft: "0px"}} href="/login-direction">
+        <Nav.Link style={{color : `${linkColour}`, paddingLeft: "0px", transition: "1s ease"}} href="/login-direction">
           Sign In
         </Nav.Link>
       );
       signUp = (
-        <Nav.Link style={{color : `${linkColour}`, paddingLeft: "0px"}} href="/sign-up-direction">
+        <Nav.Link style={{color : `${linkColour}`, paddingLeft: "0px", transition: "1s ease"}} href="/">
           Sign Up
         </Nav.Link>
       );
       viewProfilesNotLoggedIn = (
-        <Nav.Link style={{color : `${linkColour}`}} href="/login-or-sign-up">
+        <Nav.Link style={{color : `${linkColour}`, transition: "1s ease"}} href="/login-or-sign-up">
           View Profiles
         </Nav.Link>
       );
     } else {
       signOut = (
-        <Nav.Link onClick={destroySession} style={{color : `${linkColour}`, paddingLeft: "0px"}} on href="/">
+        <Nav.Link onClick={destroySession} style={{color : `${linkColour}`, paddingLeft: "0px", transition: "1s ease"}} on href="/">
           Sign Out
         </Nav.Link>
-      );
-      yourProfile = (
-        <NavDropdown title={<span style={{color : `${linkColour}`}}>Your Profile</span>}>
-          <NavDropdown.Item style={dropdownLinkStyle} href="/profile">
-            Create Profile
-          </NavDropdown.Item>
-          <NavDropdown.Item style={dropdownLinkStyle} href="/profile">
-            Edit
-          </NavDropdown.Item>
-        </NavDropdown>
       );
     }
 
     if (sessionStorage.getItem("user_id") !== null) {
       viewProfilesAsCandidate = (
-        <Nav.Link style={{color : `${linkColour}`}} href="/employer-profiles">
+        <Nav.Link style={{color : `${linkColour}`, transition: "1s ease"}} href="/employer-profiles">
           View Employers
         </Nav.Link>
       );
       viewMatchesAsCandidate = (
-        <Nav.Link style={{color : `${linkColour}`}} href="/candidate-matches">
+        <Nav.Link style={{color : `${linkColour}`, transition: "1s ease"}} href="/candidate-matches">
           View Matches
         </Nav.Link>
       );
@@ -143,10 +175,8 @@ export default function Header() {
       );
     }
 
-    const backgroundCol =
-      navBackground ? "#FF5903" : "transparent"
-
     return (
+
       <header style={headerStyle}>
         <Navbar
           expand="lg"
@@ -164,7 +194,7 @@ export default function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link style={{color : `${linkColour}`}} href="/">
+              <Nav.Link style={{color : `${linkColour}`, transition: "1s ease"}} href="/">
                 Home
               </Nav.Link>
               {viewProfilesNotLoggedIn}
@@ -174,7 +204,7 @@ export default function Header() {
               {viewMatchesAsEmployer}
 
               {yourProfile}
-              <Nav.Link style={{color : `${linkColour}`}} href="/about">
+              <Nav.Link style={{color : `${linkColour}`, transition: "1s ease"}} href="/about">
                 About Us
               </Nav.Link>
             </Nav>
@@ -195,12 +225,9 @@ const headerStyle = {
   position: "fixed",
   width: "100%",
   zIndex: "5",
+  top: 0
 };
 
-const linkStyleRight = {
-  color: "#fff",
-  paddingLeft: "0px"
-};
 const dropdownLinkStyle = {
   color: "#FF5903"
 };

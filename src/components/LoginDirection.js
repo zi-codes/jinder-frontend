@@ -7,7 +7,7 @@ export default class LoginDirection extends Component {
   render() {
     return (
       <div style={containerPrimary}>
-        <Container>
+        <Container >
           <Row style={RowStyle}>
             <Col style={colStyle}>
               <Card style={cardStyleLeft}>

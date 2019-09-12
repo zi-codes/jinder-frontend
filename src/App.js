@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Container, Col } from "react-bootstrap";
 
 // for routing
 import { BrowserRouter, Route } from "react-router-dom";
@@ -9,7 +8,7 @@ import { Redirect } from "react-router-dom";
 import globalUrl from "./globalUrl";
 import PreventDisplay from "./components/PreventDisplay";
 import LoginDirection from "./components/LoginDirection";
-import SignUpDirection from "./components/SignUpDirection";
+import Homepage from "./components/Homepage";
 
 // for API calls
 import axiosClient from "./axiosClient";
@@ -19,7 +18,6 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import UserProfile from "./components/UserProfile";
 import About from "./components/About";
-import HomePage from "./components/HomePage";
 import DisplayEmployerProfiles from "./components/DisplayEmployerProfiles";
 import UserMatches from "./components/UserMatches";
 
@@ -250,21 +248,24 @@ class App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <div style={{ position: "relative", minHeight: "100vh", width: "100%", margin: 0, padding: 0}}>
+
+          <div style={{ minHeight: "100vh", width: "100%", padding: 0}}>
+
             <Header destroyRedirects={this.destroyRedirects} />
-            <Route exact path="/" component={HomePage} />
+
+            <Route exact path="/login-direction" component={LoginDirection} />
+
+            <Route exact path="/" component={Homepage} />
+
+            <Route exact path="/login-or-sign-up" component={PreventDisplay} />
+
+            <Route exact path="/about" render={props => <About {...props} />} />
 
             <Route
               exact
               path="/candidate-profiles"
               component={DisplayCandidateProfiles}
             />
-
-            <Route exact path="/login-direction" component={LoginDirection} />
-
-            <Route exact path="/sign-up-direction" component={SignUpDirection} />
-
-            <Route exact path="/login-or-sign-up" component={PreventDisplay} />
 
             <Route
               exact
@@ -316,6 +317,7 @@ class App extends React.Component {
                 />
               )}
             />
+
             <Route
               exact
               path="/employer-profile"
@@ -326,49 +328,6 @@ class App extends React.Component {
                 />
               )}
             />
-
-            <Route
-              exact
-              path="/employer-matches"
-              render={props => <EmployerMatches {...props} />}
-            />
-
-            <Route
-              exact
-              path="/candidate-matches"
-              render={props => <UserMatches {...props} />}
-            />
-
-            {fireRedirect && <Redirect to="/candidate-profile" />}
-            {this.state.fireRedirectAfterUserSignIn && (
-              <Redirect to="/employer-profiles" />
-            )}
-            {this.state.fireRedirectAfterEmployerSignIn && (
-              <Redirect to="/candidate-profiles" />
-            )}
-          />
-
-          <Route
-            exact
-            path="/candidate-profile"
-            render={props => (
-              <UserProfile
-                {...props}
-                createProfile={this.createProfile}
-                userID={this.state.userId}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/employer-profile"
-            render={props => (
-              <EmployerProfile
-                {...props}
-                createEmployerProfile={this.createEmployerProfile}
-              />
-            )}
-          />
 
           <Route
             exact
@@ -389,16 +348,10 @@ class App extends React.Component {
           {this.state.fireRedirectAfterEmployerSignIn && (
             <Redirect to="/candidate-profiles" />
           )}
-          {this.state.fireRedirectAfterUserProfile && (
-            <Redirect to="/employer-profiles" />
-          )}
-          {this.state.fireRedirectAfterEmployerProfile && (
-            <Redirect to="/candidate-profiles" />
-          )}
 
-          <Route exact path="/about" render={props => <About {...props} />} />
-          <Footer style={{ position: "absolute", bottom: 0 }}/>
+
           </div>
+          <Footer/>
         </BrowserRouter>
       </div>
     );
