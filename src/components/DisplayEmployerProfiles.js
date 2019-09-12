@@ -104,7 +104,7 @@ class DisplayEmployerProfiles extends React.Component {
   render() {
     const { profiles } = this.state;
     return (
-      <Container style={{ paddingTop: "150px" }}>
+      <Container style={{ paddingTop: "300px", paddingBottom: "300px" }}>
         <ToastContainer
           position="top-center"
           hideProgressBar

@@ -141,7 +141,7 @@ class DisplayCandidateProfiles extends React.Component {
     const { profiles } = this.state;
     const { loading } = this.state;
     return (
-      <Container style={{ paddingTop: "150px" }}>
+      <Container style={{ paddingTop: "300px", paddingBottom: "300px" }}>
         <ToastContainer
           position="top-center"
           hideProgressBar
