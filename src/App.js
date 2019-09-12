@@ -1,4 +1,7 @@
 import React from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { Container, Col } from "react-bootstrap";
 
 // for routing
 import { BrowserRouter, Route } from "react-router-dom";
@@ -16,7 +19,6 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import UserProfile from "./components/UserProfile";
 import About from "./components/About";
-import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import DisplayEmployerProfiles from "./components/DisplayEmployerProfiles";
 import UserMatches from "./components/UserMatches";
@@ -235,103 +237,106 @@ class App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <Header destroyRedirects={this.destroyRedirects} />
-          <Route exact path="/" component={HomePage} />
+          <div style={{ position: "relative", minHeight: "100vh", width: "100%", margin: 0, padding: 0}}>
+            <Header destroyRedirects={this.destroyRedirects} />
+            <Route exact path="/" component={HomePage} />
 
-          <Route
-            exact
-            path="/candidate-profiles"
-            component={DisplayCandidateProfiles}
-          />
+            <Route
+              exact
+              path="/candidate-profiles"
+              component={DisplayCandidateProfiles}
+            />
 
-          <Route exact path="/login-direction" component={LoginDirection} />
+            <Route exact path="/login-direction" component={LoginDirection} />
 
-          <Route exact path="/sign-up-direction" component={SignUpDirection} />
+            <Route exact path="/sign-up-direction" component={SignUpDirection} />
 
-          <Route exact path="/login-or-sign-up" component={PreventDisplay} />
+            <Route exact path="/login-or-sign-up" component={PreventDisplay} />
 
-          <Route
-            exact
-            path="/employer-profiles"
-            component={DisplayEmployerProfiles}
-          />
+            <Route
+              exact
+              path="/employer-profiles"
+              component={DisplayEmployerProfiles}
+            />
 
-          <Route
-            exact
-            path="/candidate-sign-up"
-            render={props => <SignUp {...props} createUser={this.createUser} />}
-          />
+            <Route
+              exact
+              path="/candidate-sign-up"
+              render={props => <SignUp {...props} createUser={this.createUser} />}
+            />
 
-          <Route
-            exact
-            path="/employer-sign-up"
-            render={props => (
-              <EmployerSignUp {...props} createEmployer={this.createEmployer} />
+            <Route
+              exact
+              path="/employer-sign-up"
+              render={props => (
+                <EmployerSignUp {...props} createEmployer={this.createEmployer} />
+              )}
+            />
+
+            <Route
+              exact
+              path="/candidate-login"
+              render={props => (
+                <LogIn {...props} createSession={this.createSession} />
+              )}
+            />
+
+            <Route
+              exact
+              path="/employer-login"
+              render={props => (
+                <EmployerLogIn
+                  {...props}
+                  createEmployerSession={this.createEmployerSession}
+                />
+              )}
+            />
+
+            <Route
+              exact
+              path="/candidate-profile"
+              render={props => (
+                <UserProfile
+                  {...props}
+                  createProfile={this.createProfile}
+                  userID={this.state.userId}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/employer-profile"
+              render={props => (
+                <EmployerProfile
+                  {...props}
+                  createEmployerProfile={this.createEmployerProfile}
+                />
+              )}
+            />
+
+            <Route
+              exact
+              path="/employer-matches"
+              render={props => <EmployerMatches {...props} />}
+            />
+
+            <Route
+              exact
+              path="/candidate-matches"
+              render={props => <UserMatches {...props} />}
+            />
+
+            {fireRedirect && <Redirect to="/candidate-profile" />}
+            {this.state.fireRedirectAfterUserSignIn && (
+              <Redirect to="/employer-profiles" />
             )}
-          />
-
-          <Route
-            exact
-            path="/candidate-login"
-            render={props => (
-              <LogIn {...props} createSession={this.createSession} />
+            {this.state.fireRedirectAfterEmployerSignIn && (
+              <Redirect to="/candidate-profiles" />
             )}
-          />
 
-          <Route
-            exact
-            path="/employer-login"
-            render={props => (
-              <EmployerLogIn
-                {...props}
-                createEmployerSession={this.createEmployerSession}
-              />
-            )}
-          />
-
-          <Route
-            exact
-            path="/candidate-profile"
-            render={props => (
-              <UserProfile
-                {...props}
-                createProfile={this.createProfile}
-                userID={this.state.userId}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/employer-profile"
-            render={props => (
-              <EmployerProfile
-                {...props}
-                createEmployerProfile={this.createEmployerProfile}
-              />
-            )}
-          />
-
-          <Route
-            exact
-            path="/employer-matches"
-            render={props => <EmployerMatches {...props} />}
-          />
-
-          <Route
-            exact
-            path="/candidate-matches"
-            render={props => <UserMatches {...props} />}
-          />
-
-          {fireRedirect && <Redirect to="/candidate-profile" />}
-          {this.state.fireRedirectAfterUserSignIn && (
-            <Redirect to="/employer-profiles" />
-          )}
-          {this.state.fireRedirectAfterEmployerSignIn && (
-            <Redirect to="/candidate-profiles" />
-          )}
-
-          <Route exact path="/about" render={props => <About {...props} />} />
+            <Route exact path="/about" render={props => <About {...props} />} />
+            <Footer style={{ position: "absolute", bottom: 0 }}/>
+            </div>
         </BrowserRouter>
       </div>
     );
