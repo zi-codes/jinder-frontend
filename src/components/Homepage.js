@@ -3,15 +3,29 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import background from "../style/images/road.jpg";
 import { Card, Button, Row, Container, Col } from "react-bootstrap";
 import Typist from 'react-typist';
+import '../style/css/Typist.css'
 
-export default class SignUpDirection extends Component {
+export default class Homepage extends Component {
   render() {
     return (
       <div style={containerPrimary}>
         <Container>
           <Row style={RowStyle}>
             <Col style={colStyle}>
-              <Card style={cardStyle}>
+              <Container style={TypistCtr}>
+                  <Typist avgTypingDelay={120}>
+                    <span>Your</span>
+                    <br />
+                    <span>Journey</span>
+                    <br />
+                    <span>Starts</span>
+                    <br />
+                    <span>Here.</span>
+                  </Typist>
+                </Container>
+            </Col>
+            <Col style={colStyle}>
+            <Card style={cardStyle}>
                 <Card.Header style={cardHeaderStyle} as="h5">
                   Who are you?
                 </Card.Header>
@@ -31,28 +45,11 @@ export default class SignUpDirection extends Component {
                   </Button>
                 </Card.Body>
                 <Card.Footer style={footerStyle}>
-                  <Card.Link style={linkStyle} href="/">
+                  <Card.Link style={linkStyle} href="/direction-sign-in">
                     Got an account? Sign in here
                   </Card.Link>
                 </Card.Footer>
               </Card>
-            </Col>
-            <Col style={pageStrapLine} >
-              <Typist avgTypingDelay={100} cursor={{
-                  show: true,
-                  blink: true,
-                  element: '|',
-                  hideWhenDone: false,
-                  hideWhenDoneDelay: 1000,
-               }}>
-                 <span>Your.</span>
-                 <br />
-                 <span>Journey.</span>
-                 <br />
-                 <span>Starts.</span>
-                 <br />
-                 <span>Here.</span>
-              </Typist>
             </Col>
           </Row>
         </Container>
@@ -69,7 +66,8 @@ const containerPrimary = {
   height: "100%",
   backgroundAttachment: "fixed",
   position: "center",
-    paddingBottom: "300px"
+  paddingBottom: "450px",
+  paddingTop: "100px"
 };
 
 const RowStyle = {
@@ -107,17 +105,19 @@ const colStyle = {
   alignItems: "center"
 };
 
+const TypistCtr = {
+  paddingTop: "90px",
+  paddingLeft: "50px",
+  alignItems: "center",
+  fontSize: 95,
+  fontWeight: 'bold',
+  color: '#fff',
+  textAlign: 'left',
+}
+
 const footerStyle = {
   backgroundColor: "#C0C0C0"
 };
-
-const pageStrapLine = {
-  marginTop: '100px',
-  fontSize: 80,
-  fontWeight: 'bold',
-  color: '#fff',
-  textAlign: 'left'
-}
 
 const cardFontStyle = {
   fontWeight: "bold"

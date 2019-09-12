@@ -134,7 +134,7 @@ class UserProfile extends React.Component {
       return <PreventDisplay />;
     } else {
       return (
-        <Container>
+        <Container style={{ paddingTop: "150px", paddingBottom: "100px" }}>
           <Row className="justify-content-center">
             <Card style={{ width: "26rem", marginTop: "2em" }}>
               <Form onSubmit={this.handleSubmit}>

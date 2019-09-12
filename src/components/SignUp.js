@@ -64,7 +64,7 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container style={{ paddingTop: "150px" }}>
         <Row className="justify-content-center">
           <Card style={{ width: "26rem", marginTop: "2em" }}>
             <Card.Body>

@@ -7,7 +7,7 @@ export default class LoginDirection extends Component {
   render() {
     return (
       <div style={containerPrimary}>
-        <Container>
+        <Container >
           <Row style={RowStyle}>
             <Col style={colStyle}>
               <Card style={cardStyleLeft}>
@@ -63,15 +63,6 @@ const cardStyleLeft = {
   border: "none",
   margin: "auto",
   marginTop: "150px",
-  backgroundColor: "#FFFFFF99"
-};
-
-const cardStyleRight = {
-  width: "18rem",
-  textAlign: "center",
-  border: "none",
-  margin: "auto",
-  marginTop: "100px",
   backgroundColor: "#FFFFFF99"
 };
 

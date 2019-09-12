@@ -1,11 +1,76 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import logo from "../style/images/jinder-flame-white.png";
+import whiteLogo from "../style/images/jinder-flame-white.png";
+import orangeLogo from "../style/images/jinder-flame-orange.png";
 import globalUrl from "../globalUrl";
 
-export default class Header extends React.Component {
-  destroySession = () => {
+export default function Header() {
+
+  // Navbar colour fade
+  const [navBackground, setNavBackground] = useState(false)
+  const navRef = useRef()
+  navRef.current = navBackground
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY >100
+      if (navRef.current !== show) {
+        setNavBackground(show)
+      }
+    }
+    document.addEventListener('scroll', handleScroll)
+    
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  const backgroundCol =
+  navBackground ? "#FF5903" : "transparent"
+
+  // Text colour fade
+  const [navText, setNavText] = useState(false)
+  const navColRef = useRef()
+  navColRef.current = navText
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY >100
+      if (navColRef.current !== show) {
+        setNavText(show)
+      }
+    }
+    document.addEventListener('scroll', handleScroll)
+    
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  const navTextColor =
+  navBackground ? "white" : "#FF5903"
+
+   // Logo colour fade
+   const [navLogo, setNavLogo] = useState(false)
+   const navLogoColRef = useRef()
+   navLogoColRef.current = navLogo
+   useEffect(() => {
+     const handleScroll = () => {
+       const show = window.scrollY >100
+       if (navLogoColRef.current !== show) {
+        setNavLogo(show)
+       }
+     }
+     document.addEventListener('scroll', handleScroll)
+     
+     return () => {
+       document.removeEventListener('scroll', handleScroll)
+     }
+   }, [])
+ 
+   const navLogoColor =
+   navBackground ? whiteLogo : orangeLogo
+  
+  const destroySession = () => {
     fetch(`${globalUrl}/api/sessions`, {
       method: "delete",
       headers: {
@@ -17,19 +82,35 @@ export default class Header extends React.Component {
     })
       .then(response => response.json())
       .then(data => console.log(data))
-      .then(this.destroyUserId())
+      .then(destroyUserId())
       .catch(error => console.error(error));
   };
 
-  destroyUserId = () => {
+  const destroyUserId = () => {
     sessionStorage.clear();
     this.props.destroyRedirects();
   };
 
-  render() {
-    // console.log(sessionStorage.getItem("user_id"));
-    // console.log(sessionStorage.getItem("employer_id"));
-    // console.log(sessionStorage.getItem("user_id") !== null);
+  //Change colour of links based on href 
+
+  let linkColour;
+  let logo;
+
+  const linkColourChecker = () => {
+    const pagesWithBackgrounds = ["", "about", "login-direction",   "sign-up-direction", "login-or-sign-up" ]
+
+    const currentPage = window.location.href.split("/").slice(-1)[0]
+
+    if(pagesWithBackgrounds.includes(currentPage)) {
+      linkColour = "white"
+      logo = whiteLogo
+    } else {
+      linkColour = navTextColor
+      logo = navLogoColor
+    } 
+   }
+
+   linkColourChecker();
 
     let signIn;
     let signUp;
@@ -46,51 +127,36 @@ export default class Header extends React.Component {
       sessionStorage.getItem("employer_id") === null
     ) {
       signIn = (
-        <Nav.Link style={linkStyleRight} href="/login-direction">
+        <Nav.Link style={{color : `${linkColour}`, paddingLeft: "0px", transition: "1s ease"}} href="/login-direction">
           Sign In
         </Nav.Link>
       );
       signUp = (
-        <Nav.Link style={linkStyleRight} href="/sign-up-direction">
+        <Nav.Link style={{color : `${linkColour}`, paddingLeft: "0px", transition: "1s ease"}} href="/">
           Sign Up
         </Nav.Link>
       );
       viewProfilesNotLoggedIn = (
-        <Nav.Link style={linkStyle} href="/login-or-sign-up">
+        <Nav.Link style={{color : `${linkColour}`, transition: "1s ease"}} href="/login-or-sign-up">
           View Profiles
         </Nav.Link>
       );
     } else {
       signOut = (
-        <Nav.Link
-          onClick={this.destroySession}
-          style={linkStyleRight}
-          on
-          href="/"
-        >
+        <Nav.Link onClick={destroySession} style={{color : `${linkColour}`, paddingLeft: "0px", transition: "1s ease"}} on href="/">
           Sign Out
         </Nav.Link>
-      );
-      yourProfile = (
-        <NavDropdown title={<span style={linkStyle}>Your Profile</span>}>
-          <NavDropdown.Item style={dropdownLinkStyle} href="/profile">
-            Create Profile
-          </NavDropdown.Item>
-          <NavDropdown.Item style={dropdownLinkStyle} href="/profile">
-            Edit
-          </NavDropdown.Item>
-        </NavDropdown>
       );
     }
 
     if (sessionStorage.getItem("user_id") !== null) {
       viewProfilesAsCandidate = (
-        <Nav.Link style={linkStyle} href="/employer-profiles">
+        <Nav.Link style={{color : `${linkColour}`, transition: "1s ease"}} href="/employer-profiles">
           View Employers
         </Nav.Link>
       );
       viewMatchesAsCandidate = (
-        <Nav.Link style={linkStyle} href="/candidate-matches">
+        <Nav.Link style={{color : `${linkColour}`, transition: "1s ease"}} href="/candidate-matches">
           View Matches
         </Nav.Link>
       );
@@ -98,20 +164,24 @@ export default class Header extends React.Component {
 
     if (sessionStorage.getItem("employer_id") !== null) {
       viewProfilesAsEmployer = (
-        <Nav.Link style={linkStyle} href="/candidate-profiles">
+        <Nav.Link style={{color : `${linkColour}`}} href="/candidate-profiles">
           View Candidates
         </Nav.Link>
       );
       viewMatchesAsEmployer = (
-        <Nav.Link style={linkStyle} href="/employer-matches">
+        <Nav.Link style={{color : `${linkColour}`}} href="/employer-matches">
           View Matches
         </Nav.Link>
       );
     }
 
     return (
+
       <header style={headerStyle}>
-        <Navbar expand="lg">
+        <Navbar
+          expand="lg"
+          style={{backgroundColor : `${backgroundCol}`, transition: '1s ease'}}
+        >
           <Navbar.Brand href="/">
             <img
               src={logo}
@@ -124,7 +194,7 @@ export default class Header extends React.Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link style={linkStyle} href="/">
+              <Nav.Link style={{color : `${linkColour}`, transition: "1s ease"}} href="/">
                 Home
               </Nav.Link>
               {viewProfilesNotLoggedIn}
@@ -134,7 +204,7 @@ export default class Header extends React.Component {
               {viewMatchesAsEmployer}
 
               {yourProfile}
-              <Nav.Link style={linkStyle} href="/about">
+              <Nav.Link style={{color : `${linkColour}`, transition: "1s ease"}} href="/about">
                 About Us
               </Nav.Link>
             </Nav>
@@ -145,7 +215,6 @@ export default class Header extends React.Component {
         </Navbar>
       </header>
     );
-  }
 }
 
 Header.propTypes = {
@@ -153,20 +222,12 @@ Header.propTypes = {
 };
 
 const headerStyle = {
-  background: "#FF5903",
   position: "fixed",
   width: "100%",
-  zIndex: "5"
+  zIndex: "5",
+  top: 0
 };
 
-const linkStyle = {
-  color: "#fff"
-};
-
-const linkStyleRight = {
-  color: "#fff",
-  paddingLeft: "0px"
-};
 const dropdownLinkStyle = {
   color: "#FF5903"
 };
