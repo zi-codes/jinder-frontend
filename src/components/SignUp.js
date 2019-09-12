@@ -17,6 +17,10 @@ class SignUp extends React.Component {
     pcInvalid: null
   };
 
+  componentDidMount = () => {
+    sessionStorage.clear();
+  };
+
   handleSubmit = event => {
     event.preventDefault();
 

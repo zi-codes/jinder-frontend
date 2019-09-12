@@ -19,6 +19,10 @@ class EmployerSignUp extends React.Component {
     pcInvalid: null
   };
 
+  componentDidMount = () => {
+    sessionStorage.clear();
+  };
+
   handleSubmit = event => {
     event.preventDefault();
 
@@ -122,7 +126,11 @@ class EmployerSignUp extends React.Component {
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
 
-                <Button variant="primary" type="submit" style={{ background: '#FF5903', border: 'none' }}>
+                <Button
+                  variant="primary"
+                  type="submit"
+                  style={{ background: "#FF5903", border: "none" }}
+                >
                   Submit
                 </Button>
               </Form>

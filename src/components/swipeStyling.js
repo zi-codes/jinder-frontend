@@ -6,7 +6,7 @@ export const appStyles = {
 };
 
 export const imgStyle = {
-  // objectFit: "cover",
+  objectFit: "cover",
   width: "278px",
   height: "200px",
   padding: "0px",
