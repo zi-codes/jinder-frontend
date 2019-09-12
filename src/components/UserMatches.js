@@ -76,7 +76,7 @@ class UserMatches extends React.Component {
             <Card.Link target="_blank" href={match.company_url}>
               🔗 Website
             </Card.Link>
-            <Card.Link target="_blank" href={match.email}>
+            <Card.Link target="_blank" href={"mailto:" + match.email}>
               📧 Email{" "}
             </Card.Link>
           </Card.Footer>

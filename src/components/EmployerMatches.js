@@ -79,7 +79,7 @@ class EmployerMatches extends React.Component {
             {match.location}
           </Card.Body>
           <Card.Footer style={{ textAlign: "center" }}>
-            <Card.Link href={match.user.email} target="_blank">
+            <Card.Link href={"mailto:" + match.user.email} target="_blank">
               📧 Email
             </Card.Link>
           </Card.Footer>
