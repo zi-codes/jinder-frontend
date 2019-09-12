@@ -154,8 +154,6 @@ class DisplayCandidateProfiles extends React.Component {
           ></Filter>
         </Row>
 
-        <div>{profiles.length}</div>
-
         <div style={appStyles}>
           <div style={wrapperStyles}>
             {loading && (
