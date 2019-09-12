@@ -189,12 +189,12 @@ export default function Header() {
 
   if (sessionStorage.getItem("employer_id") !== null) {
     viewProfilesAsEmployer = (
-      <Nav.Link style={{ color: `${linkColour}` }} href="/candidate-profiles">
+      <Nav.Link style={{ color: `${linkColour}`, transition: "1s ease"  }} href="/candidate-profiles">
         View Candidates
       </Nav.Link>
     );
     viewMatchesAsEmployer = (
-      <Nav.Link style={{ color: `${linkColour}` }} href="/employer-matches">
+      <Nav.Link style={{ color: `${linkColour}`, transition: "1s ease"  }} href="/employer-matches">
         View Matches
       </Nav.Link>
     );
