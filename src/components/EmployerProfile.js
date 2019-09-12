@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Button, Form, Card, Container, Row, Col } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import ImageUpload from "./ImageUpload";
+import GeoLocator from "../GeoLocator";
 
 class EmployerProfile extends React.Component {
   state = {
@@ -16,6 +17,7 @@ class EmployerProfile extends React.Component {
     bio: sessionStorage.getItem("employer_bio"),
     companyUrl: sessionStorage.getItem("employer_website"),
     urlInvalid: null,
+    location: "London",
 
     // for image upload
 
@@ -88,6 +90,10 @@ class EmployerProfile extends React.Component {
     sessionStorage.setItem("employer_website", this.state.companyUrl);
 
     window.location.reload();
+  };
+
+  updateLocation = city => {
+    this.setState({ location: city });
   };
 
   render() {
@@ -175,6 +181,11 @@ class EmployerProfile extends React.Component {
                     isInvalid={this.state.urlInvalid}
                     defaultValue={sessionStorage.getItem("employer_website")}
                   />
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Label>Location:</Form.Label>
+                  <GeoLocator updateLocation={this.updateLocation}></GeoLocator>
                 </Form.Group>
 
                 <ImageUpload

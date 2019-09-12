@@ -23,11 +23,14 @@ class DisplayEmployerProfiles extends React.Component {
   };
 
   componentDidMount = () => {
-    console.log("user id is " + sessionStorage.getItem("user_id"));
     if (sessionStorage.getItem("user_id")) {
+      console.log("user id is " + sessionStorage.getItem("user_id"));
       axiosClient
         .get("/api/profiles/" + sessionStorage.getItem("user_id"))
-        .then(response => this.setState({ myProfileId: response.data[0].id }));
+        .then(response => {
+          console.log(response);
+          this.setState({ myProfileId: response.data[0].id });
+        });
     }
     axiosClient
       .get("/employers")
@@ -51,12 +54,12 @@ class DisplayEmployerProfiles extends React.Component {
       id: sessionStorage.getItem("user_id")
     };
     axiosClient.patch("/users/update_matches", data);
+    toast.success(`You liked ${swipedProfile.first_name}💖`);
     if (
       swipedProfile.accepted_profiles.includes(
         this.state.myProfileId.toString()
       )
     ) {
-      console.log("helloo");
       toast(
         `${swipedProfile.first_name} likes you back! Go to your matches to contact them.`
       );
@@ -71,6 +74,7 @@ class DisplayEmployerProfiles extends React.Component {
       id: sessionStorage.getItem("user_id")
     };
     axiosClient.patch("/users/update_matches", data);
+    toast.warn(`You ghosted ${swipedProfile.first_name}👻`);
   };
 
   remove = () => {
@@ -98,7 +102,11 @@ class DisplayEmployerProfiles extends React.Component {
     const { profiles } = this.state;
     return (
       <Container>
-        <ToastContainer />
+        <ToastContainer
+          position="top-center"
+          hideProgressBar
+          autoClose={1000}
+        />
         <div style={appStyles}>
           <div style={wrapperStyles}>
             {profiles.length > 0 && (
@@ -127,12 +135,29 @@ class DisplayEmployerProfiles extends React.Component {
                       />
 
                       <Card.Body>
-                        <Card.Title>{profiles[0].company_nane}</Card.Title>
+                        <Card.Title>{profiles[0].company_name}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">
                           {profiles[0].first_name} {profiles[0].last_name}
                         </Card.Subtitle>
-                        <p>Bio: {profiles[0].bio}</p>
-                        <p>Website: {profiles[0].company_url}</p>
+                        {profiles[0].bio}
+                      </Card.Body>
+                      <hr />
+                      <Card.Body>
+                        <Card.Link
+                          target="_blank"
+                          href={
+                            "https://www.google.com/maps/place/" +
+                            profiles[0].location
+                          }
+                        >
+                          📍{profiles[0].location}
+                        </Card.Link>
+                        <Card.Link
+                          target="_blank"
+                          href={profiles[0].company_url}
+                        >
+                          🔗 Website
+                        </Card.Link>
                       </Card.Body>
                     </Card>
                   </SwipeCard>
@@ -147,12 +172,29 @@ class DisplayEmployerProfiles extends React.Component {
                       />
 
                       <Card.Body>
-                        <Card.Title>{profiles[1].company_nane}</Card.Title>
+                        <Card.Title>{profiles[1].company_name}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">
-                          {profiles[1].first_name} {profiles[1].last_name}
+                          {profiles[1].first_name} {profiles[0].last_name}
                         </Card.Subtitle>
-                        <p>Bio: {profiles[1].bio}</p>
-                        <p>Website: {profiles[1].company_url}</p>
+                        {profiles[1].bio}
+                      </Card.Body>
+                      <hr />
+                      <Card.Body>
+                        <Card.Link
+                          target="_blank"
+                          href={
+                            "https://www.google.com/maps/place/" +
+                            profiles[1].location
+                          }
+                        >
+                          📍{profiles[1].location}
+                        </Card.Link>
+                        <Card.Link
+                          target="_blank"
+                          href={profiles[1].company_url}
+                        >
+                          🔗 Website
+                        </Card.Link>
                       </Card.Body>
                     </Card>
                   </SwipeCard>

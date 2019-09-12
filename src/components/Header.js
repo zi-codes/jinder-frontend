@@ -85,12 +85,12 @@ export default function Header() {
       sessionStorage.getItem("employer_id") === null
     ) {
       signIn = (
-        <Nav.Link style={{color : `${linkColour}`}} href="/login-direction">
+        <Nav.Link style={{color : `${linkColour}`, paddingLeft: "0px"}} href="/login-direction">
           Sign In
         </Nav.Link>
       );
       signUp = (
-        <Nav.Link style={{color : `${linkColour}`}} href="/sign-up-direction">
+        <Nav.Link style={{color : `${linkColour}`, paddingLeft: "0px"}} href="/sign-up-direction">
           Sign Up
         </Nav.Link>
       );
@@ -101,7 +101,7 @@ export default function Header() {
       );
     } else {
       signOut = (
-        <Nav.Link onClick={destroySession} style={{color : `${linkColourChecker()}`}} on href="/">
+        <Nav.Link onClick={destroySession} style={{color : `${linkColour}`, paddingLeft: "0px"}} on href="/">
           Sign Out
         </Nav.Link>
       );
@@ -128,7 +128,9 @@ export default function Header() {
           View Matches
         </Nav.Link>
       );
-    } else if (sessionStorage.getItem("employer_id") !== null) {
+    }
+
+    if (sessionStorage.getItem("employer_id") !== null) {
       viewProfilesAsEmployer = (
         <Nav.Link style={{color : `${linkColour}`}} href="/candidate-profiles">
           View Candidates
@@ -195,6 +197,10 @@ const headerStyle = {
   zIndex: "5",
 };
 
+const linkStyleRight = {
+  color: "#fff",
+  paddingLeft: "0px"
+};
 const dropdownLinkStyle = {
   color: "#FF5903"
 };
