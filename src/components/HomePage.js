@@ -1,65 +1,51 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import background from "../style/images/work-image.jpg";
+import background from "../style/images/road.jpg";
 import { Card, Button, Row, Container, Col } from "react-bootstrap";
+import Typist from 'react-typist';
+import '../style/css/Typist.css'
 
-export default class HomePage extends Component {
+export default class Homepage extends Component {
   render() {
     return (
       <div style={containerPrimary}>
-        <div style={welcomeMessageContainer}>
-          <h1 style={welcomeMessage1}>
-            The new way to get paid is here...
-          </h1>
-          <h6 style={welcomeMessage2}>
-            This is the future of finding the perfect professional match.
-          </h6>
-        </div>
         <Container>
           <Row style={RowStyle}>
             <Col style={colStyle}>
-              <Card style={cardStyleLeft}>
+              <Container style={TypistCtr}>
+                  <Typist avgTypingDelay={120}>
+                    <span>Your</span>
+                    <br />
+                    <span>Journey</span>
+                    <br />
+                    <span>Starts</span>
+                    <br />
+                    <span>Here.</span>
+                  </Typist>
+                </Container>
+            </Col>
+            <Col style={colStyle}>
+            <Card style={cardStyle}>
                 <Card.Header style={cardHeaderStyle} as="h5">
-                  Candidate?
+                  Who are you?
                 </Card.Header>
                 <Card.Body>
                   <Card.Text style={cardFontStyle}>
-                    The future of professional match making is here.
-                    <br></br>
-                    Sign up today and reap the rewards of finding your perfect
-                    employer.
+                    I am a candidate looking for the perfect employer.
                   </Card.Text>
                   <Button style={buttonStyle} href="candidate-sign-up">
-                    Sign Up
+                    Candidate
                   </Button>
-                  <br></br>
-                </Card.Body>
-                <Card.Footer style={footerStyle}>
-                  <Card.Link style={linkStyle} href="/candidate-login">
-                    Got an account? Sign in here
-                  </Card.Link>
-                </Card.Footer>
-              </Card>
-            </Col>
-            <Col>
-              <Card style={cardStyleRight}>
-                <Card.Header style={cardHeaderStyle} as="h5">
-                  Employer?
-                </Card.Header>
-                <Card.Body>
+                  <br />
                   <Card.Text style={cardFontStyle}>
-                    The future of professional match making is here.
-                    <br></br>
-                    Sign up today and reap the rewards of finding your perfect
-                    employee.
+                    I am an employer looking for the perfect candidate.
                   </Card.Text>
-                  <Button style={buttonStyle} href="/employer-sign-up">
-                    Sign Up
+                  <Button style={buttonStyle} href="employer-sign-up">
+                    Employer
                   </Button>
-                  <br></br>
                 </Card.Body>
                 <Card.Footer style={footerStyle}>
-                  <Card.Link style={linkStyle} href="/employer-login">
+                  <Card.Link style={linkStyle} href="/direction-sign-in">
                     Got an account? Sign in here
                   </Card.Link>
                 </Card.Footer>
@@ -76,48 +62,25 @@ const containerPrimary = {
   backgroundImage: `url(${background})`,
   backgroundPosition: "center",
   backgroundSize: "cover",
-  backgroundAttachment: "fixed",
   backgroundRepeat: "no-repeat",
   height: "100%",
+  backgroundAttachment: "fixed",
   position: "center",
-  paddingBottom: "300px"
+  paddingBottom: "450px",
+  paddingTop: "100px"
 };
 
 const RowStyle = {
-  height: "100%"
+  height: "100%",
+
 };
 
-const welcomeMessageContainer = {
-  backgroundColor: "rgba(52, 52, 52, 0.7)",
-};
-
-const welcomeMessage1 = {
-  color: "#fff",
-  textAlign: "center",
-  paddingTop: "90px"
-};
-
-const welcomeMessage2 = {
-  color: "#fff",
-  textAlign: "center",
-  paddingBottom: "25px"
-};
-
-const cardStyleLeft = {
+const cardStyle = {
   width: "18rem",
   textAlign: "center",
   border: "none",
   margin: "auto",
-  marginTop: "100px",
-  backgroundColor: "#FFFFFF99"
-};
-
-const cardStyleRight = {
-  width: "18rem",
-  textAlign: "center",
-  border: "none",
-  margin: "auto",
-  marginTop: "100px",
+  marginTop: "150px",
   backgroundColor: "#FFFFFF99"
 };
 
@@ -129,7 +92,7 @@ const cardHeaderStyle = {
 const buttonStyle = {
   background: "#FF5903",
   border: "none",
-  marginBottom: "10px"
+  margin: "10px"
 };
 
 const linkStyle = {
@@ -141,6 +104,16 @@ const colStyle = {
   justifyContent: "center",
   alignItems: "center"
 };
+
+const TypistCtr = {
+  paddingTop: "90px",
+  paddingLeft: "50px",
+  alignItems: "center",
+  fontSize: 95,
+  fontWeight: 'bold',
+  color: '#fff',
+  textAlign: 'left',
+}
 
 const footerStyle = {
   backgroundColor: "#C0C0C0"
