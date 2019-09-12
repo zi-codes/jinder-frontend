@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
-import api from "./secretapikey";
+// import api from "./secretapikey";
+import api from "./publicapikey";
 import PropTypes from "prop-types";
 import { StageSpinner } from "react-spinners-kit";
 
