@@ -126,7 +126,7 @@ class SafeImageChecker extends React.Component {
   render() {
     const { images } = this.state;
     return (
-      <div style={{ marginBottom: "20px" }}>
+      <div>
         {images.length > 0 && this.safeImgCheck(images[0])}
         {images.length > 0 && (
           <div>

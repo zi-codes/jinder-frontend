@@ -30,15 +30,25 @@ import EmployerMatches from "./components/EmployerMatches";
 
 class App extends React.Component {
   state = {
-    // to store employer details from sign up page until profile is complete
-    fireRedirect: false,
+    // Redirects after form completion
+
+    fireRedirect: false, // user signs in and gets forwarded to profile form
     fireRedirectAfterUserSignIn: false,
     fireRedirectAfterEmployerSignIn: false,
+    fireRedirectAfterUserProfile: false,
+    fireRedirectAfterEmployerProfile: false,
+
+    // to store employer details from sign up page until profile is complete
     employerEmail: null,
     employerPassword: null,
 
     userId: sessionStorage.getItem("user_id"),
     employerId: sessionStorage.getItem("employer_id")
+  };
+
+  componentDidMount = () => {
+    console.log("user id is " + sessionStorage.getItem("user_id"));
+    console.log("employerId is" + sessionStorage.getItem("employer_id"));
   };
 
   // ========================
@@ -65,13 +75,12 @@ class App extends React.Component {
 
   // redirecting to creating a user profile after user sign up
   redirect = () => {
-    this.setState({ fireRedirect: true }, () => {});
+    this.setState({ fireRedirect: true });
   };
 
   // saving after using sign up
   saveUserData = data => {
-    sessionStorage.setItem("employer_id", null);
-    sessionStorage.setItem("employer_email", null);
+    sessionStorage.clear();
     sessionStorage.setItem("user_id", data.id);
     sessionStorage.setItem("user_email", data.email);
     this.redirect();
@@ -79,8 +88,7 @@ class App extends React.Component {
 
   // saving after user log in
   saveUserLogin = data => {
-    sessionStorage.setItem("employer_id", null);
-    sessionStorage.setItem("employer_email", null);
+    sessionStorage.clear();
     sessionStorage.setItem("user_id", data.id);
     sessionStorage.setItem("user_email", data.email);
     this.redirectAfterUserSignIn();
@@ -115,6 +123,7 @@ class App extends React.Component {
     formData.append("profile[industry]", state.industry);
     formData.append("profile[skills]", state.skills);
     formData.append("profile[personality]", state.personalityTraits);
+    formData.append("profile[location]", state.location);
     formData.append("profile[user_bio]", state.bio);
 
     let images = state.images;
@@ -131,7 +140,9 @@ class App extends React.Component {
   };
 
   createProfile = state => {
-    axiosClient.post("/api/profiles", this.buildUserProfileFormData(state));
+    axiosClient
+      .post("/api/profiles", this.buildUserProfileFormData(state))
+      .then(this.setState({ fireRedirectAfterUserProfile: true }));
   };
 
   // ========================
@@ -160,7 +171,7 @@ class App extends React.Component {
   };
 
   saveEmployerLogin = data => {
-    sessionStorage.setItem("user_id", null);
+    sessionStorage.clear();
     sessionStorage.setItem("employer_id", data.id);
     this.setState({ fireRedirectAfterEmployerSignIn: true });
   };
@@ -182,6 +193,7 @@ class App extends React.Component {
     );
     formData.append("employer[bio]", state.bio);
     formData.append("employer[company_url]", state.companyUrl);
+    formData.append("employer[location]", state.location);
 
     let images = state.images;
     for (let i = 0; i < images.length; i++) {
@@ -203,7 +215,7 @@ class App extends React.Component {
   };
 
   saveEmployerId = response => {
-    sessionStorage.setItem("user_id", null);
+    sessionStorage.clear();
     sessionStorage.setItem("employer_id", response.data.id);
     this.setState({ employerEmail: null });
     this.setState({ employerPassword: null });
@@ -216,11 +228,12 @@ class App extends React.Component {
       "employer_bio",
       "employer_website"
     ];
-    attributes.forEach(attr => sessionStorage.setItem(attr, ""));
+    attributes.forEach(attr => sessionStorage.setItem(attr, null));
     console.log(
       "employer successfully saved with id of " +
         sessionStorage.getItem("employer_id")
     );
+    this.setState({ fireRedirectAfterEmployerProfile: true });
   };
 
   destroyRedirects = () => {
@@ -328,6 +341,12 @@ class App extends React.Component {
             <Redirect to="/employer-profiles" />
           )}
           {this.state.fireRedirectAfterEmployerSignIn && (
+            <Redirect to="/candidate-profiles" />
+          )}
+          {this.state.fireRedirectAfterUserProfile && (
+            <Redirect to="/employer-profiles" />
+          )}
+          {this.state.fireRedirectAfterEmployerProfile && (
             <Redirect to="/candidate-profiles" />
           )}
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import { Form, Card } from "react-bootstrap";
 import PropTypes from "prop-types";
 import Img from "react-fix-image-orientation";
 import SafeImageChecker from "./SafeImageChecker";
@@ -10,14 +10,16 @@ class ImageUpload extends React.Component {
   };
   renderUploadImagesButton = () => {
     return (
-      <Form.Control
-        name="images"
-        type="file"
-        ref={field => (this.ImagesField = field)}
-        multiple={true}
-        accept="image/*"
-        onChange={e => this.handleImagesChange(e)}
-      ></Form.Control>
+      <div style={{ paddingBottom: "10px" }}>
+        <Form.Control
+          name="images"
+          type="file"
+          ref={field => (this.ImagesField = field)}
+          multiple={true}
+          accept="image/*"
+          onChange={e => this.handleImagesChange(e)}
+        ></Form.Control>
+      </div>
     );
   };
 
@@ -26,14 +28,13 @@ class ImageUpload extends React.Component {
       return (
         <li key={index} style={{ listStyle: "none", alignSelf: "center" }}>
           <div className="photo">
-            <Img
+            <Card.Img
               src={el.id ? el.url : URL.createObjectURL(el)}
               style={{
-                alignSelf: "center",
-                height: "150px",
-                width: "200px",
+                height: "200px",
+                width: "100%",
                 objectFit: "cover",
-                objectPosition: "0 0"
+                objectPosition: "0 5"
               }}
             />
           </div>
@@ -68,18 +69,31 @@ class ImageUpload extends React.Component {
   };
 
   render() {
+    let noFileUploaded;
+    if (this.state.images.length === 0) {
+      noFileUploaded = (
+        <span>
+          🤖 JinderBot will check that you are uploading appropriate material
+        </span>
+      );
+    }
     return (
       <>
         <Form.Group controlId="formImages">
-          <Form.Label>Profile picture (optional):</Form.Label>
+          <Form.Label>Profile picture</Form.Label>
           {this.renderUploadImagesButton()}
-          {this.renderSelectedImagesFiles()}
+          <Card>
+            {this.renderSelectedImagesFiles()}
+            <Card.Footer>
+              {noFileUploaded}
+              <SafeImageChecker
+                images={this.state.images}
+                clearPhotos={this.clearPhotos}
+                completeImageCheck={this.completeImageCheck}
+              ></SafeImageChecker>
+            </Card.Footer>
+          </Card>
         </Form.Group>
-        <SafeImageChecker
-          images={this.state.images}
-          clearPhotos={this.clearPhotos}
-          completeImageCheck={this.completeImageCheck}
-        ></SafeImageChecker>
       </>
     );
   }
