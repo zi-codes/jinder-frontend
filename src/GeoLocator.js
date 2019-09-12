@@ -21,6 +21,8 @@ class GeoLocator extends React.Component {
       response => {
         const locality = response.results[0].address_components[2].long_name;
         const city = response.results[0].address_components[3].long_name;
+        console.log("in find city the response is ");
+        console.log(response);
         this.setState({ locality: locality });
         this.setState({ city: city });
         this.setState({ ready: true });

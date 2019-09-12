@@ -23,15 +23,18 @@ class DisplayEmployerProfiles extends React.Component {
   };
 
   componentDidMount = () => {
-    if (sessionStorage.getItem("user_id")) {
-      console.log("user id is " + sessionStorage.getItem("user_id"));
-      axiosClient
-        .get("/api/profiles/" + sessionStorage.getItem("user_id"))
-        .then(response => {
-          console.log(response);
+    console.log("user id is " + sessionStorage.getItem("user_id"));
+    axiosClient
+      .get("/api/profiles/" + sessionStorage.getItem("user_id"))
+      .then(response => {
+        console.log(response);
+        if (response.data.length > 0) {
           this.setState({ myProfileId: response.data[0].id });
-        });
-    }
+        } else {
+          window.location.reload();
+        }
+      });
+
     axiosClient
       .get("/employers")
       .then(response => this.setState({ profiles: response.data.reverse() }));
@@ -114,11 +117,33 @@ class DisplayEmployerProfiles extends React.Component {
                 <Swipeable
                   buttons={({ right, left }) => (
                     <div style={actionsStyles}>
-                      <Button variant="danger" onClick={left}>
-                        Reject
+                      <Button
+                        style={{
+                          height: "70px",
+                          width: "70px",
+                          borderRadius: "50px",
+                          border: "5px solid #D3D3D3",
+                          backgroundColor: "white",
+                          color: "black",
+                          textAlign: "center"
+                        }}
+                        onClick={left}
+                      >
+                        ❌
                       </Button>
-                      <Button variant="success" onClick={right}>
-                        Accept
+                      <Button
+                        style={{
+                          height: "70px",
+                          width: "70px",
+                          borderRadius: "50px",
+                          border: "5px solid #D3D3D3",
+                          backgroundColor: "white",
+                          color: "black",
+                          textAlign: "center"
+                        }}
+                        onClick={right}
+                      >
+                        ✅
                       </Button>
                     </div>
                   )}
