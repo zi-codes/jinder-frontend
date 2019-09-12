@@ -267,7 +267,10 @@ class DisplayCandidateProfiles extends React.Component {
               </div>
             )}
             {profiles.length <= 1 && !this.state.loading && (
-              <SwipeCard zIndex={-2}>No more profiles</SwipeCard>
+              <SwipeCard zIndex={-2}>
+                {" "}
+                No more profiles. Tell your mates to get on and use us!
+              </SwipeCard>
             )}
           </div>
         </div>
