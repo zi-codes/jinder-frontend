@@ -69,10 +69,14 @@ class UserMatches extends React.Component {
           <Card.Subtitle className="mb-2 text-muted">
             {match.first_name} {match.last_name}
           </Card.Subtitle>
-          <p>Bio: {match.bio}</p>
-          <p>Website: {match.company_url}</p>
-          <p>Contact them at {match.email}</p>
+          {match.bio}
         </Card.Body>
+        <Card.Link target="_blank" href={match.company_url}>
+          🔗 Website
+        </Card.Link>
+        <Card.Link target="_blank" href={match.email}>
+          📧 Email{" "}
+        </Card.Link>
       </Card>
     );
   };
@@ -98,10 +102,10 @@ class UserMatches extends React.Component {
     }
 
     return (
-      <>
+      <Container style={{ paddingTop: "300px", paddingBottom: "300px" }}>
         {noMatches}
         {matches}
-      </>
+      </Container>
     );
   }
 }

@@ -64,11 +64,22 @@ class EmployerMatches extends React.Component {
           <Card.Title>
             {match.first_name} {match.last_name} likes you back!
           </Card.Title>
-          <p>Industry: {match.industry}</p>
-          <p>Skills: {match.skills}</p>
-          <p>Bio: {match.user_bio}</p>
-          <p>Contact them at {match.user.email}</p>
+          <Card.Subtitle>{match.industry}</Card.Subtitle>
+          <span style={{ fontWeight: "600" }}>Skills </span>
+          {match.skills.replace(/,/g, ", ")}
+          <br />
+          <span style={{ fontWeight: "600" }}>Traits </span>
+          {match.personality.replace(/,/g, ", ")}
+          <br />
+          <span style={{ fontWeight: "600" }}>Bio </span>
+          {match.user_bio}
+          <br />
+          <span style={{ fontWeight: "600" }}>Location </span>
+          {match.location}
         </Card.Body>
+        <Card.Link href={match.user.email} target="_blank">
+          📧 Email
+        </Card.Link>
       </Card>
     );
   };
@@ -92,10 +103,10 @@ class EmployerMatches extends React.Component {
       );
     }
     return (
-      <>
+      <Container style={{ paddingTop: "300px", paddingBottom: "300px" }}>
         {noMatches}
         {matches}
-      </>
+      </Container>
     );
   }
 }

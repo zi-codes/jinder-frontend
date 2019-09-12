@@ -1,7 +1,7 @@
 import React from "react";
 import axiosClient from "../axiosClient";
 import SwipeCard from "./SwipeCard";
-import { Card, Container, Button } from "react-bootstrap";
+import { Card, Container, Button, Row } from "react-bootstrap";
 import Swipeable from "react-swipy";
 import DefaultPicture from "./default.jpeg";
 import globalUrl from "../globalUrl";
@@ -104,7 +104,7 @@ class DisplayEmployerProfiles extends React.Component {
   render() {
     const { profiles } = this.state;
     return (
-      <Container style={{ paddingTop: "150px" }}>
+      <Container style={{ paddingTop: "300px", paddingBottom: "300px" }}>
         <ToastContainer
           position="top-center"
           hideProgressBar
@@ -227,7 +227,11 @@ class DisplayEmployerProfiles extends React.Component {
               </div>
             )}
             {profiles.length <= 1 && (
-              <SwipeCard zIndex={-2}>No more profiles</SwipeCard>
+              <SwipeCard zIndex={-2}>
+                <span>
+                  No more profiles. Tell your mates to get on and use us!
+                </span>
+              </SwipeCard>
             )}
           </div>
         </div>
