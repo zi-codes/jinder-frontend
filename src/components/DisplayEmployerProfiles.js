@@ -166,8 +166,8 @@ class DisplayEmployerProfiles extends React.Component {
                         </Card.Subtitle>
                         {profiles[0].bio}
                       </Card.Body>
-                      <hr />
-                      <Card.Body>
+
+                      <Card.Footer style={{ textAlign: "center" }}>
                         <Card.Link
                           target="_blank"
                           href={
@@ -183,7 +183,7 @@ class DisplayEmployerProfiles extends React.Component {
                         >
                           🔗 Website
                         </Card.Link>
-                      </Card.Body>
+                      </Card.Footer>
                     </Card>
                   </SwipeCard>
                 </Swipeable>
@@ -203,8 +203,8 @@ class DisplayEmployerProfiles extends React.Component {
                         </Card.Subtitle>
                         {profiles[1].bio}
                       </Card.Body>
-                      <hr />
-                      <Card.Body>
+
+                      <Card.Footer style={{ textAlign: "center" }}>
                         <Card.Link
                           target="_blank"
                           href={
@@ -220,7 +220,7 @@ class DisplayEmployerProfiles extends React.Component {
                         >
                           🔗 Website
                         </Card.Link>
-                      </Card.Body>
+                      </Card.Footer>
                     </Card>
                   </SwipeCard>
                 )}
