@@ -265,7 +265,36 @@ TOMORROW COLOUR: BLUEEEEEEE :blue_heart: :blue_heart: :blue_heart: :blue_heart:
 ## Wednesday (11.09.19) :chart_with_upwards_trend:
 - Feauture Freeze :snowflake:
 ## Thursday (12.09.19) :chart_with_upwards_trend:
--
+StandUp :coffee::coffee::coffee:
+
+What colour are you today? :cat-rainbow:
+
+- Anastasiia - :purple_heart:/:pink_heart:_ish_
+  - Add additional skills to SE, Pol, BR
+  - Update READMEs
+  -
+
+- Harry - :blue_heart:_ish_
+  - signup directions
+  - Clean up
+  - Banner
+  - blocker: nervous about finishing everything
+  - footer 
+  - Today: finish the footer, write tests
+
+- Josh - :rainbow:
+  - lots of testing 
+  - blocker: issue on the employer model BE
+  - finish testing
+  - sort out the presentation
+  -
+
+- Zi - :orange_heart:
+  - location of the employers ( detects your location)
+  - filtering by location, industry, skills, personalities - or any combination of them
+
+**MERGEEE PARTYYYY**
+
 ## Friday (13.09.19) :chart_with_upwards_trend:
 - **DEMO DAY** :mega:
 
