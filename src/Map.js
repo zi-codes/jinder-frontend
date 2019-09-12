@@ -25,6 +25,8 @@ class SimpleMap extends Component {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
+        console.log("in get geolocation the pos is");
+        console.log(pos);
         that.setState({ lat: pos.lat });
         that.setState({ lng: pos.lng });
         that.props.findCity(pos);
