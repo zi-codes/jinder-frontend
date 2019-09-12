@@ -55,29 +55,33 @@ class UserMatches extends React.Component {
 
   renderMatch = match => {
     return (
-      <Card style={cardStyle} key={match.id}>
-        <Card.Img
-          style={imgStyle}
-          variant="top"
-          src={this.showImg(match)}
-          draggable={false}
-        />
-        <Card.Body>
-          <Card.Title>
-            {match.first_name} {match.last_name} likes you back!
-          </Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">
-            {match.first_name} {match.last_name}
-          </Card.Subtitle>
-          {match.bio}
-        </Card.Body>
-        <Card.Link target="_blank" href={match.company_url}>
-          🔗 Website
-        </Card.Link>
-        <Card.Link target="_blank" href={match.email}>
-          📧 Email{" "}
-        </Card.Link>
-      </Card>
+      <div style={{ padding: "30px" }}>
+        <Card style={cardStyle} key={match.id}>
+          <Card.Img
+            style={imgStyle}
+            variant="top"
+            src={this.showImg(match)}
+            draggable={false}
+          />
+          <Card.Body>
+            <Card.Title>
+              {match.first_name} {match.last_name} likes you back!
+            </Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">
+              {match.first_name} {match.last_name}
+            </Card.Subtitle>
+            {match.bio}
+          </Card.Body>
+          <Card.Footer style={{ textAlign: "center" }}>
+            <Card.Link target="_blank" href={match.company_url}>
+              🔗 Website
+            </Card.Link>
+            <Card.Link target="_blank" href={"mailto:" + match.email}>
+              📧 Email{" "}
+            </Card.Link>
+          </Card.Footer>
+        </Card>
+      </div>
     );
   };
   render() {
@@ -93,9 +97,7 @@ class UserMatches extends React.Component {
             className="justify-content-center"
             style={{ paddingTop: "20px" }}
           >
-            <CardDeck>
-              {this.state.matches.map(match => this.renderMatch(match))}
-            </CardDeck>
+            {this.state.matches.map(match => this.renderMatch(match))}
           </Row>
         </Container>
       );

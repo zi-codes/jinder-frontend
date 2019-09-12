@@ -56,6 +56,7 @@ class App extends React.Component {
   // =======================
 
   createUser = state => {
+    console.log("creating a user");
     fetch(`${globalUrl}/users`, {
       method: "post",
       headers: {
@@ -75,11 +76,13 @@ class App extends React.Component {
 
   // redirecting to creating a user profile after user sign up
   redirect = () => {
+    console.log("now redirecting the page from sign up to profile");
     this.setState({ fireRedirect: true });
   };
 
   // saving after using sign up
   saveUserData = data => {
+    console.log("saving user data into sessions");
     sessionStorage.clear();
     sessionStorage.setItem("user_id", data.id);
     sessionStorage.setItem("user_email", data.email);
@@ -142,7 +145,13 @@ class App extends React.Component {
   createProfile = state => {
     axiosClient
       .post("/api/profiles", this.buildUserProfileFormData(state))
-      .then(this.setState({ fireRedirectAfterUserProfile: true }));
+      .then(res => this.afterProfileCreation(res))
+      .catch(error => console.log(error));
+  };
+
+  afterProfileCreation = res => {
+    console.log(res.data);
+    this.setState({ fireRedirectAfterUserProfile: true });
   };
 
   // ========================

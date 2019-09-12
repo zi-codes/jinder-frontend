@@ -53,34 +53,38 @@ class EmployerMatches extends React.Component {
 
   renderMatch = match => {
     return (
-      <Card style={cardStyle} key={match.id}>
-        <Card.Img
-          style={imgStyle}
-          variant="top"
-          src={this.showImg(match)}
-          draggable={false}
-        />
-        <Card.Body>
-          <Card.Title>
-            {match.first_name} {match.last_name} likes you back!
-          </Card.Title>
-          <Card.Subtitle>{match.industry}</Card.Subtitle>
-          <span style={{ fontWeight: "600" }}>Skills </span>
-          {match.skills.replace(/,/g, ", ")}
-          <br />
-          <span style={{ fontWeight: "600" }}>Traits </span>
-          {match.personality.replace(/,/g, ", ")}
-          <br />
-          <span style={{ fontWeight: "600" }}>Bio </span>
-          {match.user_bio}
-          <br />
-          <span style={{ fontWeight: "600" }}>Location </span>
-          {match.location}
-        </Card.Body>
-        <Card.Link href={match.user.email} target="_blank">
-          📧 Email
-        </Card.Link>
-      </Card>
+      <div style={{ padding: "30px" }}>
+        <Card style={cardStyle} key={match.id}>
+          <Card.Img
+            style={imgStyle}
+            variant="top"
+            src={this.showImg(match)}
+            draggable={false}
+          />
+          <Card.Body>
+            <Card.Title>
+              {match.first_name} {match.last_name} likes you back!
+            </Card.Title>
+            <Card.Subtitle>{match.industry}</Card.Subtitle>
+            <span style={{ fontWeight: "600" }}>Skills </span>
+            {match.skills.replace(/,/g, ", ")}
+            <br />
+            <span style={{ fontWeight: "600" }}>Traits </span>
+            {match.personality.replace(/,/g, ", ")}
+            <br />
+            <span style={{ fontWeight: "600" }}>Bio </span>
+            {match.user_bio}
+            <br />
+            <span style={{ fontWeight: "600" }}>Location </span>
+            {match.location}
+          </Card.Body>
+          <Card.Footer style={{ textAlign: "center" }}>
+            <Card.Link href={"mailto:" + match.user.email} target="_blank">
+              📧 Email
+            </Card.Link>
+          </Card.Footer>
+        </Card>
+      </div>
     );
   };
   render() {
@@ -95,9 +99,7 @@ class EmployerMatches extends React.Component {
             className="justify-content-center"
             style={{ paddingTop: "20px" }}
           >
-            <CardDeck>
-              {this.state.matches.map(match => this.renderMatch(match))}
-            </CardDeck>
+            {this.state.matches.map(match => this.renderMatch(match))}
           </Row>
         </Container>
       );

@@ -24,20 +24,20 @@ class DisplayEmployerProfiles extends React.Component {
 
   componentDidMount = () => {
     console.log("user id is " + sessionStorage.getItem("user_id"));
-    axiosClient
-      .get("/api/profiles/" + sessionStorage.getItem("user_id"))
-      .then(response => {
-        console.log(response);
-        if (response.data.length > 0) {
-          this.setState({ myProfileId: response.data[0].id });
-        } else {
-          window.location.reload();
-        }
-      });
 
-    axiosClient
-      .get("/employers")
-      .then(response => this.setState({ profiles: response.data.reverse() }));
+    axiosClient.get("/employers").then(response => {
+      this.setState({ profiles: response.data.reverse() });
+      axiosClient
+        .get("/api/profiles/" + sessionStorage.getItem("user_id"))
+        .then(response => {
+          console.log(response);
+          if (response.data.length > 0) {
+            this.setState({ myProfileId: response.data[0].id });
+          } else {
+            console.log("error please refresh the page");
+          }
+        });
+    });
   };
 
   handleSwipe = dir => {
@@ -166,8 +166,8 @@ class DisplayEmployerProfiles extends React.Component {
                         </Card.Subtitle>
                         {profiles[0].bio}
                       </Card.Body>
-                      <hr />
-                      <Card.Body>
+
+                      <Card.Footer style={{ textAlign: "center" }}>
                         <Card.Link
                           target="_blank"
                           href={
@@ -183,7 +183,7 @@ class DisplayEmployerProfiles extends React.Component {
                         >
                           🔗 Website
                         </Card.Link>
-                      </Card.Body>
+                      </Card.Footer>
                     </Card>
                   </SwipeCard>
                 </Swipeable>
@@ -203,8 +203,8 @@ class DisplayEmployerProfiles extends React.Component {
                         </Card.Subtitle>
                         {profiles[1].bio}
                       </Card.Body>
-                      <hr />
-                      <Card.Body>
+
+                      <Card.Footer style={{ textAlign: "center" }}>
                         <Card.Link
                           target="_blank"
                           href={
@@ -220,7 +220,7 @@ class DisplayEmployerProfiles extends React.Component {
                         >
                           🔗 Website
                         </Card.Link>
-                      </Card.Body>
+                      </Card.Footer>
                     </Card>
                   </SwipeCard>
                 )}
