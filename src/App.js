@@ -182,7 +182,7 @@ class App extends React.Component {
 
     formData.append("employer[first_name]", state.firstName);
     formData.append("employer[last_name]", state.surname);
-    formData.append("employer[company_nane]", state.companyName);
+    formData.append("employer[company_name]", state.companyName);
     formData.append(
       "employer[email]",
       sessionStorage.getItem("employer_email")
