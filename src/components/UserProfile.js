@@ -5,7 +5,6 @@ import Select from "react-select";
 import { industryOptions } from "../data/IndustryData";
 import { skillsOptions } from "../data/SkillsData";
 import { personalityTraits } from "../data/PersonalityTraitsData";
-import { Redirect } from "react-router-dom";
 import ImageUpload from "./ImageUpload";
 import PreventDisplay from "./PreventDisplay";
 import background from "../style/images/beaver.jpeg";
@@ -22,7 +21,7 @@ class UserProfile extends React.Component {
     skills: sessionStorage.getItem("user_skills"),
     bio: sessionStorage.getItem("user_bio"),
     personalityTraits: sessionStorage.getItem("user_personality"),
-    location: "Automatic detection",
+    location: "London",
 
     skills_valid: false,
     personalityTraits_valid: false,

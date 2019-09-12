@@ -23,15 +23,18 @@ class DisplayEmployerProfiles extends React.Component {
   };
 
   componentDidMount = () => {
-    if (sessionStorage.getItem("user_id")) {
-      console.log("user id is " + sessionStorage.getItem("user_id"));
-      axiosClient
-        .get("/api/profiles/" + sessionStorage.getItem("user_id"))
-        .then(response => {
-          console.log(response);
+    console.log("user id is " + sessionStorage.getItem("user_id"));
+    axiosClient
+      .get("/api/profiles/" + sessionStorage.getItem("user_id"))
+      .then(response => {
+        console.log(response);
+        if (response.data.length > 0) {
           this.setState({ myProfileId: response.data[0].id });
-        });
-    }
+        } else {
+          window.location.reload();
+        }
+      });
+
     axiosClient
       .get("/employers")
       .then(response => this.setState({ profiles: response.data.reverse() }));
