@@ -29,7 +29,7 @@ export default class About extends Component {
         <Col>
         <div style={aboutUsStyle}>
           So, who are we and what do we believe in?
-          <p style={{ fontSize: 20, fontWeight: "400" }}> We are a team of software engineers who came together in pursuit of one simple belief: right now, the recruitment process is cold, unforgiving and de-humanising. And this sucks. It sucks for everyone, including the employer. We think, the experience should be fun, simple and consider not just tech skills, but you as a human being. We humanise the process.  </p>
+          <p style={{ fontSize: 20, fontWeight: "400" }}> We are a team of software engineers who came together in pursuit of one simple belief: right now, the recruitment process is cold, unforgiving and de-humanising. And this sucks. It sucks for everyone...including the employer. We think the experience should be fun, simple and consider not just job skills, but your traits as a human being. We are humanising the recruitment process.  </p>
         </div>
         </Col>
         <Col>
