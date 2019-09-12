@@ -242,11 +242,9 @@ StandUp :coffee::coffee::coffee: :one:/:one::zero:
   - Blocker: not yet - personaluit
   - Today - personality quiz into profile section
 
-
 - **Harry - :sunny: with a bit of :fog: :fog: :fog:  in a form of Josh**
   - Yesterday: authentification - fixed this morning
   - Profile - personality profile
-
 
 - **Anastasiia - :sunny: but :snowflake:**
   - Yesterday: about page done - need text
@@ -261,37 +259,35 @@ StandUp :coffee::coffee::coffee: :one:/:one::zero:
 - **EDIT PROFILE**
 
 TOMORROW COLOUR: BLUEEEEEEE :blue_heart: :blue_heart: :blue_heart: :blue_heart: 
--
+
 ## Wednesday (11.09.19) :chart_with_upwards_trend:
 - Feauture Freeze :snowflake:
 ## Thursday (12.09.19) :chart_with_upwards_trend:
-StandUp :coffee::coffee::coffee:
+StandUp:coffee: **_What colour are you today?_**
 
-What colour are you today? :cat-rainbow:
-
-- Anastasiia - :purple_heart:/:pink_heart:_ish_
+- **Anastasiia - :purple_heart:/:heartbeat:_ish_**
   - Add additional skills to SE, Pol, BR
   - Update READMEs
-  -
+  - Creating fake candidates profiles
+  - Creating fake employers profiles
 
-- Harry - :blue_heart:_ish_
-  - signup directions
+- **Harry - :blue_heart:_ish_**
+  - Signup directions
   - Clean up
   - Banner
-  - blocker: nervous about finishing everything
-  - footer 
+  - Blocker: nervous about finishing everything
+  - Footer 
   - Today: finish the footer, write tests
 
-- Josh - :rainbow:
-  - lots of testing 
-  - blocker: issue on the employer model BE
-  - finish testing
-  - sort out the presentation
-  -
+- **Josh - :rainbow:**
+  - Lots of testing 
+  - Blocker: issue on the employer model BE
+  - Finish testing
+  - Sort out the presentation
 
-- Zi - :orange_heart:
-  - location of the employers ( detects your location)
-  - filtering by location, industry, skills, personalities - or any combination of them
+- **Zi - :large_orange_diamond:**
+  - Location of the employers (detects your location)
+  - Filtering by location, industry, skills, personalities - or any combination of them
 
 **MERGEEE PARTYYYY**
 
