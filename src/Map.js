@@ -4,8 +4,11 @@ import GoogleMapReact from "google-map-react";
 import api from "./publicapikey";
 import PropTypes from "prop-types";
 import { StageSpinner } from "react-spinners-kit";
+import MapPointer from "./map-pointer.png";
 
-const AnyReactComponent = ({ text }) => <h1>{text}</h1>;
+const AnyReactComponent = () => (
+  <img style={pointerStyle} src={MapPointer}></img>
+);
 
 class SimpleMap extends Component {
   state = {
@@ -47,9 +50,9 @@ class SimpleMap extends Component {
         <GoogleMapReact
           bootstrapURLKeys={{ key: api }}
           center={{ lat: lat, lng: lng }}
-          defaultZoom={11}
+          defaultZoom={12}
         >
-          <AnyReactComponent lat={lat} lng={lng} text="🔥" />
+          <AnyReactComponent lat={lat} lng={lng} />
         </GoogleMapReact>
       </div>
     );
@@ -58,6 +61,11 @@ class SimpleMap extends Component {
 
 SimpleMap.propTypes = {
   findCity: PropTypes.func.isRequired
+};
+
+const pointerStyle = {
+  height: "70px",
+  width: "45px"
 };
 
 export default SimpleMap;

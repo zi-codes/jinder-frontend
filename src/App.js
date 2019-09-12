@@ -248,9 +248,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-
-          <div style={{ minHeight: "100vh", width: "100%", padding: 0}}>
-
+          <div style={{ minHeight: "100vh", width: "100%", padding: 0 }}>
             <Header destroyRedirects={this.destroyRedirects} />
 
             <Route exact path="/login-direction" component={LoginDirection} />
@@ -276,14 +274,19 @@ class App extends React.Component {
             <Route
               exact
               path="/candidate-sign-up"
-              render={props => <SignUp {...props} createUser={this.createUser} />}
+              render={props => (
+                <SignUp {...props} createUser={this.createUser} />
+              )}
             />
 
             <Route
               exact
               path="/employer-sign-up"
               render={props => (
-                <EmployerSignUp {...props} createEmployer={this.createEmployer} />
+                <EmployerSignUp
+                  {...props}
+                  createEmployer={this.createEmployer}
+                />
               )}
             />
 
@@ -329,29 +332,33 @@ class App extends React.Component {
               )}
             />
 
-          <Route
-            exact
-            path="/employer-matches"
-            render={props => <EmployerMatches {...props} />}
-          />
+            <Route
+              exact
+              path="/employer-matches"
+              render={props => <EmployerMatches {...props} />}
+            />
 
-          <Route
-            exact
-            path="/candidate-matches"
-            render={props => <UserMatches {...props} />}
-          />
+            <Route
+              exact
+              path="/candidate-matches"
+              render={props => <UserMatches {...props} />}
+            />
 
-          {fireRedirect && <Redirect to="/candidate-profile" />}
-          {this.state.fireRedirectAfterUserSignIn && (
-            <Redirect to="/employer-profiles" />
-          )}
-          {this.state.fireRedirectAfterEmployerSignIn && (
-            <Redirect to="/candidate-profiles" />
-          )}
-
-
+            {fireRedirect && <Redirect to="/candidate-profile" />}
+            {this.state.fireRedirectAfterUserProfile && (
+              <Redirect to="/employer-profiles" />
+            )}
+            {this.state.fireRedirectAfterEmployerProfile && (
+              <Redirect to="/candidate-profiles" />
+            )}
+            {this.state.fireRedirectAfterUserSignIn && (
+              <Redirect to="/employer-profiles" />
+            )}
+            {this.state.fireRedirectAfterEmployerSignIn && (
+              <Redirect to="/candidate-profiles" />
+            )}
           </div>
-          <Footer/>
+          <Footer />
         </BrowserRouter>
       </div>
     );

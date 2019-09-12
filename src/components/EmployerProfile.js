@@ -7,9 +7,6 @@ import GeoLocator from "../GeoLocator";
 
 class EmployerProfile extends React.Component {
   state = {
-    // for routing
-    fireRedirect: false,
-
     //for profile details
     firstName: sessionStorage.getItem("employer_first_name"),
     surname: sessionStorage.getItem("employer_surname"),
@@ -52,7 +49,6 @@ class EmployerProfile extends React.Component {
     this.setState({ bio: null });
     this.setState({ companyUrl: null });
     this.setState({ images: [] });
-    this.setState({ fireRedirect: true });
   };
 
   handleFieldChange = ({ target }) => {
@@ -97,8 +93,6 @@ class EmployerProfile extends React.Component {
   };
 
   render() {
-    const { fireRedirect } = this.state;
-
     return (
       <Container style={{ paddingTop: "150px" }}>
         <Row className="justify-content-center">
@@ -199,8 +193,6 @@ class EmployerProfile extends React.Component {
                   Submit
                 </Button>
               </Form>
-
-              {fireRedirect && <Redirect to="/candidate-profiles" />}
             </Card.Body>
           </Card>
         </Row>
