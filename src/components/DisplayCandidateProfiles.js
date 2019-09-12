@@ -176,7 +176,8 @@ class DisplayCandidateProfiles extends React.Component {
                           borderRadius: "50px",
                           border: "5px solid #D3D3D3",
                           backgroundColor: "white",
-                          color: "black"
+                          color: "black",
+                          textAlign: "center"
                         }}
                         onClick={left}
                       >
@@ -189,11 +190,12 @@ class DisplayCandidateProfiles extends React.Component {
                           borderRadius: "50px",
                           border: "5px solid #D3D3D3",
                           backgroundColor: "white",
-                          color: "black"
+                          color: "black",
+                          textAlign: "center"
                         }}
                         onClick={right}
                       >
-                        🧡
+                        ✅
                       </Button>
                     </div>
                   )}
