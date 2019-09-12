@@ -7,7 +7,7 @@ export const appStyles = {
 
 export const imgStyle = {
   // objectFit: "cover",
-  width: "270px",
+  width: "278px",
   height: "200px",
   padding: "0px",
   margin: "0px",
@@ -17,7 +17,7 @@ export const imgStyle = {
 export const cardStyle = {
   width: "280px",
   height: "420px",
-  border: "5px solid orange",
+  boxShadow: "5 5 5 5px orange",
   borderRadius: "30px"
 };
 
