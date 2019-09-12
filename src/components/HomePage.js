@@ -109,7 +109,7 @@ const TypistCtr = {
   paddingTop: "90px",
   paddingLeft: "50px",
   alignItems: "center",
-  fontSize: 95,
+  fontSize: 85,
   fontWeight: 'bold',
   color: '#fff',
   textAlign: 'left',
