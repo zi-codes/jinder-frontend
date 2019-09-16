@@ -1,4 +1,4 @@
-# [Jinder - Job Tinder](http://www.jinder.work/):tm:
+# [Jinder:tm: - Job Tinder](http://www.jinder.work/)
 
 ![swiping gif](https://media.giphy.com/media/Mcn1MGtoavUdVuMnc3/giphy.gif)
 
